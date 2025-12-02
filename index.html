@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PixelMind Developer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: #e0ffe0;
+      margin: 0;
+      padding: 0;
+    }
+    .container { max-width: 700px; margin: auto; padding: 20px; }
+    .header { text-align: center; padding: 20px; }
+    .header img { width: 160px; }
+    h1 { margin-top: 10px; font-size: 32px; font-weight: bold; }
+    .founder { margin-top: 6px; font-weight: bold; color: #9bf4c9; }
+
+
+    form {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ff99;
+    }
+    label { display: block; margin-top: 15px; font-size: 18px; font-weight: bold; }
+    input, select, textarea, button {
+      width: 100%; padding: 10px; margin-top: 5px;
+      border-radius: 5px; border: none; font-size: 16px;
+    }
+    .phone-row { display: flex; gap: 8px; }
+    .phone-row select { width: 130px; }
+    .phone-row input { flex: 1; }
+
+
+    button {
+      margin-top: 20px; padding: 12px;
+      background: #00ff99; font-size: 18px; font-weight: bold;
+      border-radius: 5px; cursor: pointer;
+    }
+    button:hover { background: #00cc77; }
+
+
+    .page { display: none; }
+    .active { display: block; }
+
+
+    .question { margin-top: 20px; margin-bottom: 35px; padding-bottom: 20px; border-bottom: 2px solid #00ff99; }
+    .timer { font-size: 24px; font-weight: bold; color: #ff8080; margin-bottom: 15px; }
+
+
+    /* SCROLL ONLY QUESTIONS */
+    #testForm {
+      max-height: 350px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 10px;
+    }
+
+
+    /* Result page */
+    #resultCard {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00ff99;
+    }
+    #resultCard h2 {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-size: 26px;
+      font-weight: bold;
+    }
+    .result-label {
+      font-weight: bold;
+    }
+    .result-value {
+      margin-bottom: 8px;
+    }
+    .pass {
+      color: #00ff99;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .fail {
+      color: #ff6b6b;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .thanks-text {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #c8f7dc;
+    }
+    
+    /* Hide PDF download button */
+    #downloadPdfBtn {
+      display: none;
+    }
+    
+    /* Increase font size on result page */
+    #page4 {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="container">
+
+
+  <!-- PAGE 1 -->
+  <div id="page1" class="page active">
+    <div class="header">
+      <img src="company project.png" />
+      <h1>PixelMind Developer</h1>
+      <div class="founder">Founder & CEO: Sayyed Mohammad Umair Jamadar</div>
+    </div>
+
+
+    <form id="applicationForm" action="https://formspree.io/f/mnnepbkj"
+    method="POST"
+    >
+      <label>Full Name</label>
+      <input type="text" name="fullName" placeholder="Enter your full name" required />
+
+
+      <label>Email</label>
+      <input type="email" name="email" placeholder="Enter your email" required />
+
+
+      <label>Mobile Number</label>
+      <div class="phone-row">
+        <select id="countryCode" name="countryCode" required>
+          <option value="+91">🇮🇳 +91</option>
+          <option value="+1">🇺🇸 +1</option>
+          <option value="+44">🇬🇧 +44</option>
+          <option value="+92">🇵🇰 +92</option>
+          <option value="+971">🇦🇪 +971</option>
+          <option value="+61">AU +61</option>
+        </select>
+        <input type="tel" name="phone" placeholder="Enter your Mobile Number" pattern="[0-9]{6,15}" required />
+      </div>
+
+
+      <label>Country of Residence</label>
+      <input type="text" name="country" placeholder="Enter your country" required />
+
+
+      <label>Select Profession</label>
+      <select id="profession" name="profession" required>
+        <option value="">-- Select Profession --</option>
+        <option>Web Developer</option>
+        <option>Video Editor</option>
+        <option>Graphic Designer</option>
+        <option>Script Writer</option>
+        <option>Client Handler</option>
+      </select>
+
+
+      <label>Proof link of your portfolio</label>
+      <input type="url" name="portfolio" placeholder="https://example.com/portfolio" optional />
+
+
+      <label>Why do you want to join PixelMind Developer?</label>
+      <textarea name="why" rows="4" placeholder="Write your answer here..." required></textarea>
+
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+
+
+  <!-- PAGE 2 -->
+  <div id="page2" class="page">
+    <div class="header">
+      <img src="company project.png" />
+      <h1>Lesson</h1>
+      <div class="founder">PixelMind Developer Training Module</div>
+    </div>
+    <p id="lessonText">Loading lesson...</p>
+    <button id="startTest">Start Test</button>
+  </div>
+
+
+
+  <!-- PAGE 3 -->
+  <div id="page3" class="page">
+    <div class="header">
+      <img src="company project.png" />
+      <h1>Skill Test</h1>
+    </div>
+
+
+    <div class="timer" id="timer">10:00</div>
+
+
+    <form id="testForm"></form>
+
+
+    <button id="submitTest" type="button">Submit Test</button>
+  </div>
+
+
+  <!-- PAGE 4: RESULT PAGE -->
+  <div id="page4" class="page">
+    <div class="header">
+      <img src="company project.png" />
+      <h1>PixelMind Developer</h1>
+      <div class="founder">Official Test Result</div>
+    </div>
+
+
+    <div id="resultCard">
+      <div style="text-align:center; margin-bottom:20px; border-bottom: 2px solid #00ff99; padding-bottom: 10px;">
+        <img src="company project.png" style="width: 100px; margin: 0 auto 5px auto; display: block;">
+        <h2 style="margin: 0; color: #00ff99; font-size: 24px;">PixelMind Developer</h2>
+        <div style="color: #9bf4c9;">Official Test Result</div>
+      </div>
+
+      <h2 id="resultName">Applicant Name</h2>
+      <div class="result-value" id="resultEmail">email@example.com</div>
+
+
+      <div class="result-value">
+        <span class="result-label">Percentage:</span>
+        <span id="resultPercentage">0%</span>
+      </div>
+
+
+      <div class="result-value">
+        <span class="result-label">Status:</span>
+        <span id="resultStatus" class="pass">Pass</span>
+      </div>
+
+
+      <div class="result-value">
+        <span class="result-label">Mobile:</span>
+        <span id="resultPhone"></span>
+      </div>
+
+
+      <div class="result-value">
+        <span class="result-label">Country:</span>
+        <span id="resultCountry"></span>
+      </div>
+
+
+      <div class="result-value">
+        <span class="result-label">Applied For:</span>
+        <span id="resultProfession"></span>
+      </div>
+
+
+      <button id="downloadPdfBtn" type="button">Download PDF Result</button>
+
+
+      <p class="thanks-text">
+        Thank you for applying to PixelMind Developer. You will receive further information and next steps via email.
+      </p>
+    </div>
+  </div>
+
+
+</div>
+
+
+<!-- html2pdf.js CDN for PDF generation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script>
+// Page switching
+function showPage(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page'+n).classList.add('active');
+}
+
+
+// Lessons
+const lessons = {
+  "Web Developer": "A good web developer understands HTML, CSS, JS, browser behavior, debugging, responsiveness, and clean structure.",
+  "Video Editor": "A video editor must know timeline handling, transitions, audio levels, color correction, and storytelling.",
+  "Graphic Designer": "Graphic designers must understand layout, colors, typography, composition, and creative thinking.",
+  "Script Writer": "A script writer must master clarity, engaging lines, flow, structure, and impactful communication.",
+  "Client Handler": "Client handling requires communication skills, clarity, professionalism, and problem solving."
+};
+
+
+const applicationForm = document.getElementById('applicationForm');
+
+
+let testStartTime = null;
+let timerInterval;
+let remainingTimeSeconds = 600; // 10 minutes total
+
+
+applicationForm.addEventListener('submit', (e)=>{
+  e.preventDefault(); // prevent form from submitting normally and reloading page 
+  const profession = document.getElementById('profession').value;
+  document.getElementById('lessonText').innerText = lessons[profession];
+  showPage(2);
+});
+
+
+// Questions Bank - 15 questions for each profession
+const questionBank = {
+  "Web Developer": [
+    {q:"What does CSS control?", a:["Structure","Styling","Database","Hosting"], c:1},
+    {q:"Which tag loads JavaScript?", a:["&lt;script&gt;","&lt;style&gt;","&lt;js&gt;","&lt;javascript&gt;"], c:0},
+    {q:"What does HTML stand for?", a:["Hyper Text Markup Language","High Tech Modern Language","Home Tool Markup Language","Hyperlinks and Text Markup Language"], c:0},
+    {q:"Which CSS property controls text color?", a:["text-style","color","font-color","text-color"], c:1},
+    {q:"What is the purpose of JavaScript?", a:["Design layouts","Add interactivity and dynamic behavior","Store data permanently","Create databases"], c:1},
+    {q:"Which is the correct way to link external CSS?", a:["&lt;link rel='stylesheet' href='style.css'&gt;","&lt;css href='style.css'&gt;","&lt;stylesheet&gt;style.css&lt;/stylesheet&gt;","&lt;link css='style.css'&gt;"], c:0},
+    {q:"What does DOM stand for?", a:["Data Object Model","Document Object Model","Dynamic Output Module","Design Oriented Method"], c:1},
+    {q:"Which HTTP method is used to send data?", a:["GET","POST","PATCH","DELETE"], c:1},
+    {q:"What is responsive design?", a:["Design that changes colors","Design that adapts to different screen sizes","Design with animations","Design with many fonts"], c:1},
+    {q:"Which is NOT a JavaScript data type?", a:["String","Number","Boolean","Class"], c:3},
+    {q:"What does API stand for?", a:["Application Programming Interface","Advanced Program Integration","Application Process Implementation","Automated Programming Instruction"], c:0},
+    {q:"Which tool is commonly used for version control?", a:["Photoshop","Git","Premiere","Figma"], c:1},
+    {q:"What is the purpose of Bootstrap framework?", a:["Video editing","Responsive web design","Database management","Server configuration"], c:1},
+    {q:"Which selector targets elements by class name?", a:[".classname","#classname","@classname","&classname"], c:0},
+    {q:"What does localStorage do?", a:["Stores data permanently on server","Stores data in browser locally","Stores website speed","Stores CSS files"], c:1}
+  ],
+
+
+  "Video Editor": [
+    {q:"What adjusts image color in video editing?", a:["EQ","Color Grading","Keyframing","Warp"], c:1},
+    {q:"FPS means?", a:["Frames Per Second","Final Play Speed","Frame Processing Setup","Fast Playback System"], c:0},
+    {q:"What is a keyframe?", a:["First frame of video","A marked point in time for animation","Last frame of video","A frame that's deleted"], c:1},
+    {q:"Which is a timeline-based video editor?", a:["Photoshop","Premiere Pro","Illustrator","InDesign"], c:1},
+    {q:"What does 4K resolution mean?", a:["4000 pixels width","Approximately 4000 pixels horizontal resolution","4 million pixels total","Format with 4 colors"], c:1},
+    {q:"What is a transition in video editing?", a:["Moving the camera","Effect between two clips","Adding text","Changing audio"], c:1},
+    {q:"Which audio concept measures loudness?", a:["Frequency","Decibels (dB)","Hertz","Waveform"], c:1},
+    {q:"What is color correction?", a:["Adding filters","Adjusting color and exposure for consistency","Adding effects","Creating new colors"], c:1},
+    {q:"How many seconds is 30fps for 900 frames?", a:["30 seconds","15 seconds","60 seconds","45 seconds"], c:1},
+    {q:"What is a motion graphics animation?", a:["Animated text and graphics","Moving camera only","Changing colors","Adding subtitles"], c:0},
+    {q:"Which codec is commonly used for video?", a:["MP3","H.264","WAV","FLAC"], c:1},
+    {q:"What does rendering mean?", a:["Organizing clips","Processing and exporting final video","Adding music","Reviewing footage"], c:1},
+    {q:"What is aspect ratio?", a:["Video speed","Width to height proportion","Frame rate","Color depth"], c:1},
+    {q:"Which format is best for YouTube uploads?", a:["AVI","MP4","MOV","WAV"], c:1},
+    {q:"What is syncing in video editing?", a:["Organizing files","Matching audio with video","Adding effects","Changing colors"], c:1}
+  ],
+
+
+  "Graphic Designer": [
+    {q:"Which is a vector software?", a:["Photoshop","Illustrator","Premiere","After Effects"], c:1},
+    {q:"Typography deals with?", a:["Images","Fonts","Audio","Video"], c:1},
+    {q:"What does RGB stand for?", a:["Red Green Blue","Raster Graphics Blue","Resolution Graphics Buffer","Rendered Graphic Base"], c:0},
+    {q:"Which color model is used in printing?", a:["RGB","CMYK","HSL","LAB"], c:1},
+    {q:"What is kerning in typography?", a:["Font size","Space between letters","Line height","Font weight"], c:1},
+    {q:"Which file format preserves transparency?", a:["JPEG","PNG","BMP","GIF"], c:1},
+    {q:"What is the rule of thirds in design?", a:["Using 3 colors","Dividing image into 9 sections","Using 3 fonts","Creating 3 layers"], c:1},
+    {q:"What does DPI stand for?", a:["Data Per Image","Dots Per Inch","Design Per Item","Digital Print Interface"], c:1},
+    {q:"Which software is best for photo editing?", a:["Illustrator","InDesign","Photoshop","CorelDraw"], c:2},
+    {q:"What is white space in design?", a:["Empty unused area","Background color","Unused layers","Paper texture"], c:0},
+    {q:"Which principle deals with emphasis in design?", a:["Contrast","Hierarchy","Balance","Repetition"], c:0},
+    {q:"What is a mood board?", a:["Social media board","Collection of design inspiration","Client feedback","Final design"], c:1},
+    {q:"Which font type is best for body text?", a:["Script","Serif or Sans-serif","Decorative","Graffiti"], c:1},
+    {q:"What does resolution mean in design?", a:["Clarity and detail (pixels)","Problem solving","Final decision","Design change"], c:0},
+    {q:"What is a brand guideline?", a:["Random design rules","Document defining visual consistency","Client request","Design trend"], c:1}
+  ],
+
+
+  "Script Writer": [
+    {q:"A script must be?", a:["Confusing","Clear","Random","Short"], c:1},
+    {q:"Dialogue must sound?", a:["Natural","Robotic","Forced","None"], c:0},
+    {q:"What is the 3-act structure?", a:["Using 3 actors","Setup, Confrontation, Resolution","Having 3 scenes","Writing 3 pages"], c:1},
+    {q:"What is pacing in scriptwriting?", a:["Running speed","Rhythm and flow of story","Font size","Paper type"], c:1},
+    {q:"Which is NOT an element of a script?", a:["Scene heading","Action","Dialogue","Profit margins"], c:3},
+    {q:"What does 'show don't tell' mean?", a:["Use visuals instead of exposition","Keep scenes short","Use less text","Avoid dialogue"], c:0},
+    {q:"What is a character arc?", a:["Drawing circles","Character's emotional journey","Scene location","Actor's movement"], c:1},
+    {q:"How should dialogue tags be written?", a:["BOLD","Normal text in parentheses","Italic","UPPERCASE"], c:1},
+    {q:"What is a plot twist?", a:["Physical movement","Unexpected story turn","Scene transition","Dialogue change"], c:1},
+    {q:"What is backstory?", a:["Previous scene","Character's history before story begins","End of script","Scene description"], c:1},
+    {q:"What should a script opening establish?", a:["Time, place, mood, and tone","Random information","Long description","List of characters"], c:0},
+    {q:"What is conflict in a script?", a:["Fighting scenes","Obstacle preventing character goal","Violence","Dialogue disagreement"], c:1},
+    {q:"How long should a page of script be in minutes?", a:["1 minute","Approximately 1 minute","5 minutes","10 minutes"], c:1},
+    {q:"What is the purpose of scene headings?", a:["Beautiful formatting","Indicate location and time","Separate dialogue","Make script longer"], c:1},
+    {q:"What makes dialogue realistic?", a:["Using big words","Natural speech patterns and contractions","Lots of dialogue","Formal language"], c:1}
+  ],
+
+
+  "Client Handler": [
+    {q:"Key to handling clients?", a:["Anger","Patience","Ignoring","Delaying"], c:1},
+    {q:"Communication must be?", a:["Rude","Clear","Vague","Fast only"], c:1},
+    {q:"When client is upset, you should?", a:["Argue back","Listen and understand","Dismiss concerns","Blame them"], c:1},
+    {q:"What is active listening?", a:["Hearing words only","Fully focusing on what client says","Interrupting","Planning response"], c:1},
+    {q:"How should you respond to complaints?", a:["Ignore them","Take action and apologize","Defend yourself","Make excuses"], c:1},
+    {q:"What is empathy in client service?", a:["Agreeing always","Understanding client's feelings","Being friendly only","Making jokes"], c:1},
+    {q:"When should you follow up with clients?", a:["Never","As promised","Once a year","Only when they call"], c:1},
+    {q:"What builds client trust?", a:["False promises","Consistency and reliability","Expensive services","Complexity"], c:1},
+    {q:"How do you handle conflicting client requests?", a:["Accept all","Clarify requirements professionally","Choose yourself","Ignore them"], c:1},
+    {q:"What is professional etiquette?", a:["Being rude","Showing respect and courtesy","Casual behavior","Ignoring rules"], c:1},
+    {q:"When client misunderstands, you should?", a:["Ignore it","Gently clarify with examples","Get angry","Assume they understand"], c:1},
+    {q:"What makes client retention strong?", a:["One-time service","Excellent service and relationship building","Highest price only","No contact after sale"], c:1},
+    {q:"How should deadlines be managed?", a:["Miss them intentionally","Meet or exceed them","Ignore them","Estimate loosely"], c:1},
+    {q:"What is feedback from clients useful for?", a:["Improvement and service enhancement","Ignoring","Getting angry","No use"], c:0},
+    {q:"How do you maintain professionalism under pressure?", a:["Show frustration","Stay calm and solution-focused","Take breaks suddenly","Blame clients"], c:1}
+  ]
+};
+
+document.getElementById('startTest').addEventListener('click', ()=>{
+  const profession = document.getElementById('profession').value;
+  loadTest(profession);
+  showPage(3);
+  startTimer();
+  testStartTime = Date.now();
+});
+
+function loadTest(prof){
+  const form = document.getElementById('testForm');
+  form.innerHTML = "";
+  questionBank[prof].forEach((item,i)=>{
+    const div = document.createElement('div');
+    div.className='question';
+    div.innerHTML = `<p><b>Q${i+1}:</b> ${item.q}</p>` +
+      item.a.map((opt,idx)=>`<label><input type='radio' name='q${i}' value='${idx}' required> ${opt}</label>`).join('<br>');
+    form.appendChild(div);
+  });
+}
+
+function startTimer(){
+  let time = 600;
+  remainingTimeSeconds = time;
+  const timer = document.getElementById('timer');
+  clearInterval(timerInterval);
+  timerInterval = setInterval(()=>{
+    let m = Math.floor(time/60);
+    let s = time%60;
+    timer.textContent = `${m}:${s.toString().padStart(2,'0')}`;
+    remainingTimeSeconds = time;
+    time--;
+    if(time < 0){
+      clearInterval(timerInterval);
+      gradeTest();
+    }
+  },1000);
+}
+
+
+// ---------- MINIMAL FIX: make handler async so await works ----------
+document.getElementById('submitTest').addEventListener('click', async ()=>{ 
+  clearInterval(timerInterval);
+  gradeTest();
+
+  // Gather all form inputs and test results
+  const name = document.querySelector('#page1 input[name="fullName"]').value;
+  const email = document.querySelector('#page1 input[name="email"]').value;
+  const countryCode = document.getElementById('countryCode').value;
+  const phone = document.querySelector('#page1 input[name="phone"]').value;
+  const country = document.querySelector('#page1 input[name="country"]').value;
+  const profession = document.getElementById('profession').value;
+
+  const percentageText = document.getElementById('resultPercentage').innerText;
+  const statusText = document.getElementById('resultStatus').innerText;
+
+  const submitData = new FormData();
+  submitData.append('fullName', name);
+  submitData.append('email', email);
+  submitData.append('countryCode', countryCode);
+  submitData.append('phone', phone);
+  submitData.append('country', country);
+  submitData.append('profession', profession);
+  submitData.append('resultPercentage', percentageText);
+  submitData.append('resultStatus', statusText);
+
+  try {
+    const response = await fetch(applicationForm.action, {
+      method: 'POST',
+      body: submitData,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      showResultPage(percentageText);
+    } else {
+      alert('Submission failed. Please try again later.');
+    }
+  } catch (error) {
+    alert('Error submitting the form. Please check your internet connection.');
+  }  
+});
+// ------------------------------------------------------------------
+
+
+function gradeTest(){
+  const profession = document.getElementById('profession').value;
+  const questions = questionBank[profession];
+  let correct = 0;
+  questions.forEach((item,i)=>{
+    const selected = document.querySelector(`input[name='q${i}']:checked`);
+    if(selected && parseInt(selected.value,10) === item.c){
+      correct++;
+    }
+  });
+
+
+  const totalQuestions = questions.length;
+  const accuracyPercent = (correct / totalQuestions) * 100;
+
+
+  // Time factor: more time left = slightly higher score boost
+  const totalTime = 600;
+  const timeFactor = remainingTimeSeconds / totalTime; // 0 to 1
+  const timeBoost = timeFactor * 10; // up to +10%
+
+
+  let finalPercent = accuracyPercent + timeBoost;
+  if(finalPercent > 100) finalPercent = 100;
+
+
+  showResultPage(finalPercent.toFixed(2));
+}
+
+
+function showResultPage(percentStr){
+  const name = document.querySelector('#page1 input[type="text"]').value;
+  const email = document.querySelector('#page1 input[type="email"]').value;
+  const code = document.getElementById('countryCode').value;
+  const phone = document.querySelector('#page1 input[type="tel"]').value;
+  // ---------- MINIMAL FIX: correct country selector ----------
+  const country = document.querySelector('#page1 input[name="country"]').value;
+  // ----------------------------------------------------------
+  const profession = document.getElementById('profession').value;
+
+
+  const percentage = parseFloat(percentStr);
+  const status = percentage >= 75 ? "Pass" : "Fail";
+
+
+  document.getElementById('resultName').innerText = name;
+  document.getElementById('resultEmail').innerText = email;
+  document.getElementById('resultPercentage').innerText = percentage.toFixed(2) + "%";
+
+
+  const statusEl = document.getElementById('resultStatus');
+  statusEl.innerText = status;
+  statusEl.className = status === "Pass" ? "pass" : "fail";
+
+
+  document.getElementById('resultPhone').innerText = `${code} ${phone}`;
+  document.getElementById('resultCountry').innerText = country;
+  document.getElementById('resultProfession').innerText = profession;
+
+
+  showPage(4);
+}
+
+
+// PDF download
+document.getElementById('downloadPdfBtn').addEventListener('click', ()=>{
+  const resultElement = document.getElementById('resultCard');
+  const opt = {
+    margin:       10,
+    filename:     'PixelMind_Result.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2 },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+  html2pdf().from(resultElement).set(opt).save();
+});
+
+</script>
+
+
+</body>
+</html>
