@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - PixelMind Developer</title>
+    <meta name="description" content="PixelMind Developer delivers scalable, high-quality digital solutions including web development, app development, AI chatbots, and more.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #000;
+            overflow-x: hidden;
+        }
+
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+
+        /* ================= HERO SECTION ================ */
+        .hero {
+            text-align: center;
+            padding: 96px 0 80px;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(0,255,68,0.25), transparent 55%),
+                radial-gradient(ellipse at center, #001a00 0%, #000 70%);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .hero-grid {
+            max-width: 880px;
+            margin: 0 auto;
+            display: grid;
+            gap: 18px;
+        }
+
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 auto 4px;
+            padding: 4px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(0,255,68,0.45);
+            background: rgba(0,255,68,0.06);
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #b8ffd1;
+        }
+
+
+        .hero-kicker-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: #00ff44;
+            box-shadow: 0 0 12px rgba(0,255,68,0.7);
+        }
+
+
+        .hero-eyebrow {
+            font-size: 1.8rem;
+            letter-spacing: 0.17em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+        }
+
+
+        .hero h1 {
+            font-size: clamp(1.3rem, 2.1vw, 3.4rem);
+            font-weight: 700;
+            line-height: 1.08;
+            margin-bottom: 4px;
+            background: conic-gradient(
+                from 220deg,
+                #ffffff,
+                #e5ffe5,
+                #00ff44,
+                #7cffad,
+                #ffffff
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(18px);
+            animation: heroTitleIn 0.8s ease-out forwards;
+        }
+
+
+        .hero-title-accent {
+            display: inline-block;
+            padding-inline: 0.12em;
+            position: relative;
+        }
+
+
+        .hero-title-accent::after {
+            content: '';
+            position: absolute;
+            left: 8%;
+            right: 8%;
+            bottom: -10px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,255,68,0.8), transparent);
+            opacity: 0.75;
+            box-shadow: 0 0 16px rgba(0,255,68,0.6);
+        }
+
+
+        .hero-subline {
+            font-size: 0.9rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+        }
+
+
+        .hero p {
+            font-size: 1.05rem;
+            max-width: 640px;
+            margin: 10px auto 0;
+            color: #b4b4b4;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: heroTextIn 0.75s ease-out 0.18s forwards;
+        }
+
+
+        .hero-noise {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.18;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.25' numOctaves='3' stitchTiles='noStitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+            mix-blend-mode: soft-light;
+        }
+
+
+        @keyframes heroTitleIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        @keyframes heroTextIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* ================= MAJOR SERVICES ================ */
+        .major-services {
+            padding: 80px 0 100px;
+        }
+
+
+        .section-label {
+            text-align: center;
+            font-size: 0.9rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(0, 255, 68, 0.7);
+            margin-bottom: 12px;
+        }
+
+
+        .section-title-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 48px;
+        }
+
+
+        .section-pill {
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(0,255,68,0.14), rgba(0,255,68,0.04));
+            border: 1px solid rgba(0,255,68,0.3);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #b5ffce;
+        }
+
+
+        .section-title {
+            font-size: 2.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 0.03em;
+        }
+
+
+        .section-title span {
+            background: linear-gradient(135deg, #ffffff, #7cffad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 640px;
+            margin: 8px auto 50px;
+            font-size: 0.98rem;
+            color: #8a8a8a;
+        }
+
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+
+        .service-card {
+            position: relative;
+            background: radial-gradient(circle at top left, rgba(0,255,68,0.24), rgba(0,0,0,0.98));
+            border-radius: 26px;
+            padding: 32px 28px 30px;
+            border: 1px solid rgba(255,255,255,0.04);
+            overflow: hidden;
+            cursor: default;
+            transform-origin: center;
+            transition:
+                transform 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+                box-shadow 0.35s ease,
+                border-color 0.35s ease,
+                background 0.35s ease;
+        }
+
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            inset: -40%;
+            background:
+                radial-gradient(circle at 0% 0%, rgba(0,255,68,0.22), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(0,255,68,0.14), transparent 55%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.02);
+            pointer-events: none;
+        }
+
+
+        .service-card-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            column-gap: 18px;
+            row-gap: 10px;
+            align-items: flex-start;
+        }
+
+
+        .service-icon-wrap {
+            width: 56px;
+            height: 56px;
+            border-radius: 18px;
+            background: radial-gradient(circle at 30% 0%, #bdb0b0, #0d2f1b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-origin: center;
+            box-shadow: 0 14px 35px rgba(0,255,68,0.25);
+            transition:
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s ease,
+                filter 0.35s ease;
+        }
+
+
+        .service-icon {
+            font-size: 1.9rem;
+            filter: drop-shadow(0 4px 9px rgba(0,0,0,0.55));
+        }
+
+
+        .service-title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+
+        .service-tag {
+            align-self: flex-start;
+            padding: 2px 10px;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            background: rgba(0,255,68,0.06);
+            color: #9af8bf;
+        }
+
+
+        .service-card h3 {
+            font-size: 1.35rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+
+        .service-card p {
+            grid-column: 1 / -1;
+            margin-top: 8px;
+            color: #b8b8b8;
+            font-size: 0.98rem;
+        }
+
+
+        .service-meta {
+            margin-top: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: #8b8b8b;
+        }
+
+
+        .service-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #00ff44;
+            box-shadow: 0 0 10px rgba(0,255,68,0.6);
+        }
+
+
+        .service-pill {
+            padding: 3px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(0,255,68,0.35);
+            color: #b5ffce;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+        }
+
+
+        .service-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow:
+                0 26px 60px rgba(0,0,0,0.95),
+                0 0 0 1px rgba(0,255,68,0.35),
+                0 24px 45px rgba(0,255,68,0.18);
+            border-color: rgba(0,255,68,0.6);
+            background: radial-gradient(circle at top, rgba(0,255,68,0.38), rgba(0,0,0,1));
+        }
+
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+
+        .service-card:hover .service-icon-wrap {
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 20px 40px rgba(0,255,68,0.45);
+            filter: saturate(1.2);
+        }
+
+
+        .service-card:hover .service-meta {
+            color: #d0ffe3;
+        }
+
+
+        /* Supporting Services */
+        .supporting-services {
+            padding: 60px 0;
+            background: rgba(10, 10, 10, 0.5);
+            margin: 40px 0;
+            border-radius: 20px;
+        }
+
+
+        .supporting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+
+        .supporting-item {
+            padding: 20px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+
+        .supporting-item:hover {
+            opacity: 1;
+        }
+
+
+        .supporting-item h4 {
+            color: #00ff44;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+
+        .supporting-item p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+
+        /* Principles */
+        .principles {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+
+        .principles ul {
+            max-width: 800px;
+            margin: 40px auto 0;
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+
+        .principles li {
+            padding: 20px;
+            background: rgba(0, 255, 68, 0.1);
+            border-left: 4px solid #00ff44;
+            border-radius: 0 12px 12px 0;
+            transition: all 0.3s ease;
+        }
+
+
+        .principles li:hover {
+            background: rgba(0, 255, 68, 0.2);
+            transform: translateX(10px);
+        }
+
+
+        .principles li strong {
+            color: #00ff44;
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+
+        /* CTA */
+        .cta {
+            padding: 60px 0;
+            text-align: center;
+            background: rgba(0, 255, 68, 0.05);
+            border-radius: 20px;
+            margin: 40px 0 80px;
+        }
+
+
+        .cta-btn {
+            display: inline-block;
+            background: transparent;
+            color: #00ff44;
+            border: 2px solid #00ff44;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+
+        .cta-btn:hover {
+            background: #00ff44;
+            color: #000;
+            box-shadow: 0 10px 30px rgba(0, 255, 68, 0.4);
+        }
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0 60px;
+            }
+
+
+            .section-title {
+                font-size: 1.9rem;
+            }
+
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .service-card-inner {
+                grid-template-columns: 1fr;
+                row-gap: 14px;
+            }
+
+
+            .service-icon-wrap {
+                width: 52px;
+                height: 52px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-noise"></div>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-kicker">
+                    <span class="hero-kicker-dot"></span>
+                    <span class="hero-eyebrow">PixelMind Developer</span>
+                </div>
+                <h1>
+                    <span class="hero-title-accent">PixelMind Developer</span>
+                </h1>
+                <div class="hero-subline">Scalable digital experiences · Built with intent</div>
+                <p>PixelMind Developer delivers scalable, high-quality digital solutions built for modern businesses with performance and reliability at the core.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Major Services Preview -->
+    <section class="major-services" aria-labelledby="core-services-heading">
+        <div class="container">
+            <div class="section-label">Service Suite</div>
+            <div class="section-title-wrap">
+                <h2 id="core-services-heading" class="section-title"><span>Core Services</span></h2>
+            </div>
+            <p class="section-subtitle">A focused preview of the primary capabilities PixelMind Developer brings to digital products — engineered for clarity, performance, and long-term impact.</p>
+
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-icon-wrap">
+                            <div class="service-icon">💻</div>
+                        </div>
+                        <div class="service-title-group">
+                            <span class="service-tag">Web Experience</span>
+                            <h3>Web Development</h3>
+                        </div>
+                        <p>Modern, high-performance websites crafted with clean code, refined UI, and architecture that scales effortlessly as your brand grows.</p>
+                        <div class="service-meta">
+                            <span class="service-dot"></span>
+                            <span>Responsive Designs</span>
+                            <span class="service-pill">Frontend &amp; Backend</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-icon-wrap">
+                            <div class="service-icon">📱</div>
+                        </div>
+                        <div class="service-title-group">
+                            <span class="service-tag">Product Experience</span>
+                            <h3>App Development</h3>
+                        </div>
+                        <p>Custom mobile and web applications with smooth interactions, thoughtful flows, and robust integrations built for real-world usage.</p>
+                        <div class="service-meta">
+                            <span class="service-dot"></span>
+                            <span>UX-led builds</span>
+                            <span class="service-pill">Native &amp; Hybrid</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-icon-wrap">
+                            <div class="service-icon">🤖</div>
+                        </div>
+                        <div class="service-title-group">
+                            <span class="service-tag">Intelligent Systems</span>
+                            <h3>AI Chatbot Creation</h3>
+                        </div>
+                        <p>Conversational AI that automates support, streamlines workflows, and delivers consistent, on-brand experiences around the clock.</p>
+                        <div class="service-meta">
+                            <span class="service-dot"></span>
+                            <span>Context-aware flows</span>
+                            <span class="service-pill">Custom Logic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Supporting Services Preview -->
+    <section class="supporting-services">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom: 40px; opacity: 0.8;">Additional Services</h2>
+            <div class="supporting-grid">
+                <div class="supporting-item">
+                    <h4>Video Editing</h4>
+                    <p>Professional video production and motion graphics.</p>
+                </div>
+                <div class="supporting-item">
+                    <h4>Graphic Designing</h4>
+                    <p>Brand identity and visual communication design.</p>
+                </div>
+                <div class="supporting-item">
+                    <h4>Script Writing</h4>
+                    <p>Compelling copy for marketing and video content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Service Principles -->
+    <section class="principles">
+        <div class="container">
+            <h2 class="section-title">How We Deliver Our Services</h2>
+            <ul>
+                <li>
+                    <strong>Performance-first development</strong>
+                    Optimized architectures tuned for speed, stability, and responsiveness.
+                </li>
+                <li>
+                    <strong>Clean, scalable architecture</strong>
+                    Systems structured for easy evolution as needs and products grow.
+                </li>
+                <li>
+                    <strong>Modern UI/UX standards</strong>
+                    Interfaces shaped around clarity, usability, and consistent delight.
+                </li>
+                <li>
+                    <strong>Long-term reliability mindset</strong>
+                    Solutions engineered to remain maintainable and dependable over time.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- Soft CTA -->
+    <section class="cta">
+        <div class="container">
+            <p style="font-size: 1.1rem; margin-bottom: 25px; opacity: 0.9;">This is a preview of what PixelMind Developer can build for you.</p>
+            <div class="cta-btn" style="cursor: default;">Detailed service breakdown</div>
+        </div>
+    </section>
+</body>
+</html>

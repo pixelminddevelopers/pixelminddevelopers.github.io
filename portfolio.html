@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - PixelMind Developer</title>
+    <meta name="description" content="Premium development projects showcasing scalable architecture, performance optimization, and long-term product reliability.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #d4d4d4;
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ================= PAGE INTRO ================ */
+        .portfolio-intro {
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .portfolio-intro::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 255, 68, 0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .section-kicker {
+            display: inline-block;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #00ff44;
+            margin-bottom: 24px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .portfolio-intro h1 {
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .portfolio-intro h1::after {
+            content: '';
+            display: block;
+            width: 280px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #00ff44 25%, #00ff44 75%, transparent 100%);
+            margin: 24px auto 0;
+            box-shadow: 0 0 20px rgba(0, 255, 68, 0.4);
+        }
+
+        .portfolio-intro p {
+            font-size: 1.05rem;
+            color: #a8a8a8;
+            max-width: 700px;
+            margin: 24px auto 0;
+            letter-spacing: 0.01em;
+            font-weight: 400;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ================= FEATURED PROJECTS ================ */
+        .featured-projects {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .featured-projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 68, 0.2), transparent);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 48px;
+            margin-top: 80px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.98) 0%, rgba(8, 8, 8, 0.95) 100%);
+            border: 1px solid rgba(0, 255, 68, 0.12);
+            border-radius: 24px;
+            padding: 52px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            cursor: default;
+            transition:
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.6s ease,
+                scale 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            will-change: transform, scale;
+            scale: 1;
+        }
+
+        /* Premium gradient overlay on hover */
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(0, 255, 68, 0.15), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        /* Top edge accent line */
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 68, 0.4), transparent);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+        }
+
+        .project-card:hover {
+            transform: translateY(-16px);
+            border-color: rgba(0, 255, 68, 0.35);
+            background: linear-gradient(135deg, rgba(20, 28, 20, 0.99) 0%, rgba(12, 12, 12, 0.97) 100%);
+            box-shadow: 
+                0 24px 64px rgba(0, 0, 0, 0.7),
+                0 0 80px rgba(0, 255, 68, 0.15),
+                inset 0 1px 0 rgba(0, 255, 68, 0.08),
+                inset 0 0 40px rgba(0, 255, 68, 0.02);
+            scale: 1.02;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover::after {
+            opacity: 1;
+        }
+
+        .project-category {
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #00ff44;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .project-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+            transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .project-card:hover .project-title {
+            color: #00ff44;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            color: #a0a0a0;
+            line-height: 1.8;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, rgba(0, 255, 68, 0.1) 0%, rgba(0, 255, 68, 0.05) 100%);
+            border: 1px solid rgba(0, 255, 68, 0.2);
+            border-radius: 100px;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #b5ffce;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .project-card:hover .project-tag {
+            background: linear-gradient(135deg, rgba(0, 255, 68, 0.2) 0%, rgba(0, 255, 68, 0.1) 100%);
+            border-color: rgba(0, 255, 68, 0.35);
+            color: #ffffff;
+        }
+
+        /* ================= CAPABILITY SPECTRUM ================ */
+        .capabilities-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.4) 0%, rgba(5, 5, 5, 0.3) 100%);
+            border-top: 1px solid rgba(0, 255, 68, 0.1);
+            border-bottom: 1px solid rgba(0, 255, 68, 0.1);
+            margin: 100px 0;
+            position: relative;
+        }
+
+        .capabilities-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 255, 68, 0.05), transparent 70%);
+            pointer-events: none;
+        }
+
+        .capabilities-section h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #ffffff;
+            margin-bottom: 64px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 48px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .capability-item {
+            padding: 32px;
+            border: 1px solid rgba(0, 255, 68, 0.08);
+            border-radius: 16px;
+            background: rgba(15, 15, 15, 0.5);
+            opacity: 0.7;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+        }
+
+        .capability-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 255, 68, 0.1), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .capability-item:hover {
+            opacity: 1;
+            color: #00ff44;
+            border-color: rgba(0, 255, 68, 0.25);
+            background: rgba(20, 28, 20, 0.6);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(0, 255, 68, 0.1);
+            transform: translateY(-8px);
+        }
+
+        .capability-item:hover::before {
+            opacity: 1;
+        }
+
+        .capability-item p {
+            font-size: 0.98rem;
+            font-weight: 600;
+            line-height: 1.6;
+            letter-spacing: 0.01em;
+        }
+
+        /* ================= CLOSING STATEMENT ================ */
+        .closing-statement {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .closing-statement::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 68, 0.2), transparent);
+        }
+
+        .closing-statement p {
+            font-size: 1.05rem;
+            color: #909090;
+            letter-spacing: 0.01em;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        /* ================= ANIMATIONS ================ */
+        @keyframes fadeUpIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes subtleFloat {
+            0%, 100% {
+                box-shadow: 
+                    0 2px 8px rgba(0, 0, 0, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            }
+            50% {
+                box-shadow: 
+                    0 4px 16px rgba(0, 0, 0, 0.4),
+                    0 0 30px rgba(0, 255, 68, 0.08),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            }
+        }
+
+        .fade-up {
+            animation: fadeUpIn 0.9s cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        .project-card {
+            animation: subtleFloat 4s ease-in-out infinite;
+        }
+
+        .project-card:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 1.2s;
+        }
+
+        .project-card:nth-child(4) {
+            animation-delay: 1.8s;
+        }
+
+        /* ================= RESPONSIVE ================ */
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .project-card {
+                padding: 44px;
+            }
+
+            .capabilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-intro {
+                padding: 100px 0 80px;
+            }
+
+            .portfolio-intro h1 {
+                font-size: 2.4rem;
+                margin-bottom: 20px;
+            }
+
+            .portfolio-intro p {
+                font-size: 1rem;
+            }
+
+            .featured-projects {
+                padding: 100px 0;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+                margin-top: 60px;
+            }
+
+            .project-card {
+                padding: 40px;
+                gap: 28px;
+                border-radius: 20px;
+            }
+
+            .project-title {
+                font-size: 1.5rem;
+            }
+
+            .project-description {
+                font-size: 0.95rem;
+            }
+
+            .capabilities-section {
+                padding: 100px 0;
+                margin: 80px 0;
+            }
+
+            .capabilities-section h2 {
+                margin-bottom: 48px;
+            }
+
+            .capabilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+
+            .capability-item {
+                padding: 28px;
+            }
+
+            .closing-statement {
+                padding: 80px 0;
+            }
+
+            .closing-statement p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-intro {
+                padding: 80px 0 60px;
+            }
+
+            .portfolio-intro h1 {
+                font-size: 1.95rem;
+                margin-bottom: 16px;
+            }
+
+            .portfolio-intro h1::after {
+                width: 200px;
+                margin: 16px auto 0;
+            }
+
+            .portfolio-intro p {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+
+            .section-kicker {
+                font-size: 0.65rem;
+                margin-bottom: 16px;
+            }
+
+            .projects-grid {
+                gap: 24px;
+                margin-top: 50px;
+            }
+
+            .project-card {
+                padding: 32px;
+                gap: 24px;
+                border-radius: 18px;
+            }
+
+            .project-title {
+                font-size: 1.35rem;
+            }
+
+            .project-category {
+                font-size: 0.63rem;
+            }
+
+            .project-description {
+                font-size: 0.9rem;
+                line-height: 1.7;
+            }
+
+            .project-tag {
+                font-size: 0.6rem;
+                padding: 5px 12px;
+            }
+
+            .capabilities-section {
+                padding: 80px 0;
+                margin: 60px 0;
+            }
+
+            .capabilities-section h2 {
+                font-size: 1rem;
+                margin-bottom: 40px;
+            }
+
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .capability-item {
+                padding: 24px;
+            }
+
+            .capability-item p {
+                font-size: 0.9rem;
+            }
+
+            .closing-statement {
+                padding: 60px 0;
+            }
+
+            .closing-statement p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE INTRO -->
+    <section class="portfolio-intro">
+        <div class="container">
+            <div class="section-kicker">Portfolio</div>
+            <h1>Selected Projects</h1>
+            <p>A selection of development work focused on performance, scalability, and long-term reliability.</p>
+        </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="featured-projects">
+        <div class="container">
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card fade-up">
+                    <div class="project-category">Web Development</div>
+                    <h3 class="project-title">E-Commerce Platform</h3>
+                    <p class="project-description">High-performance SaaS marketplace with scalable backend architecture, optimized database queries, and real-time inventory synchronization.</p>
+                    <div class="project-meta">
+                        <span class="project-tag">Frontend</span>
+                        <span class="project-tag">Backend</span>
+                        <span class="project-tag">Database</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card fade-up">
+                    <div class="project-category">App Development</div>
+                    <h3 class="project-title">Admin Dashboard</h3>
+                    <p class="project-description">Sophisticated dashboard system for enterprise data management, featuring custom visualizations, role-based access control, and multi-tenant support.</p>
+                    <div class="project-meta">
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Flux</span>
+                        <span class="project-tag">Analytics</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card fade-up">
+                    <div class="project-category">AI & Automation</div>
+                    <h3 class="project-title">Conversational AI System</h3>
+                    <p class="project-description">Custom chatbot infrastructure with NLP integration, context-aware dialogue flows, and seamless third-party service integration for enterprise automation.</p>
+                    <div class="project-meta">
+                        <span class="project-tag">AI/ML</span>
+                        <span class="project-tag">API Integration</span>
+                        <span class="project-tag">Deployment</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card fade-up">
+                    <div class="project-category">Web Development</div>
+                    <h3 class="project-title">Corporate Portal</h3>
+                    <p class="project-description">Secure, modular portal architecture supporting team collaboration, document management, and unified authentication across distributed teams.</p>
+                    <div class="project-meta">
+                        <span class="project-tag">Security</span>
+                        <span class="project-tag">Scalability</span>
+                        <span class="project-tag">UX/UI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAPABILITY SPECTRUM -->
+    <section class="capabilities-section">
+        <div class="container">
+            <h2>Core Capabilities</h2>
+            <div class="capabilities-grid">
+                <div class="capability-item">
+                    <p>Scalable Backend Architecture</p>
+                </div>
+                <div class="capability-item">
+                    <p>API-Driven Systems</p>
+                </div>
+                <div class="capability-item">
+                    <p>Database Optimization</p>
+                </div>
+                <div class="capability-item">
+                    <p>Admin Dashboards</p>
+                </div>
+                <div class="capability-item">
+                    <p>Mobile UI Systems</p>
+                </div>
+                <div class="capability-item">
+                    <p>AI Automation Flows</p>
+                </div>
+                <div class="capability-item">
+                    <p>Real-Time Features</p>
+                </div>
+                <div class="capability-item">
+                    <p>Long-Term Maintainability</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLOSING STATEMENT -->
+    <section class="closing-statement">
+        <div class="container">
+            <p>Built with structured processes and long-term product thinking.</p>
+        </div>
+    </section>
+
+    <script>
+        // Fade-up animation on scroll with Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -60px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll enhancement
+        document.documentElement.scrollBehavior = 'smooth';
+    </script>
+
+</body>
+</html>
