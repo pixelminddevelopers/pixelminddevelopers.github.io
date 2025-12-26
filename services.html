@@ -550,6 +550,80 @@
                 height: 52px;
             }
         }
+
+        /* Floating container */
+.floating-contacts {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px; /* controlled spacing */
+    z-index: 9999;
+
+    transform: translateX(80px);
+    opacity: 0;
+    animation: slideIn 0.6s ease forwards;
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.floating-contacts.hide {
+    transform: translateX(100px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Icon button (circle) */
+.floating-contacts a {
+    width: 64px;
+    height: 64px;
+    background: #0b0b0b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.floating-contacts a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+}
+
+/* Icon inside */
+.floating-contacts img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .floating-contacts {
+        right: 16px;
+        bottom: 16px;
+        gap: 12px; /* tighter spacing on mobile */
+    }
+
+    .floating-contacts a {
+        width: 56px;
+        height: 56px;
+    }
+
+    .floating-contacts img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+
     </style>
 </head>
 <body>
@@ -698,5 +772,23 @@
             <div class="cta-btn" style="cursor: default;">Detailed service breakdown</div>
         </div>
     </section>
+
+    <div class="floating-contacts" id="floatingContacts">
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/917387235438" target="_blank" aria-label="WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <!-- Email -->
+  <a href="mailto:pixelminddevelopers@hotmail.com" aria-label="Email">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Email">
+  </a>
+
+  <!-- Telegram -->
+  <a href="https://t.me/pixelmind_developer" target="_blank" aria-label="Telegram">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+  </a>
+  
 </body>
 </html>
