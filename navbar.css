@@ -1,0 +1,212 @@
+/* =====================
+   GLOBAL RESET
+===================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =====================
+   CSS VARIABLES
+===================== */
+
+:root {
+    --primary-dark: #020205;
+    --secondary-dark: #080910;
+    --accent-green: #00ff44;
+    --accent-green-soft: rgba(0, 255, 68, 0.12);
+    --accent-green-panel: rgba(0, 255, 68, 0.03);
+    --text-primary: #ffffff;
+    --text-secondary: #b0b8cc;
+    --text-tertiary: #8b94a8;
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =====================
+   NAVIGATION
+===================== */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background: transparent;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0, 255, 68, 0.16);
+    padding: 1.1rem 2rem;
+    transition: all var(--transition-smooth);
+}
+
+nav.scrolled {
+    background: rgba(2, 3, 8, 0.94);
+    border-bottom: 1px solid rgba(0, 255, 68, 0.25);
+    padding: 0.8rem 2rem;
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.85),
+        0 0 32px rgba(0, 255, 68, 0.18);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+}
+
+.logo-section:hover {
+    transform: scale(1.03);
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    box-shadow:
+        0 0 10px rgba(0, 0, 0, 0.6),
+        0 0 18px rgba(0, 255, 68, 0.23);
+}
+
+.logo-text h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.logo-text p {
+    font-size: 0.75rem;
+    color: var(--accent-green);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 30;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 2px;
+    background: var(--text-primary);
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: all var(--transition-fast);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-green), rgba(0,255,68,0));
+    transition: width var(--transition-smooth);
+}
+
+.nav-links a:hover {
+    color: var(--accent-green);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.hire-btn {
+    background: linear-gradient(135deg, #00ff44, #00e13a);
+    color: #041007 !important;
+    padding: 0.8rem 1.9rem;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+/* =====================
+   NAVBAR RESPONSIVE
+===================== */
+
+@media (max-width: 768px) {
+    nav {
+        padding: 0.9rem 1.3rem;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 260px;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    background: rgba(2, 3, 8, 0.98);
+    backdrop-filter: blur(14px);
+
+    padding: 5.5rem 1.5rem 2rem;
+    gap: 1.4rem;
+
+    transition: left 320ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+    }
+}
+
+/* Increase gap before CTA (mobile only) */
+.nav-links li:last-child {
+    margin-top: 1.6rem;
+}
+

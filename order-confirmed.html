@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Order Confirmed | PixelMind Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #050707;
+  --card: #0c1110;
+  --border: rgba(255,255,255,0.08);
+  --text: #f5f7f6;
+  --muted: #9aa3a0;
+  --accent: #1dff8b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.container {
+  max-width: 620px;
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+}
+
+h1 {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 24px 0;
+}
+
+.summary p {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.label {
+  color: var(--muted);
+}
+
+.price {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px auto;
+  border-radius: 50%;
+  background: rgba(29, 255, 139, 0.12);
+  border: 1px solid rgba(29, 255, 139, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 0 6px rgba(29, 255, 139, 0.06),
+    0 0 30px rgba(29, 255, 139, 0.25);
+}
+
+.success-icon span {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.order-ref-block {
+  margin: 28px 0 22px;
+  padding: 18px 20px;
+  border: 1px dashed rgba(255,255,255,0.12);
+  border-radius: 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(29,255,139,0.06),
+    rgba(0,0,0,0)
+  );
+  text-align: left;
+}
+
+.order-ref-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.order-ref-value {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #d4af37;
+  user-select: all;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="success-icon">
+    <span>✓</span>
+  </div>
+
+  <h1>Thank You for Your Order</h1>
+
+ <div class="order-ref-block">
+  <div class="order-ref-label">Order Reference</div>
+  <div class="order-ref-value" id="orderRef">PMD-XXXXXXX</div>
+ </div>
+
+  <p>
+    Your request has been received successfully.
+    You will receive an email with a secure payment link
+    within <strong>24 hours</strong> to proceed further.
+  </p>
+
+  <hr>
+
+  <div class="summary">
+    <p><span class="label">Service:</span> <span id="service">—</span></p>
+    <p><span class="label">Package:</span> <span id="package">—</span></p>
+    <p><span class="label">Total Amount:</span> <span class="price" id="price">—</span></p>
+  </div>
+
+</div>
+
+<script>
+document.getElementById("service").textContent =
+  sessionStorage.getItem("service") || "Web Development";
+
+document.getElementById("package").textContent =
+  sessionStorage.getItem("package") || "—";
+
+document.getElementById("price").textContent =
+  sessionStorage.getItem("price") || "—";
+</script> 
+
+<script>
+function generateOrderRef() {
+  const chars = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+  let ref = "PMD-";
+  for (let i = 0; i < 8; i++) {
+    ref += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return ref;
+}
+
+// Generate once per session
+let existingRef = sessionStorage.getItem("orderRef");
+
+if (!existingRef) {
+  existingRef = generateOrderRef();
+  sessionStorage.setItem("orderRef", existingRef);
+}
+
+document.getElementById("orderRef").textContent = existingRef;
+</script>
+
+
+</body>
+</html>

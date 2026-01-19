@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Secure Checkout | PixelMind Developer</title>
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ============================================================
+   ROOT THEME VARIABLES
+============================================================ */
+:root {
+    --bg: #050707;
+    --card-bg: #0b0f0e;
+    --border: rgba(255,255,255,0.08);
+
+    --text: #f5f7f6;
+    --muted: #9aa3a0;
+
+    --neon: #1dff8b;
+    --neon-soft: rgba(29,255,139,0.25);
+
+    --gold: #d4af37;
+    --silver: #cfd2d6;
+
+    --radius-lg: 18px;
+    --radius-md: 14px;
+}
+
+/* ============================================================
+   RESET & BASE
+============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(900px 300px at 15% -10%, rgba(29,255,139,0.07), transparent),
+        radial-gradient(700px 300px at 85% 110%, rgba(212,175,55,0.05), transparent),
+        var(--bg);
+    color: var(--text);
+}
+
+/* ============================================================
+   PAGE WRAPPER
+============================================================ */
+.checkout-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 70px 20px;
+    animation: pageFade 0.9s ease;
+}
+
+@keyframes pageFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   HEADER
+============================================================ */
+.checkout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.brand {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+.secure {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* ============================================================
+   GRID LAYOUT
+============================================================ */
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.45fr;
+    gap: 36px;
+}
+
+/* ============================================================
+   CARD BASE
+============================================================ */
+.card {
+    position: relative;
+    background: linear-gradient(180deg, #0c1110, #070a09);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 rgba(29,255,139,0);
+    pointer-events: none;
+    transition: box-shadow .35s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card:hover::before {
+    box-shadow: 0 0 45px rgba(29,255,139,0.12);
+}
+
+/* ============================================================
+   TITLES
+============================================================ */
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+/* ============================================================
+   ORDER SUMMARY
+============================================================ */
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    font-size: 15px;
+    border-bottom: 1px dashed var(--border);
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+.summary-label {
+    color: var(--muted);
+}
+
+.summary-value {
+    font-weight: 600;
+}
+
+.price {
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+/* ============================================================
+   FORM ELEMENTS
+============================================================ */
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 6px;
+}
+
+input,
+textarea {
+    width: 100%;
+    background: #060909;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 14px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    transition: border .25s ease, box-shadow .25s ease;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #6f7674;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--neon);
+    box-shadow: 0 0 0 3px var(--neon-soft);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+input[type="file"] {
+    cursor: pointer;
+}
+
+/* ============================================================
+   CHECKBOX
+============================================================ */
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.checkbox input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--neon);
+    flex-shrink: 0;
+}
+
+.checkbox a {
+    color: var(--neon);
+    text-decoration: none;
+}
+
+.checkbox a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================
+   PAY BUTTON
+============================================================ */
+.pay-btn {
+    width: 100%;
+    margin-top: 26px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    color: #000;
+    background: linear-gradient(135deg, #1dff8b, #15d674);
+    box-shadow:
+        0 14px 35px rgba(29,255,139,0.45),
+        inset 0 -2px 0 rgba(0,0,0,0.25);
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        filter .25s ease;
+}
+
+.pay-btn:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow:
+        0 22px 60px rgba(29,255,139,0.65),
+        inset 0 -2px 0 rgba(0,0,0,0.35);
+    filter: brightness(1.05);
+}
+
+.pay-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 900px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .checkout-wrapper {
+        padding: 40px 16px;
+    }
+
+    .brand {
+        font-size: 22px;
+    }
+
+    .section-title {
+        font-size: 17px;
+    }
+
+    input,
+    textarea,
+    button {
+        font-size: 15px;
+    }
+}
+
+
+/* ===============================
+   FORM VALIDATION (PREMIUM)
+=============================== */
+
+.input-error {
+  border-color: #ff4d4f !important;
+  box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.25);
+}
+
+.error-text {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #ff6b6b;
+  display: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="checkout-wrapper">
+
+    <!-- HEADER -->
+    <div class="checkout-header">
+        <div class="brand">PixelMind Developer</div>
+        <div class="secure">🔐 Secure · Encrypted · Trusted</div>
+    </div>
+
+    <!-- GRID -->
+    <div class="checkout-grid">
+
+        <!-- ORDER SUMMARY -->
+        <div class="card">
+            <div class="section-title">Order Summary</div>
+
+            <div class="summary-item">
+                <span class="summary-label">Service</span>
+                <span class="summary-value" id="serviceName">—</span>
+            </div>
+
+            <div class="summary-item">
+                <span class="summary-label">Package</span>
+                <span class="summary-value" id="packageName">—</span>
+            </div>
+
+            <div class="summary-item">
+                <span class="summary-label">Total</span>
+                <span class="summary-value price" id="price">—</span>
+            </div>
+        </div>
+
+        <!-- FORM -->
+        <div class="card">
+            <div class="section-title">Client & Project Details</div>
+
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" id="fullName" placeholder="Enter Your Full Name" required>
+                <div class="error-text" id="error-fullName">This feild is required</div>
+            </div>
+
+            <div class="form-group">
+                <label>Mobile Number *</label>
+                <input type="tel" id="mobile" placeholder="+91 9876543210" required>
+                <div class="error-text" id="error-mobile">This feild is required</div>
+            </div>
+
+            <div class="form-group">
+                <label>Email *</label>
+                <input type="email" id="email" placeholder="example@abc.com" required>
+                <div class="error-text" id="error-email">This feild is required</div>
+            </div>
+
+            <div class="form-group">
+                <label>Country *</label>
+                <input type="text" id="country" placeholder="Enter your Country Name" required>
+                <div class="error-text" id="error-country">This feild is required</div>
+            </div>
+
+            
+
+            <div class="form-group">
+                <label>Project Requirements</label>
+                <textarea id="requirements" placeholder="Describe your requirements clearly..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Preferred Font Style (Optional)</label>
+                <input type="text" id="fontStyle" placeholder="Inter, Poppins, Roboto">
+            </div>
+
+            <div class="form-group">
+                <label>Upload Logo / Reference Files</label>
+                <input type="file">
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" required>
+                <span>
+                    I agree to the
+                    <a href="privacy.html" target="_blank">Privacy Policy</a>,
+                    <a href="terms.html" target="_blank">Terms & Conditions</a> and
+                    <a href="refund.html" target="_blank">Refund Policy</a>.
+                </span>
+            </div>
+
+            <button class="pay-btn" onclick="saveAndProceed()">
+                Proceed to Secure Payment →
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+/* ============================================================
+   DYNAMIC ORDER SUMMARY FROM URL
+   Example:
+   checkout.html?service=Web%20Development&package=Professional&price=25000
+============================================================ */
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("serviceName").textContent =
+    params.get("service") || "Not Selected";
+
+document.getElementById("packageName").textContent =
+    params.get("package") || "Not Selected";
+
+document.getElementById("price").textContent =
+    params.get("price") ? "$" + params.get("price") : "Not Selected"; 
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+
+<script>
+    (function(){
+        emailjs.init("DAqdAP_IP1aksmBSb");
+    })();
+    </script>
+
+
+<script>
+function showError(inputId, messageId) {
+  const input = document.getElementById(inputId);
+  const error = document.getElementById(messageId);
+
+  input.classList.add("input-error");
+  error.style.display = "block";
+}
+
+function clearError(inputId, messageId) {
+  const input = document.getElementById(inputId);
+  const error = document.getElementById(messageId);
+
+  input.classList.remove("input-error");
+  error.style.display = "none";
+}
+
+
+function saveAndProceed() {
+
+  let hasError = false;
+
+  const fullName = document.getElementById("fullName").value.trim();
+  const mobile   = document.getElementById("mobile").value.trim();
+  const email    = document.getElementById("email").value.trim();
+  const country  = document.getElementById("country").value.trim();
+  const terms    = document.querySelector(".checkbox input").checked;
+  const fontStyle = document.getElementById("fontStyle").value.trim() || "Not specified";
+
+  // RESET errors
+  clearError("fullName", "error-fullName");
+  clearError("mobile", "error-mobile");
+  clearError("email", "error-email");
+  clearError("country", "error-country");
+
+  // VALIDATION
+  if (!fullName) {
+    showError("fullName", "error-fullName");
+    hasError = true;
+  }
+
+  if (!mobile) {
+    showError("mobile", "error-mobile");
+    hasError = true;
+  }
+
+  if (!email) {
+    showError("email", "error-email");
+    hasError = true;
+  }
+
+  if (!country) {
+    showError("country", "error-country");
+    hasError = true;
+  }
+
+  if (!terms) {
+    alert("Please accept the Terms, Privacy Policy and Refund Policy.");
+    hasError = true;
+  }
+
+  if (hasError) return;
+
+  // GENERATE ORDER ID (ONCE)
+  let orderId = sessionStorage.getItem("order_id");
+  if (!orderId) {
+    orderId = "PMD-" + Math.random().toString(36).substring(2,10).toUpperCase();
+    sessionStorage.setItem("order_id", orderId);
+  }
+
+  // SAVE ORDER SUMMARY FOR PAYMENT PAGE
+sessionStorage.setItem(
+  "service",
+  document.getElementById("serviceName").textContent
+);
+
+sessionStorage.setItem(
+  "package",
+  document.getElementById("packageName").textContent
+);
+
+sessionStorage.setItem(
+  "price",
+  document.getElementById("price").textContent
+);
+
+
+  // PREPARE EMAIL DATA
+  const templateParams = {
+    name: fullName,
+    email: email,
+    mobile: mobile,
+    country: country,
+    requirements: document.getElementById("requirements").value.trim() || "Not specified",
+    font_style : fontStyle,
+    service: document.getElementById("serviceName").textContent,
+    package: document.getElementById("packageName").textContent,
+    price: document.getElementById("price").textContent,
+    order_id: orderId
+  };
+  console.log("EMAILJS PARAMS:", templateParams);
+
+  // SEND EMAIL VIA EMAILJS
+  emailjs.send(
+    "pixelmind_developer",
+    "template_div8wht",
+    templateParams
+  ).then(
+  function() {
+
+
+    // SEND CLIENT CONFIRMATION EMAIL
+    emailjs.send(
+      "pixelmind_email",
+      "template_p692rck",
+      templateParams
+    ).then(
+      function() {
+        // Redirect ONLY after both emails succeed
+       
+        window.location.href = "payment.html";
+      },
+      function(err) {
+        console.error("Client email failed:", err);
+        window.location.href = "payment.html"; // still continue
+      }
+    );
+
+  },
+  function(error) {
+    alert("Something went wrong while submitting your order. Please try again.");
+    console.error(error);
+  }
+);
+}
+
+</script>
+
+<script>
+["fullName", "mobile", "email", "country"].forEach(id => {
+  const input = document.getElementById(id);
+  input.addEventListener("input", () => {
+    input.classList.remove("input-error");
+    const error = document.getElementById("error-" + id);
+    if (error) error.style.display = "none";
+  });
+});
+</script>
+
+
+
+
+</body>
+</html>

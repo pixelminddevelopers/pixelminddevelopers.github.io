@@ -1,0 +1,1106 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Web Development Packages | PixelMind Developer</title>
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        * {             
+            margin: 0;             
+            padding: 0;             
+            box-sizing: border-box;         
+        }
+       
+        :root {
+            --color-black: #0a0a0a;
+            --color-black-light: #1a1a1a;
+            --color-neon-green: #00FF41;
+            --color-neon-green-dark: #00cc33;
+            --color-gray-text: #e0e0e0;
+            --color-gray-muted: #999999;
+            --color-mint: #00ff7f;
+            --shadow-neon: 0 0 16px rgba(0, 255, 65, 0.25);
+            --shadow-neon-hover: 0 0 22px rgba(0, 255, 65, 0.35);
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-title {
+    color: #ffffff;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-shadow:
+        0 0 2px rgba(255, 255, 255, 0.22),
+        0 0 4px rgba(255, 255, 255, 0.10);
+}
+
+
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+            background: var(--color-black);
+            color: var(--color-gray-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* GRADIENT CLASSES - REUSABLE */
+
+        .text-white-glow {
+            color: #ffffff;
+            text-shadow:
+                0 0 4px rgba(255, 255, 255, 0.15),
+                0 0 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .text-green-gradient-hero {
+            background: linear-gradient(110deg, var(--color-neon-green) 0%, var(--color-mint) 55%, var(--color-neon-green-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow:
+                0 0 6px rgba(0, 255, 65, 0.28),
+                0 0 14px rgba(0, 255, 65, 0.22);
+        }
+
+        .text-green-gradient-secondary {
+            background: linear-gradient(135deg, #ffffff, #7cffad);
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 6px rgba(124, 255, 173, 0.25);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--color-black) 0%, rgba(0, 255, 65, 0.06) 100%);
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 255, 65, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-gray-text);
+            margin-bottom: 15px;
+            line-height: 1.8;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-description {
+            font-size: 0.95rem;
+            color: var(--color-gray-muted);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .packages-section {
+            padding: 80px 40px;
+            background: var(--color-black);
+            position: relative;
+        }
+
+        .packages-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .packages-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .packages-grid-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .packages-grid-bottom {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .package-card {
+            background: var(--color-black-light);
+            border: 1px solid rgba(0, 255, 65, 0.25);
+            border-radius: 12px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-neon-green), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .package-card:hover {
+            border-color: var(--color-neon-green);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+            transform: translateY(-4px);
+        }
+
+        .package-card:hover::before {
+            opacity: 1;
+        }
+
+        .package-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .package-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--color-gray-text);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .package-tagline {
+            font-size: 0.85rem;
+            color: var(--color-gray-muted);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .package-features {
+            flex-grow: 1;
+            margin-bottom: 25px;
+        }
+
+        .package-features li {
+            list-style: none;
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+            color: var(--color-gray-text);
+            border-bottom: 1px solid rgba(0, 255, 65, 0.1);
+        }
+
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-neon-green);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f9fafb; /*premium soft white*/
+            margin-bottom: 20px;
+            letter-spacing: -0.02rem;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.09);
+        }
+
+
+        .package-price-label {
+            font-size: 0.75rem;
+            color: var(--color-gray-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .package-button {
+            display: flex;                  /*IMPORTANT*/
+            align-items: center;            /*vertical centering*/
+            justify-content: center;        /*horizontal centering*/
+
+            background: var(--color-neon-green);
+            color: var(--color-black);
+
+            border: none;
+            padding: 14px 30px;
+            border-radius: 8px;
+
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 22px rgba(0, 255, 65, 0.24)
+        }
+
+       
+        .package-button:hover {
+            background: var(--color-mint);
+            box-shadow: 0 10px 26px rgba(0, 255, 65, 0.32);
+            transform: scale(1.04);
+        }
+
+        .package-button:active {
+            transform: scale(0.98);
+        }
+
+        .authority-section {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, var(--color-black) 0%, rgba(0, 255, 65, 0.04) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .authority-section::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: -15%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 255, 65, 0.09) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .authority-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .authority-section h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .authority-passage {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: white;
+            margin-bottom: 50px;
+            text-align: left;
+            border-left: 3px solid var(--color-neon-green);
+            padding-left: 25px;
+            text-shadow: 0 0 8px rgba(0, 255, 65, 0.07);
+        }
+
+        .authority-passage strong {
+            color: white;
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(0, 255, 65, 0.07);
+        }
+
+        .highlights-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-neon-green);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .highlight-item {
+            padding: 25px;
+            background: rgba(0, 255, 65, 0.04);
+            border: 1px solid rgba(0, 255, 65, 0.18);
+            border-radius: 10px;
+            transition: var(--transition);
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
+        }
+
+        .highlight-item:hover {
+            border-color: var(--color-neon-green);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.65);
+            transform: translateY(-3px);
+        }
+
+        .highlight-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .highlight-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-gray-text);
+            letter-spacing: -0.3px;
+        }
+
+        .contact-section {
+            padding: 70px 40px;
+            background: var(--color-black-light);
+            position: relative;
+            border-top: 1px solid rgba(0, 255, 65, 0.18);
+        }
+
+        .contact-section h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--color-gray-text);
+        }
+
+        .contact-section h3::before {
+            margin-right: 10px;
+        }
+
+        .contact-intro {
+            font-size: 0.95rem;
+            color: var(--color-gray-muted);
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+        }
+
+        .contact-item {
+            padding: 20px;
+            background: rgba(0, 255, 65, 0.04);
+            border: 1px solid rgba(0, 255, 65, 0.14);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            border-color: var(--color-neon-green);
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+        }
+
+        .contact-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-neon-green);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .contact-value {
+            font-size: 1rem;
+            color: white;
+            white-space: nowrap;
+        }
+
+        .contact-value a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+            color: var(--color-mint);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle,
+            .hero-description {
+                font-size: 0.95rem;
+            }
+
+            .packages-section,
+            .authority-section,
+            .contact-section {
+                padding: 60px 20px;
+            }
+
+            .packages-header h2,
+            .authority-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .packages-grid-top,
+            .packages-grid-bottom {
+                grid-template-columns: 1fr;
+            }
+
+            .package-card {
+                padding: 30px;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .authority-passage {
+                font-size: 0.95rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* ===============================
+   ELITE PLAN HIGHLIGHT STYLES
+   =============================== */
+
+.elite-highlight {
+    background: linear-gradient(
+        145deg,
+        rgba(0, 255, 65, 0.10),
+        rgba(10, 10, 10, 0.95)
+    );
+    border: 2px solid rgba(0, 255, 65, 0.9);
+    box-shadow:
+        0 0 0 1px rgba(0, 255, 65, 0.6),
+        0 0 22px rgba(0, 255, 65, 0.35),
+        0 18px 45px rgba(0, 0, 0, 0.85);
+
+    z-index: 2;
+}
+
+.elite-highlight::before {
+    opacity: 1;
+}
+
+.elite-highlight .package-name {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+}
+
+.elite-highlight .package-price {
+    color: #ffffff;
+    text-shadow: 0 0 18px rgba(0, 255, 65, 0.35);
+}
+
+.elite-highlight .package-button {
+    background: linear-gradient(
+        90deg,
+        var(--color-neon-green),
+        var(--color-mint)
+    );
+    box-shadow: 0 10px 30px rgba(0, 255, 65, 0.45);
+}
+
+/* ===============================
+   ELITE PLAN – RECOMMENDED BADGE
+   =============================== */
+
+.elite-badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+
+    color: #f0e2e2;
+    background: transparent;
+
+    border-radius: 999px;
+    box-shadow:
+        0 0 12px rgba(0, 255, 65, 0.45),
+        0 4px 14px rgba(0, 0, 0, 0.6);
+
+    z-index: 4;
+    pointer-events: none;
+}
+
+
+ /* ===============================
+   Floating Contact Icons
+   =============================== */
+
+.floating-contacts {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* balanced optical spacing */
+    z-index: 9999;
+
+    /* slide-in on load */
+    transform: translateX(80px);
+    opacity: 0;
+    animation: floatingSlideIn 0.6s ease forwards;
+}
+
+/* Slide-in animation */
+@keyframes floatingSlideIn {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Hide while scrolling */
+.floating-contacts.hide {
+    transform: translateX(100px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Circular icon button */
+.floating-contacts a {
+    width: clamp(48px, 6vw, 64px);
+    height: clamp(48px, 6vw, 64px);
+    background: #0b0b0b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover effect (desktop only feel) */
+.floating-contacts a:hover {
+    transform: scale(1.08);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Icon inside button */
+.floating-contacts img {
+    width: clamp(24px, 3vw, 32px);
+    height: clamp(24px, 3vw, 32px);
+    object-fit: contain;
+}
+
+/* Mobile fine-tuning */
+@media (max-width: 768px) {
+    .floating-contacts {
+        right: 12px;
+        bottom: 12px;
+        gap: 6px;
+    }
+}
+
+    </style>
+</head>
+<body>     
+
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo-section">
+                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/fdcd6370-0b90-48c0-8af1-8c716bf229d8" alt="PixelMind Developer" class="logo-img">
+                <div class="logo-text">
+                    <h2>PixelMind Developer</h2>
+                    <p>🤖 Code • Create • Innovate ✨</p>
+                </div>
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Explore Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="services.html" class="hire-btn">Order Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">         
+        <div class="hero-content">    
+            <h1 class="hero-title">⚡ Our Premium Web Development Packages💎</h1>         
+            
+            <div class="hero-subtitle">                 
+                🚀 Professionally engineered websites designed to convert visitors, strengthen brand authority, and scale modern businesses globally.             
+            </div>             
+            <div class="hero-description">                 
+                💎 Every project is built with performance, security, and long-term growth as the foundation.             
+            </div>         
+        </div>     
+    </section>
+
+    <!-- PACKAGES SECTION -->
+
+
+    <section class="packages-section">
+        <div class="packages-header">
+            <h2><span class="text-green-gradient-secondary">Choose Your Growth Plan</span></h2>
+        </div>
+
+        <div class="packages-grid-top">
+            <div class="package-card">
+                <div class="package-emoji">🚀</div>
+                <h3 class="package-name">Launch Plan</h3>
+                <p class="package-tagline">Perfect for startups and small projects</p>
+                <ul class="package-features">
+                    <li>3 page responsive design</li>
+                    <li>Dynamic Website</li>
+                    <li>Premium Design</li>
+                    <li>3 Rounds of Revisions included</li>
+                    <li>Clean Page Structure</li>
+                    <li>WhatsApp/Quick Contact Integration</li>
+                    <li>1 Year Free Domain Name</li>
+                    <li>1 Year Free Hosting</li>
+                    <li>Live Deployment</li>
+                    <li>Cross-Browser Compatibility</li>
+                    <li>Estimated Delivery : 5 Days</li>
+                    <li>Brand Color & Font Consistency</li>
+                    <li>Mobile-optimized layout</li>
+                    <li>Contact form integration</li>
+                    <li>Basic Security Setup</li>
+                    <li>Basic Animations & Hover Effects</li>
+                   
+                </ul>
+                <div>
+                    <div class="package-price">$89</div>
+                </div>
+                <a href="order.html?service=Web%20Development&package=Launch%20Plan&price=89"
+                class="package-button"> Order Now</a>
+            </div>
+
+            <div class="package-card">
+                <div class="package-emoji">📈</div>
+                <h3 class="package-name">Growth Plan</h3>
+                <p class="package-tagline">For expanding businesses</p>
+                <ul class="package-features">
+                    <li>7 page website</li>
+                    <li>Fully Dynamic Website</li>
+                    <li>High-End Premium Design</li>
+                    <li>Custom UI/UX</li>
+                    <li>Advanced Page Structure</li>
+                    <li>Contact & Inquiry Form</li>
+                    <li>WhatsApp & Quick Contact Integration</li>
+                    <li>Basic SEO Setup</li>
+                    <li>1 Year Free Domain Name</li>
+                    <li>1 Year Free Premium Hosting</li>
+                    <li>Performance Optimization</li>
+                    <li>Smooth Animations & Interactions</li>
+                    <li>Brand-Consistent Design System</li>
+                    <li>Cross-Browser Compatibility</li>
+                    <li>Estimated Delivery : 7 Days</li>
+                    <li>Enhanced Security Setup</li>
+                    <li>Live Deployment</li>
+                    <li>Advanced responsive design</li>
+                    <li>Service/product showcases</li>
+                    <li>Integrated analytics</li>
+                    <li>6 Rounds of Revisions included</li>
+                    <li>Email form setup</li>
+                    <li>Social media integration</li>
+                </ul>
+                <div>
+                    <div class="package-price">$149</div>
+                </div>
+                <a href="order.html?service=Web%20Development&package=Growth%20Plan&price=149"
+                class="package-button"> Order Now</a>
+            </div>
+
+            <div class="package-card elite-highlight">
+                <div class="elite-badge">⭐ Recommended</div>
+                <div class="package-emoji">👑</div>
+                <h3 class="package-name">Elite Plan</h3>
+                <p class="package-tagline">Premium quality for market leaders</p>
+                <ul class="package-features">
+                    <li>13 page sophisticated website</li>
+                    <li>Fuly Dynamic Website</li>
+                    <li>Ultra-Premium Custom UI/UX Design</li>
+                    <li>Excellent Amount of Secgions per page</li>
+                    <li>Advanced animations & interactions</li>
+                    <li>Conversion-Optimized Layouts</li>
+                    <li>Advanced Contact Forms & Lead Capture</li>
+                    <li>Payment Gateway Integration</li>
+                    <li>Advanced Chat Integration</li>
+                    <li>Advanced SEO Setup</li>
+                    <li>SEO Optimized URL Strucure</li>
+                    <li>Speed Optimization</li>
+                    <li>11 Rounds of Revisions included</li>
+                    <li>Brand Consistency System</li>
+                    <li>Cross-Browser Compatibility</li>
+                    <li>Estimated Delivery : 10 Days</li>
+                    <li>Backup and Recovery Setup</li>
+                    <li>Live Deployment</li>
+                    <li>1 Year Free Domain Name</li>
+                    <li>1 Year Free Premium Hosting</li>
+                    <li>Blog/resource center</li>
+                    <li>Advanced SEO optimization</li>
+                    <li>Unlimited revisions (30 days)</li>
+                    <li>Performance monitoring</li>
+                    <li>Security hardening</li>
+                    <li>Monthly analytics reports</li>
+                    <li>CMS integration options</li>
+                    <li>Mobile app-like experience</li>
+                    <li>Social proof widgets</li>
+                    <li>Advanced form automation</li>
+                </ul>
+                <div>
+                    <div class="package-price">$199</div>
+                </div>
+                <a href="order.html?service=Web%20Development&package=Elite%20Plan&price=199"
+                class="package-button"> Order Now</a>
+            </div>
+        </div>
+
+        <div class="packages-grid-bottom">
+            <div class="package-card">
+                <div class="package-emoji">🛒</div>
+                <h3 class="package-name">Commerce Pro Plan</h3>
+                <p class="package-tagline">Full e-commerce solution for retailers</p>
+                <ul class="package-features">
+                    <li>30 Page Professional Website</li>
+                    <li>Fully Dynamic System</li>
+                    <li>Premium Custom UI/UX</li>
+                    <li>Fully Responsive </li>
+                    <li>Complete e-commerce platform</li>
+                    <li>Coversion-Optimized Product Pages</li>
+                    <li>Huge amount of products</li>
+                    <li>Categories & Filters</li>
+                    <li>Product Variation</li>
+                    <li>Cart, Checkout & Order System</li>
+                    <li>Add to Cart</li>
+                    <li>Secure Checkout</li>
+                    <li>Order Confirmation</li>
+                    <li>Advanced Payment Gateway Integration</li>
+                    <li>Card, UPI, VPA, Net Banking</li>
+                    <li>Multiple Payment Options</li>
+                    <li>User Account System</li>
+                    <li>Login/Signup</li>
+                    <li>Order History</li>
+                    <li>Admin Dashboard</li>
+                    <li>Manage products</li>
+                    <li>Manage Orders</li>
+                    <li>Manage Customers</li>
+                    <li>Advancd SEO Setup for Store</li>
+                    <li>Product SEO</li>
+                    <li>Category SEO</li>
+                    <li>Speed & Performance Optimization</li>
+                    <li>Unlimite Revisions</li>
+                    <li>Backup & Recovery Setup</li>
+                    <li>Live Deployment</li>
+                    <li>1 Year Free Domain</li>
+                    <li>1 Year Free Premium Hosting</li>
+                    <li>Estimated Delivery : 20 Days</li>
+                    <li>Product catalog management</li>
+                    <li>Secure payment integration</li>
+                    <li>Inventory system</li>
+                    <li>Customer accounts & profiles</li>
+                    <li>Order tracking system</li>
+                    <li>Shopping cart optimization</li>
+                    <li>Tax calculation setup</li>
+                    <li>Email notifications</li>
+                    <li>Advanced analytics</li>
+                    <li>Customer support tools</li>
+                    <li>Shipping integrations</li>
+                    <li>Marketing automation basics</li>
+                    <li>Security compliance (PCI-ready)</li>
+                </ul>
+                <div>
+                    <div class="package-price">$299</div>
+                </div>
+                <a href="order.html?service=Web%20Development&package=Commerce%20Pro&price=299"
+                class="package-button"> Order Now</a>
+            </div>
+
+            <div class="package-card">
+                <div class="package-emoji">🏢</div>
+                <h3 class="package-name">Business Authority Plan</h3>
+                <p class="package-tagline">Enterprise-grade solution for established brands</p>
+                <ul class="package-features">
+                    <li>45 Pages High-Impact Website</li>
+                    <li>Enterprise-grade Fully Dynamic System</li>
+                    <li>Ultra-Premium Custom UI/UX</li>
+                    <li>Conversion-First Architectures</li>
+                    <li>Advanced E-Commerce Capabilities</li>
+                    <li>Huge Amount of Products and Categories</li>
+                    <li>Advanced Product Variation</li>
+                    <li>Smart Filters & Search</li>
+                    <lI>Cart, Checkout & Order Management</lI>
+                    <li>Enterprise Payment System</li>
+                    <li>Card, UPI, VPA, Net Banking</li>
+                    <li>Multiple Payment Gateways</li>
+                    <li>Secure Payment Flow</li>
+                    <li>User & Client Portal</li>
+                    <li>Login / Signup</li>
+                    <li>Order History</li>
+                    <li>Invoice & Account Management</li>
+                    <li>Advanced Admin Dashboard</li>
+                    <li>Content Management System</li>
+                    <li>Analytics Overview</li>
+                    <li>Advanced SEO(Authority Level)</li>
+                    <li>SEO Optimized Structure</li>
+                    <li>Performance Optimization</li>
+                    <li>Fully custom enterprise platform</li>
+                    <li>Advanced role-based access</li>
+                    <li>Multi-language support</li>
+                    <li>Estimated Delivery : 30 Days</li>
+                    <li>Advanced API integrations</li>
+                    <li>Custom database architecture</li>
+                    <li>White-label options</li>
+                    <li>Performance-Optmization</li>
+                    <li>Backup, Recovery & Stability Setup</li>
+                    <li>Live Deployment</li>
+                    <li>1 Year Free Domain</li>
+                    <li>1 Year Free High-Performance Premium Hosting</li>
+                    <li>Advanced automation workflows</li>
+                    <li>Real-time analytics dashboard</li>
+                    <li>Advanced security (SSL, DDoS)</li>
+                    <li>CRM integration suite</li>
+                    <li>Custom reporting tools</li>
+                    <li>Dedicated account manager</li>
+                    <li>Quarterly strategy reviews</li>
+                    <li>Unlimited Rounds of Revisions</li>
+                    <li>Scalability audit & optimization</li>
+                    <li>Custom compliance setup</li>
+                    <li>Training & documentation</li>
+                    <li>Future-proof architecture</li>
+                </ul>
+                <div>
+                    <div class="package-price">$599</div>
+                </div>
+                <a href="order.html?service=Web%20Development&package=Business%20Authority&price=599"
+                class="package-button"> Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTHORITY & TRUST SECTION -->
+
+    <section class="authority-section">
+        <div class="authority-content">
+            <h2>🔥 <span class="text-green-gradient-secondary">Designed for Growth, Not Just Launch</span></h2>
+
+            <div class="authority-passage">
+                <strong>We don't believe in building websites just to "exist online."</strong>
+
+
+                We build digital systems-strategic, performance-driven platforms designed to attract, engage, and convet the right audience from day one. addEventListener
+
+
+                Every website we craft is created with intent, backed by research, and engineered to produce measurable results-not just impressions.
+
+
+                At PixelMind Developer, every project is approached as a long-term digital asset, not a short-term delivery. From structure and performance to branding and conversions, each element is carefully planned, refined, and optimized to meet real business goals.
+
+
+                Our process balances aesthetics with functionality, speed with stability, and creativity with data-ensuring your website doesn't just look premium, it performs like one.
+
+
+                We work closely with our clients, .communicate at every stage, and refine until standards are met-not until deadlines force us to stop.
+
+
+                Every decision is transparent, every update is intentional, and every line of code is written with precision.
+
+
+                You'll always know what we're doing, why we're doing it, and how it benefits your business.
+
+
+                <strong>No shortcuts. No rushed work. No artificial limits.</strong>
+
+
+                The result is a website that performs under pressure, scales with growth, and positions your brand with authority and confidence-built not just to complete, but to lead.
+            </div>
+
+            <div class="highlights-label">⭐ Delivery Highlights</div>
+
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <div class="highlight-icon">🔍</div>
+                    <div class="highlight-text">Strategy-First Planning</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🎨</div>
+                    <div class="highlight-text">Purpose-Driven UI/UX Design</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">⚙️</div>
+                    <div class="highlight-text">Clean, Scalable Development</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">📱</div>
+                    <div class="highlight-text">Fully Responsive by Default</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🔄</div>
+                    <div class="highlight-text">Client-Focused Revisions</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🚀</div>
+                    <div class="highlight-text">Tested, Optimized & Confident Launch</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+
+    <section class="contact-section">
+        <div class="authority-content">
+            <h3>📞 Get in Touch</h3>
+            <p class="contact-intro">Talk directly with our team — fast, clear, and professional.</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-label">WhatsApp</div>
+                    <div class="contact-value">+91 7387235438</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Telegram</div>
+                    <div class="contact-value">@pixelmind_developer</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">pixelminddevelopers@hotmail.com</div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        // Smooth scroll animation on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.package-card, .highlight-item, .hero-content');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('fade-in');
+                }, index * 50);
+            });
+        });
+
+        
+    
+    // Parallax effect on scroll 
+
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero');
+            const scrollPosition = window.scrollY;
+            hero.style.backgroundPosition = `center ${scrollPosition * 0.5}px`;
+        });
+    </script>
+
+    <div class="floating-contacts" id="floatingContacts">
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/917387235438" target="_blank" aria-label="WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <!-- Email -->
+  <a href="mailto:pixelminddevelopers@hotmail.com" aria-label="Email">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Email">
+  </a>
+
+  <!-- Telegram -->
+  <a href="https://t.me/pixelmind_developer" target="_blank" aria-label="Telegram">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+  </a>
+  
+</body>
+</html>
+
+
+</body> 
+</html>

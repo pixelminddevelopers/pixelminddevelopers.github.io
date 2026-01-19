@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Complete Payment | PixelMind Developer</title>
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   THEME
+============================================================ */
+:root {
+  --bg: #050707;
+  --card: #0c1110;
+  --border: rgba(255,255,255,0.08);
+  --text: #f5f7f6;
+  --muted: #9aa3a0;
+  --accent: #1dff8b;
+  --accent-soft: rgba(29,255,139,0.25);
+  --radius-lg: 20px;
+  --radius-md: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 300px at 15% -10%, rgba(29,255,139,0.07), transparent),
+    radial-gradient(700px 300px at 85% 110%, rgba(212,175,55,0.05), transparent),
+    var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* ============================================================
+   CONTAINER
+============================================================ */
+.payment-wrapper {
+  max-width: 720px;
+  width: 100%;
+  background: linear-gradient(180deg, #0c1110, #070a09);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 42px 36px;
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.95),
+    0 0 60px rgba(29,255,139,0.12);
+  animation: fadeUp .8s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   HEADER
+============================================================ */
+.payment-header {
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.payment-header h1 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.6px;
+}
+
+.payment-header p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   SUMMARY
+============================================================ */
+.summary {
+  margin-top: 20px;
+  border-top: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+  padding: 18px 0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+.summary-label {
+  color: var(--muted);
+}
+
+.summary-value {
+  font-weight: 600;
+}
+
+.summary-price {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+/* ============================================================
+   PAYMENT INFO
+============================================================ */
+.payment-info {
+  margin-top: 28px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.payment-info strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ============================================================
+   PAY BUTTON
+============================================================ */
+.pay-btn {
+  margin-top: 30px;
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  color: #000;
+  background: linear-gradient(135deg, #1dff8b, #15d674);
+  box-shadow:
+    0 16px 40px rgba(29,255,139,0.45),
+    inset 0 -2px 0 rgba(0,0,0,0.25);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+
+.pay-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 26px 70px rgba(29,255,139,0.6),
+    inset 0 -2px 0 rgba(0,0,0,0.35);
+  filter: brightness(1.05);
+}
+
+/* ============================================================
+   FOOT NOTE
+============================================================ */
+.payment-note {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<div class="payment-wrapper">
+
+  <!-- HEADER -->
+  <div class="payment-header">
+    <h1>Complete Your Payment</h1>
+    <p>
+      Thank you for choosing <strong>PixelMind Developer</strong>.
+      Please review your order and complete the payment securely to initiate the project.
+    </p>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <div class="summary-row">
+      <span class="summary-label">Service</span>
+      <span class="summary-value" id="service">—</span>
+    </div>
+
+    <div class="summary-row">
+      <span class="summary-label">Package</span>
+      <span class="summary-value" id="package">—</span>
+    </div>
+
+    <div class="summary-row">
+      <span class="summary-label">Total Amount</span>
+      <span class="summary-price" id="price">—</span>
+    </div>
+  </div>
+
+  <!-- PAYMENT INFO -->
+  <div class="payment-info">
+    <p>
+      We currently process payments securely via <strong>Payoneer</strong>.
+      You do <strong>not</strong> need a Payoneer account to complete the payment.
+    </p>
+
+    <p>
+  After confirming your order, our team will review the details and
+  send you a <strong>secure payment link via email</strong> within
+  <strong>24 hours</strong>.
+</p>
+
+<p>
+  This ensures accurate billing, fraud prevention, and a smooth,
+  verified onboarding process for every client.
+</p>
+
+   
+  </div>
+
+  <!-- PAY BUTTON -->
+  <button class="pay-btn" onclick="finalizeOrder()">
+    Confirm Order →
+  </button>
+
+ 
+
+
+  <div class="payment-note">
+    🔐 Secure payment · Encrypted · Official business transaction
+  </div>
+
+</div>
+
+
+
+
+<script>
+function showConfirmation() {
+  // Hide button
+  document.querySelector(".pay-btn").style.display = "none";
+
+  // Show confirmation
+  document.getElementById("confirmationMessage").style.display = "block";
+}
+</script>
+
+<script>
+function finalizeOrder() {
+  window.location.href = "order-confirmed.html";
+}
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const params = new URLSearchParams(window.location.search);
+
+  const service =
+    sessionStorage.getItem("service") || params.get("service");
+
+  const pkg =
+    sessionStorage.getItem("package") || params.get("package");
+
+  const price =
+    sessionStorage.getItem("price") || params.get("price");
+
+  document.getElementById("service").textContent =
+    service || "Web Development";
+
+  document.getElementById("package").textContent =
+    pkg || "—";
+
+  document.getElementById("price").textContent =
+    price || "—";
+
+});
+</script>
+
+
+</body>
+</html>
+
+
+

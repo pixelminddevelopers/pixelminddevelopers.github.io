@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - PixelMind Developer</title>
     <meta name="description" content="PixelMind Developer is a development-focused technology studio delivering scalable digital products with structured engineering practices.">
+    <link rel="stylesheet" href="navbar.css">
+
     <style>
         * {
             margin: 0;
@@ -564,75 +566,73 @@
             }
         }
 
-        /* Floating container */
+     /* ===============================
+   Floating Contact Icons
+   =============================== */
+
 .floating-contacts {
     position: fixed;
     right: 24px;
     bottom: 24px;
     display: flex;
     flex-direction: column;
-    gap: 2px; /* controlled spacing */
+    gap: 8px; /* balanced optical spacing */
     z-index: 9999;
 
+    /* slide-in on load */
     transform: translateX(80px);
     opacity: 0;
-    animation: slideIn 0.6s ease forwards;
+    animation: floatingSlideIn 0.6s ease forwards;
 }
 
-@keyframes slideIn {
+/* Slide-in animation */
+@keyframes floatingSlideIn {
     to {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
+/* Hide while scrolling */
 .floating-contacts.hide {
     transform: translateX(100px);
     opacity: 0;
     pointer-events: none;
 }
 
-/* Icon button (circle) */
+/* Circular icon button */
 .floating-contacts a {
-    width: 64px;
-    height: 64px;
+    width: clamp(48px, 6vw, 64px);
+    height: clamp(48px, 6vw, 64px);
     background: #0b0b0b;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* Hover effect (desktop only feel) */
 .floating-contacts a:hover {
-    transform: scale(1.1);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+    transform: scale(1.08);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Icon inside */
+/* Icon inside button */
 .floating-contacts img {
-    width: 32px;
-    height: 32px;
+    width: clamp(24px, 3vw, 32px);
+    height: clamp(24px, 3vw, 32px);
     object-fit: contain;
 }
 
+/* Mobile fine-tuning */
 @media (max-width: 768px) {
     .floating-contacts {
-        right: 16px;
-        bottom: 16px;
-        gap: 12px; /* tighter spacing on mobile */
-    }
-
-    .floating-contacts a {
-        width: 56px;
-        height: 56px;
-    }
-
-    .floating-contacts img {
-        width: 28px;
-        height: 28px;
+        right: 12px;
+        bottom: 12px;
+        gap: 6px;
     }
 }
 
@@ -640,6 +640,31 @@
     </style>
 </head>
 <body>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo-section">
+                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/fdcd6370-0b90-48c0-8af1-8c716bf229d8" alt="PixelMind Developer" class="logo-img">
+                <div class="logo-text">
+                    <h2>PixelMind Developer</h2>
+                    <p>🤖 Code • Create • Innovate ✨</p>
+                </div>
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Explore Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="services.html" class="hire-btn">Order Now</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- HERO SECTION -->
     <section class="about-hero">

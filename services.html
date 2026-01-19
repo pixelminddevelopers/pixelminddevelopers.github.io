@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - PixelMind Developer</title>
     <meta name="description" content="PixelMind Developer delivers scalable, high-quality digital solutions including web development, app development, AI chatbots, and more.">
+    <link rel="stylesheet" href="navbar.css">
     <style>
         * {
             margin: 0;
@@ -551,82 +552,124 @@
             }
         }
 
-        /* Floating container */
+        /* ===============================
+   Floating Contact Icons
+   =============================== */
+
 .floating-contacts {
     position: fixed;
     right: 24px;
     bottom: 24px;
     display: flex;
     flex-direction: column;
-    gap: 2px; /* controlled spacing */
+    gap: 8px; /* balanced optical spacing */
     z-index: 9999;
 
+    /* slide-in on load */
     transform: translateX(80px);
     opacity: 0;
-    animation: slideIn 0.6s ease forwards;
+    animation: floatingSlideIn 0.6s ease forwards;
 }
 
-@keyframes slideIn {
+/* Slide-in animation */
+@keyframes floatingSlideIn {
     to {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
+/* Hide while scrolling */
 .floating-contacts.hide {
     transform: translateX(100px);
     opacity: 0;
     pointer-events: none;
 }
 
-/* Icon button (circle) */
+/* Circular icon button */
 .floating-contacts a {
-    width: 64px;
-    height: 64px;
+    width: clamp(48px, 6vw, 64px);
+    height: clamp(48px, 6vw, 64px);
     background: #0b0b0b;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* Hover effect (desktop only feel) */
 .floating-contacts a:hover {
-    transform: scale(1.1);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+    transform: scale(1.08);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Icon inside */
+/* Icon inside button */
 .floating-contacts img {
-    width: 32px;
-    height: 32px;
+    width: clamp(24px, 3vw, 32px);
+    height: clamp(24px, 3vw, 32px);
     object-fit: contain;
 }
 
+/* Mobile fine-tuning */
 @media (max-width: 768px) {
     .floating-contacts {
-        right: 16px;
-        bottom: 16px;
-        gap: 12px; /* tighter spacing on mobile */
-    }
-
-    .floating-contacts a {
-        width: 56px;
-        height: 56px;
-    }
-
-    .floating-contacts img {
-        width: 28px;
-        height: 28px;
+        right: 12px;
+        bottom: 12px;
+        gap: 6px;
     }
 }
 
+.service-link {
+    text-decoration: none;
+    color: inherit;
+    display: contents;
+}
+
+
+.service-card {
+    position: relative;
+}
+
+.service-card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    text-decoration: none;
+}
 
     </style>
 </head>
 <body>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo-section">
+                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/fdcd6370-0b90-48c0-8af1-8c716bf229d8" alt="PixelMind Developer" class="logo-img">
+                <div class="logo-text">
+                    <h2>PixelMind Developer</h2>
+                    <p>🤖 Code • Create • Innovate ✨</p>
+                </div>
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Explore Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="services.html" class="hire-btn">Order Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-noise"></div>
@@ -655,66 +698,71 @@
             </div>
             <p class="section-subtitle">A focused preview of the primary capabilities PixelMind Developer brings to digital products — engineered for clarity, performance, and long-term impact.</p>
 
+<div class="services-grid">
 
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-card-inner">
-                        <div class="service-icon-wrap">
-                            <div class="service-icon">💻</div>
-                        </div>
-                        <div class="service-title-group">
-                            <span class="service-tag">Web Experience</span>
-                            <h3>Web Development</h3>
-                        </div>
-                        <p>Modern, high-performance websites crafted with clean code, refined UI, and architecture that scales effortlessly as your brand grows.</p>
-                        <div class="service-meta">
-                            <span class="service-dot"></span>
-                            <span>Responsive Designs</span>
-                            <span class="service-pill">Frontend &amp; Backend</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- Card 1 -->
+    <div class="service-card">
+        <a href="web-developing.html" class="service-card-link" aria-label="Web Development Service"></a>
 
-
-                <div class="service-card">
-                    <div class="service-card-inner">
-                        <div class="service-icon-wrap">
-                            <div class="service-icon">📱</div>
-                        </div>
-                        <div class="service-title-group">
-                            <span class="service-tag">Product Experience</span>
-                            <h3>App Development</h3>
-                        </div>
-                        <p>Custom mobile and web applications with smooth interactions, thoughtful flows, and robust integrations built for real-world usage.</p>
-                        <div class="service-meta">
-                            <span class="service-dot"></span>
-                            <span>UX-led builds</span>
-                            <span class="service-pill">Native &amp; Hybrid</span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="service-card">
-                    <div class="service-card-inner">
-                        <div class="service-icon-wrap">
-                            <div class="service-icon">🤖</div>
-                        </div>
-                        <div class="service-title-group">
-                            <span class="service-tag">Intelligent Systems</span>
-                            <h3>AI Chatbot Creation</h3>
-                        </div>
-                        <p>Conversational AI that automates support, streamlines workflows, and delivers consistent, on-brand experiences around the clock.</p>
-                        <div class="service-meta">
-                            <span class="service-dot"></span>
-                            <span>Context-aware flows</span>
-                            <span class="service-pill">Custom Logic</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="service-card-inner">
+            <div class="service-icon-wrap">
+                <div class="service-icon">💻</div>
+            </div>
+            <div class="service-title-group">
+                <span class="service-tag">Web Experience</span>
+                <h3>Web Development</h3>
+            </div>
+            <p>
+                Modern, high-performance websites crafted with clean code,
+                refined UI, and architecture that scales effortlessly as your brand grows.
+            </p>
+            <div class="service-meta">
+                <span class="service-dot"></span>
+                <span>Responsive Designs</span>
+                <span class="service-pill">Frontend &amp; Backend</span>
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="service-card">
+        <div class="service-card-inner">
+            <div class="service-icon-wrap">
+                <div class="service-icon">📱</div>
+            </div>
+            <div class="service-title-group">
+                <span class="service-tag">Product Experience</span>
+                <h3>App Development</h3>
+            </div>
+            <p>Custom mobile and web applications with smooth interactions, thoughtful flows, and robust integrations built for real-world usage.</p>
+            <div class="service-meta">
+                <span class="service-dot"></span>
+                <span>UX-led builds</span>
+                <span class="service-pill">Native &amp; Hybrid</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="service-card">
+        <div class="service-card-inner">
+            <div class="service-icon-wrap">
+                <div class="service-icon">🤖</div>
+            </div>
+            <div class="service-title-group">
+                <span class="service-tag">Intelligent Systems</span>
+                <h3>AI Chatbot Creation</h3>
+            </div>
+            <p>Conversational AI that automates support, streamlines workflows, and delivers consistent, on-brand experiences around the clock.</p>
+            <div class="service-meta">
+                <span class="service-dot"></span>
+                <span>Context-aware flows</span>
+                <span class="service-pill">Custom Logic</span>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
     <!-- Supporting Services Preview -->
@@ -768,8 +816,7 @@
     <!-- Soft CTA -->
     <section class="cta">
         <div class="container">
-            <p style="font-size: 1.1rem; margin-bottom: 25px; opacity: 0.9;">This is a preview of what PixelMind Developer can build for you.</p>
-            <div class="cta-btn" style="cursor: default;">Detailed service breakdown</div>
+            <p style="font-size: 1.1rem; margin-bottom: 25px; opacity: 0.9;">High-performance web and AI solutions designed to elevate brands and drive results</p>
         </div>
     </section>
 
