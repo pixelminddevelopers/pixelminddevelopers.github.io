@@ -1,26 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Title -->
     <title>Premium Web Development Agency for High-Performance Websites | PixelMind Developer</title>
-    <meta name="description" content="PixelMind Developer is a premium digital development agency delivering high-performance website, scalable applications, and Ai chatbot solutions for modern businesses worldwide.">
-    <meta property="og:title" content="PixelMind Developer — Expert Web & App Development Agency">
-    <meta property="og:description" content="Professional web development, mobile apps, and intelligent software solutions for modern businesses.">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:type" content="website">
-    <meta name="theme-color" content="#00ff44">
+
+    <!-- Meta Description -->
+    <meta name="description" content="PixelMind Developer is a premium web development agency building high-performance websites, scalable web apps, and AI-powered solutions for startups, businesses, and global brands.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://pixelminddeveloper.in/">
+
+    <!-- Robots -->
     <meta name="robots" content="index, follow">
-    <meta property="og:image" content="https://pixelminddeveloper.in/company project.png">
-    <meta property="og:url" content="https://pixelminddeveloper.in">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="PixelMind Developer | Premium Web Development Agency">
+    <meta property="og:description" content="High-performance websites, scalable web applications, and AI-powered solutions built for growth-focused businesses.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pixelminddeveloper.in/">
     <meta property="og:site_name" content="PixelMind Developer">
-    <meta name="robots" contents="index, follow" />
-    <link rel="canonical" href="https://pixelminddeveloper.in">
-    <link rel="canonical" href="https://pixelminddeveloper.in/" />
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="preconnect" href="htts://fonts.googleapis.com">
+    <meta property="og:image" content="https://pixelminddeveloper.in/company-project.png">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#00ff44">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;&dispaly=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="navbar.css">
     <style>
         * {
             margin: 0;
@@ -180,26 +191,37 @@
 
         .hero-heading-wrapper {
             display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 0.9rem;
+            flex-direction: column;
+            align-items: flext-start;   /* IMPORTANT*/
+            gap: 0.9rem;
+            margin-bottom: 1.2rem;
         }
 
         .hero-content h1 {
-            font-size: clamp(2.2rem, 5.5vw, 3.6rem);
-            font-weight: 800;
-            letter-spacing: -1.2px;
-            line-height: 1.15;
-            color: var(--text-primary);
+            font-size: clamp(2.4rem, 5.2vw, 3.45rem);
+            font-weight: 650;                /*premium calm weight*/
+            letter-spacing: -0.45px;          
+            line-height: 1.22;
+            color: #f6f7f9;
+
+            
+            max-width: 22ch;
+            text-wrap: balance;
+
+            /*Trust & Premium feel*/
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
         }
 
         .hero-brand {
-            display: inline-block;
-            font-weight: 700;
-            font-size: clamp(1.8rem, 4.3vw, 2.5rem);
-            color: #ebd382;
-            letter-spacing: -0.04px;
             margin-top: 0.6rem;
+            font-weight: 600;
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            letter-spacing: -0.2px;
+            margin-top: 0.6rem;
+            text-align: left;
+            display: block;
+            color: #dfc891;
 }
 
 
@@ -829,6 +851,21 @@
             background: rgba(0, 255, 68, 0.9);
         }
 
+        @media (max-width: 768px) {
+  .hero-h1 {
+    max-width: 100%;
+  }
+
+  .hero-h1 .h1-main {
+    font-size: 2.1rem;
+  }
+
+  .hero-h1 .h1-sub {
+    font-size: 1.3rem;
+  }
+}
+
+
         .nav-links .hire-btn {
     color: #041007 !important;
     background: linear-gradient(135deg, #00ff44, #00e13a);
@@ -913,9 +950,11 @@
             }
 
             .hero-heading-wrapper {
+                display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 0.75rem;
+                align-items: flex-start;
             }
 
             .hero-description {
@@ -1081,8 +1120,316 @@
 }
 
 
+/* ===============================
+   ULTRA PREMIUM MOBILE HERO
+=============================== */
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: auto;
+    padding: 6.5rem 1.2rem 3.5rem;
+  }
+
+  .hero-panel {
+    padding: 2.2rem 1.6rem;
+    border-radius: 16px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.15rem;        /* controlled premium size */
+    line-height: 1.24;
+    letter-spacing: -0.55px;
+    max-width: 28ch;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 2.2rem;
+  }
+
+  .hero-buttons {
+    gap: 0.9rem;
+  }
+}
+
+/* ===============================
+   ULTRA PREMIUM MOBILE HERO
+=============================== */
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: auto;
+    padding: 6.5rem 1.2rem 3.5rem;
+  }
+
+  .hero-panel {
+    padding: 2.2rem 1.6rem;
+    border-radius: 16px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.15rem;        /* controlled premium size */
+    line-height: 1.15;
+    letter-spacing: -0.6px;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 2.2rem;
+  }
+
+  .hero-buttons {
+    gap: 0.9rem;
+  }
+}
+
+/* ===============================
+   PREMIUM MOBILE NAVBAR
+=============================== */
+@media (max-width: 768px) {
+
+  #navbar {
+    padding: 0.75rem 1rem;
+    backdrop-filter: blur(14px);
+    background: rgba(2, 2, 5, 0.85);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .logo-section {
+    gap: 0.55rem;
+  }
+
+  .logo-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .logo-text h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  .logo-text p {
+    font-size: 0.7rem;
+    opacity: 0.85;
+  }
+
+  /* Mobile menu panel */
+  .nav-links {
+    background: linear-gradient(
+      180deg,
+      rgba(5,5,8,0.98),
+      rgba(0,0,0,0.98)
+    );
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 1.2rem 0;
+  }
+
+  .nav-links li a {
+    padding: 0.9rem 1.4rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.4px;
+  }
+
+  .nav-links .hire-btn {
+    margin: 0.6rem 1.4rem;
+    text-align: center;
+  }
+}
+
+/* ===============================
+   PREMIUM MOBILE NAVBAR
+=============================== */
+@media (max-width: 768px) {
+
+  #navbar {
+    padding: 0.75rem 1rem;
+    backdrop-filter: blur(14px);
+    background: rgba(2, 2, 5, 0.85);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .logo-section {
+    gap: 0.55rem;
+  }
+
+  .logo-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .logo-text h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  .logo-text p {
+    font-size: 0.7rem;
+    opacity: 0.85;
+  }
+
+  /* Mobile menu panel */
+  .nav-links {
+    background: linear-gradient(
+      180deg,
+      rgba(5,5,8,0.98),
+      rgba(0,0,0,0.98)
+    );
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 1.2rem 0;
+  }
+
+  .nav-links li a {
+    padding: 0.9rem 1.4rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.4px;
+  }
+
+  .nav-links .hire-btn {
+    margin: 0.6rem 1.4rem;
+    text-align: center;
+  }
+}
+
+.hero-h1 {
+  display: grid;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  max-width: 26ch;
+
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.6px;
+  color: #f6f7f9;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Main authority line */
+.hero-h1 .h1-main {
+  font-size: clamp(2.6rem, 5.5vw, 3.6rem);
+  font-weight: 700;
+}
+
+/* Brand trust line */
+.hero-h1 .h1-brand {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  color: #dfc891; /* your premium gold */
+}
 
 
+@media (max-width: 768px) {
+  .hero-h1 {
+    font-size: 2.1rem;
+    max-width: 100%;
+  }
+
+  .hero-brand {
+    font-size: 0.95rem;
+  }
+}
+
+
+
+    /* ===============================
+   PREMIUM HERO H1 REFINEMENT
+   (OVERRIDES ONLY – SAFE)
+=============================== */
+
+.hero-content .hero-h1 {
+  font-size: clamp(2.6rem, 4.9vw, 3.4rem);
+  font-weight: 750;
+  line-height: 1.14;
+  letter-spacing: -0.55px;
+  color: #ffffff;
+
+  max-width: 28ch;
+  margin-bottom: 0.55rem;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero-content .hero-brand {
+  font-size: clamp(1.55rem, 2.6vw, 1.85rem);
+  font-weight: 650;
+  letter-spacing: 0.45px;
+  color: #d6bc7f;
+  opacity: 0.98;
+
+  margin-top: 0.45rem;
+}
+
+@media (max-width: 768px) {
+  .hero-content .hero-h1 {
+    font-size: 2rem;
+    max-width: 100%;
+    line-height: 1.18;
+  }
+s
+  .hero-content .hero-brand {
+    font-size: 1.35rem;
+  }
+}
+
+.hero-trust-line {
+    margin-top: 1.4rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.3px
+}
+
+
+.services-note {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.75)
+}
+
+.portfolio-note {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.75);
+}
+
+.final-cta {
+  text-align: center;
+  padding: 5rem 1.5rem;
+  background: rgba(0,255,68,0.03);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.final-cta h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 1rem;
+}
+
+.final-cta p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: rgba(255,255,255,0.75);
+}
 
     </style>
 </head>
@@ -1092,7 +1439,7 @@
     <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="logo-section">
-                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/fdcd6370-0b90-48c0-8af1-8c716bf229d8" alt="PixelMind Developer - Premium Web Development Agency" class="logo-img">
+                <img src="company project.png" alt="PixelMind Developer - Premium Web Development Agency" class="logo-img">
                 <div class="logo-text">
                     <h2>PixelMind Developer</h2>
                     <p>🤖 Code • Create • Innovate ✨</p>
@@ -1119,19 +1466,26 @@
             <div class="hero-panel">
                 <div class="hero-content">
                     <div class="hero-heading-wrapper">
-                        <h1>Premium Web Development Agency<br>
-                            <span class="hero-brand">~PixelMind Developer</span>
+                        <h1 class="hero-h1">
+                            Premium Web Development Agency
                         </h1>
+
+                        <p class="hero-brand">—PixelMind Developer</p>
+                            
                     </div>
-                    <p class="hero-tagline">🤖 Premium Digital Agency for High-Perforance Digital Products✨</p>
+                    <p class="hero-tagline">Premium Digital Agency for High-Performance Digital Products</p>
                     <p class="hero-description">
-                        PixelMind Developer is a <strong>premium digital development agency</strong> specializing in high-performance webssites, scalable web applications, ad conversion-focused digital solutions for startups, businesses, and global brands.
-                        We help businesses grow through modern design, clean code, and conveersio-focused development.
+                        PixelMind Developer is a <strong>premium web development agency</strong> specializing in high-performance websites, scalable web applications, conversion-focused digital solutions for startups, businesses, and global brands.
+                        We help businesses grow through modern design, clean code, and conversion-focused development.
                     </p>
                     <div class="hero-buttons">
                         <a href="services.html" class="btn-primary">Order Now</a>
                         <a href="services.html" class="btn-secondary">Explore Services</a>
                     </div>
+
+                    <p class="hero-trust-line">
+                        Trusted by startups & growing businesses worldwide
+                    </p>
                 </div>
             </div>
         </div>
@@ -1142,7 +1496,7 @@
         <div class="services-container">
             <!-- Section Header -->
             <div class="services-header">
-                <h2 class="services-title">Professional Web Development Services</h2>
+                <h2 class="services-title">Solutions Built for Performance & Growth</h2>
                 <p class="services-subtitle">Focused on building scalable, intelligent, and high-quality digital solutions.</p>
             </div>
 
@@ -1200,6 +1554,10 @@
                 <a href="services.html" class="btn-explore">Explore Services</a>
             </div>
         </div>
+
+         <p class="services-note">
+            Designed to help businesses scale faster with reliable, future-ready digital systems.
+        </p>
     </section>
 
     <!-- ABOUT PREVIEW SECTION -->
@@ -1207,13 +1565,13 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">About Our Premium Digital Agency</h2>
-                <p class="section-subtitle">A focused team building premium digital solutions for serious clients.</p>
+                <p class="section-subtitle">A focused team building high-performance-websites and digital solutions for serious clients.</p>
             </div>
 
             <div class="about-preview-panel">
                 <div class="about-preview-content">
                     <p class="about-preview-text">
-                        PixelMind Developer is a modern software development agency specializing in high-performance web applications, mobile solutions, and intelligent automation. We combine clean code with thoughtful design to deliver products that scale.
+                        PixelMind Developer is a modern and Premium software development agency specializing in high-performance web applications, mobile solutions, and intelligent automation. We combine clean code with thoughtful design to deliver products that scale.
                     </p>
                     
                     <div class="about-preview-highlights">
@@ -1242,7 +1600,7 @@
     <section id="portfolio-preview" class="portfolio-preview-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Premium Development Projects</h2>
+                <h2 class="section-title">Work Crafted for Modern Digital Products</h2>
                 <p class="section-subtitle">Concept projects created to demonstrate design and development capability.</p>
             </div>
             
@@ -1279,6 +1637,18 @@
 
             </div>
         </div>
+
+        <p class="portfolio-note">
+            Projects shown to demonstrate design and development capabilities.
+        </p>
+    </section>
+
+    <section class="final-cta">
+        <h2>Let's Build Something That Move Your Business Forward</h2>
+        <p>
+            Share your idea, requirement, or problem - we'll help you plan the right solution.
+        </p>
+        <a href="services.html" class="btn-primary">Let's Get Started</a>
     </section>
 
     <script>
@@ -1291,7 +1661,7 @@
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
-                navbar.classList.remove('scrolled');
+                navbar.classList.remove('scrollfed');
             }
         });
 
