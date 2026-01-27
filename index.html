@@ -1,3 +1,4 @@
+
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,7 +18,7 @@
     <meta property="og:title" content="PixelMind Developer | Premium Web Development Agency">
     <meta property="og:description" content="High-performance websites, scalable web applications, and AI-powered solutions built for growth-focused businesses.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pixelminddeveloper.in/">
+    <meta property="og:url/ oiuyt" content="https://pixelminddeveloper.in/">
     <meta property="og:site_name" content="PixelMind Developer">
     <meta property="og:image" content="https://pixelminddeveloper.in/company-project.png">
 
@@ -83,8 +84,8 @@
             opacity: 1;
         }
 
+        /*==========Hero Section==========*/
        
-        /* ============= HERO SECTION ============= */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -892,7 +893,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px; /* balanced optical spacing */
-    z-index: 9999;
+    z-index: 100;
 
     /* slide-in on load */
     transform: translateX(80px);
@@ -1039,7 +1040,7 @@
 .animated-bg {
     position: fixed;
     inset: 0;
-    z-index: 0;
+    z-index: -1;
     pointer-events: none;
 
     background:
@@ -1072,6 +1073,7 @@
   gap: 14px;
   flex-wrap: wrap;
   margin-top: 8px;
+  justify-content: center;
 }
 
 .legal-pill {
@@ -1194,62 +1196,6 @@
     gap: 0.9rem;
   }
 }
-
-/* ===============================
-   PREMIUM MOBILE NAVBAR
-=============================== */
-@media (max-width: 768px) {
-
-  #navbar {
-    padding: 0.75rem 1rem;
-    backdrop-filter: blur(14px);
-    background: rgba(2, 2, 5, 0.85);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .logo-section {
-    gap: 0.55rem;
-  }
-
-  .logo-img {
-    width: 38px;
-    height: 38px;
-  }
-
-  .logo-text h2 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    letter-spacing: 0.2px;
-  }
-
-  .logo-text p {
-    font-size: 0.7rem;
-    opacity: 0.85;
-  }
-
-  /* Mobile menu panel */
-  .nav-links {
-    background: linear-gradient(
-      180deg,
-      rgba(5,5,8,0.98),
-      rgba(0,0,0,0.98)
-    );
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 1.2rem 0;
-  }
-
-  .nav-links li a {
-    padding: 0.9rem 1.4rem;
-    font-size: 0.95rem;
-    letter-spacing: 0.4px;
-  }
-
-  .nav-links .hire-btn {
-    margin: 0.6rem 1.4rem;
-    text-align: center;
-  }
-}
-
 /* ===============================
    PREMIUM MOBILE NAVBAR
 =============================== */
@@ -1420,8 +1366,13 @@ s
   border-top: 1px solid rgba(255,255,255,0.08);
 }
 
+.final-cta .btn-primary {
+  margin-bottom: 1.25rem;
+}
+
+
 .final-cta h2 {
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
   margin-bottom: 1rem;
 }
 
@@ -1431,9 +1382,286 @@ s
   color: rgba(255,255,255,0.75);
 }
 
+/* ===============================
+   CINEMATIC PREMIUM LOADER
+   =============================== */
+
+#cinema-loader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 10000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: opacity 1.2s ease, visibility 1.2s ease;
+}
+
+#cinema-loader.hide {
+    opacity: 0;
+    transform: 0;
+    transform: scale(1.05);
+    filter: blur(12px);
+    transition: opacity 1.6s ease, transform 16s ease, filter 1.6s ease;
+    visibility: hidden;
+}
+
+
+
+@keyframes coreDrift {
+    from { transform: scale(1) translateY(0); }
+    to { transform: scale(1.15) translateY(-40px); }
+}
+
+
+
+@keyframes corePulse {
+    0%,100% { transform: scale(0.9); opacity: 0.6; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+.cinema-content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+
+/* Brand */
+.cinema-brand {
+    font-size: 1.15rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 18px;
+    opacity: 0;
+    animation: fadeIn 300ms ease forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+
+/* Progress bar (non-numeric, premium) */
+.cinema-bar {
+    width: 220px;
+    height: 2px;
+    background: rgba(255,255,255,0.15);
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.cinema-bar span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00ff44,
+    transparent
+  );
+}
+
+
+@keyframes loadingFlow {
+    to {
+        width: 100%;
+    }
+}
+
+.word-gap {
+    display: inline-block;
+    margin-left: -0.35rem;              /* premium spacing */
+}
+
+.cinema-brand span:nth-child(n) {
+    animation-delay: calc(0.06s * var(--i));
+}
+
+.cinema-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.85) 100%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+
+
+body.loading {
+    overflow: hidden;
+}
+
+.cinema-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+
+    /* This is the key placement */
+    transform: translateY(-8vh);
+}
+
+.cinema-logo {
+    width: 150px;
+    margin-bottom: 16px;
+
+    filter: drop-shadow(0 0 12px rgba(0,255,68,0.35));
+}
+
+.cinema-core {
+    position: absolute;
+    inset: -40%;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(0,255,68,0.12), transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(0,255,68,0.08), transparent 55%);
+    filter: blur(80px);
+    opacity: 0.8;
+}
+
+
+@keyframes coreDrift {
+    from { transform: scale(1) translateY(0); }
+    to   { transform: scale(1.15) translateY(-45px); }
+}
+
+.cinema-bar span {
+    box-shadow:
+        0 0 16px rgba(0,255,68,0.7),
+        0 0 32px rgba(0,255,68,0.35);
+}
+
+@keyframes coreDrift {
+    from { transform: scale(1) translateY(0); }
+    to   { transform: scale(1.15) translateY(-45px); }
+}
+
+
+body.loading #navbar {
+    opacity: 0;
+}
+
+/* Loader may dim content — NOT the navbar */
+body.loading main,
+body.loading section {
+    opacity: 0.15;
+}
+
+/* Navbar must stay interactive */
+body.loading #navbar {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+
+body.ready main,
+body.ready section,
+body.ready nav {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.hero-panel {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 500ms ease-out, transform 500ms ease-out;
+}
+
+body.ready .hero-panel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.encrypted-footer {
+    color: #b0b8cc;
+    margin-top: 1.5rem;
+}
+
+.footer-end-divider {
+  margin-top: 1.6rem;
+
+  width: 100%;
+  max-width: 720px;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.22),
+    transparent
+  );
+
+  opacity: 0.65;
+}
+
+@media (max-width: 768px) {
+
+    .process-block,
+    .focus-item {
+        pointer-events: none;
+    }
+
+    .process-block *,
+    .focus-item * {
+        pointer-events: auto;
+    }
+}
+
+/* ===============================
+   FIX 5 — SAFE GPU SECTIONS RULE
+=============================== */
+.gpu-section {
+    pointer-events: auto;
+}
+
+.gpu-section::before,
+.gpu-section::after {
+    pointer-events: none;
+}
+
+
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    pointer-events: auto;
+}
+
     </style>
 </head>
 <body>
+
+  <!-- CINEMATIC PAGE LOADER -->
+<div id="cinema-loader">
+
+  <!-- Background image -->
+  <div class="cinema-bg"></div>
+
+  <!-- Ambient glow -->
+  <div class="cinema-core"></div>
+
+  <!-- Loader content -->
+  <div class="cinema-content">
+
+    <!-- LOGO -->
+    <img src="company project.png" alt="PixelMind Developer"
+         class="cinema-logo">
+
+    <!-- BRAND NAME -->
+    <h1 class="cinema-brand">PixelMind Developer</h1>
+
+    <!-- LOADING LINE -->
+    <div class="cinema-bar">
+      <span></span>
+    </div>
+
+  </div>
+</div>
+
     <div class="animated-bg"></div>
     <!-- NAVIGATION -->
     <nav id="navbar">
@@ -1644,11 +1872,26 @@ s
     </section>
 
     <section class="final-cta">
-        <h2>Let's Build Something That Move Your Business Forward</h2>
+        <h2>Let's Build Something That<br>Move Your Business Forward</h2>
         <p>
             Share your idea, requirement, or problem - we'll help you plan the right solution.
         </p>
         <a href="services.html" class="btn-primary">Let's Get Started</a>
+
+        <footer class="site-footer">
+            <div class="footer-inner">
+   
+     <div class="footer-legal-links">
+      <a href="privacy.html" class="legal-pill">Privacy Policy</a>
+      <a href="terms.html"class="legal-pill">Terms & Conditions</a>
+      <a href="refund.html" class="legal-pill">Refund Policy</a>
+      </div>
+      </div>
+
+      <div class="encrypted-footer">
+        <p>© 2026 PixelMind Developer. All rights reserved.</p>
+
+</footer>
     </section>
 
     <script>
@@ -1661,7 +1904,7 @@ s
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
-                navbar.classList.remove('scrollfed');
+                navbar.classList.remove('scrolled');
             }
         });
 
@@ -1758,20 +2001,7 @@ window.addEventListener("scroll", () => {
 </section>
 
 
-<footer class="site-footer">
-  <div class="footer-inner">
-   
-     <p>© 2026 PixelMind Developer. All rights reserved.</p>
 
-    <div class="footer-legal-links">
-      <a href="privacy.html" class="legal-pill">Privacy Policy</a>
-      <a href="terms.html"class="legal-pill">Terms & Conditions</a>
-      <a href="refund.html" class="legal-pill">Refund Policy</a>
-
-    
-    </div>
-  </div>
-</footer>
 
 <!--SEO Structured Data (JSON-LD)-->
 <script type="application/ld+json">
@@ -1790,8 +2020,58 @@ window.addEventListener("scroll", () => {
 </script>
 
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const loader = document.getElementById('cinema-loader');
+  const progressLine = document.querySelector('.cinema-bar span');
+
+  // Lock page
+  document.body.classList.add('loading');
+
+  // Force clean start (important)
+  progressLine.style.width = '0%';
+  progressLine.style.animation = 'none';
+
+  // Start progress animation AFTER paint
+  setTimeout(() => {
+    progressLine.style.animation =
+      'loadingFlow 1100ms cubic-bezier(0.4,0,0.2,1) forwards';
+  }, 150);
+
+  // Premium timing
+  const MIN_LOADER_TIME = 1800; // 1.8s
+  const MAX_LOADER_TIME = 5000; // safety
+
+  let loaderRemoved = false;
+
+  const removeLoader = () => {
+    if (loaderRemoved) return;
+    loaderRemoved = true;
+
+    loader.classList.add('hide');
+
+    setTimeout(() => {
+      document.body.classList.remove('loading');
+      document.body.classList.add('ready');
+    }, 600);
+  };
+
+  // Normal exit
+  setTimeout(removeLoader, MIN_LOADER_TIME);
+
+  // Safety exit
+  setTimeout(removeLoader, MAX_LOADER_TIME);
+});
+
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.remove("loading");
+    document.body.classList.add("ready");
+});
+
+</script>
+
 
 </body>
 </html>
-
-

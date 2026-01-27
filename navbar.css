@@ -39,13 +39,17 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 20;
+    z-index:10001;
     background: transparent;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(0, 255, 68, 0.16);
     padding: 1.1rem 2rem;
     transition: all var(--transition-smooth);
+    
+    transform: translateZ(0);
+
+    isolation: isolate; /* ✅ Final Fix*/
 }
 
 nav.scrolled {
@@ -183,6 +187,7 @@ nav.scrolled {
     right: -100%;
     height: 100vh;
     width: 260px;
+    z-index: 10000;
 
     flex-direction: column;
     align-items: flex-start;
@@ -193,11 +198,18 @@ nav.scrolled {
     padding: 5.5rem 1.5rem 2rem;
     gap: 1.4rem;
 
-    transition: left 320ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: right 320ms cubic-bezier(0.4, 0, 0.2, 1);
+   
+    pointer-events: none;   /* Key Fix */
+}
+
+.nav-toggle {
+    z-index: 30;
 }
 
     .nav-links.active {
         right: 0;
+        pointer-events: auto;  /* Key Fix */
     }
 
     .nav-links a {
@@ -209,4 +221,35 @@ nav.scrolled {
 .nav-links li:last-child {
     margin-top: 1.6rem;
 }
+
+/* ===============================
+   FIX 1 — NAVBAR TOUCH ISOLATION
+   (NO VISUAL CHANGE)
+=============================== */
+nav {
+    isolation: isolate;
+    transform: translateZ(0);
+    pointer-events: auto;
+}
+
+/* ===============================
+   FIX 4 — MOBILE MENU LAYER LOCK
+=============================== */
+@media (max-width: 768px) {
+    .nav-links {
+        isolation: isolate;
+        transform: translateZ(0);
+    }
+}
+
+
+
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    pointer-events: auto;
+}
+
 
