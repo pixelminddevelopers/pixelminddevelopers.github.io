@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Your Project | PixelMind Developers</title>
+<meta name="description" content="Begin your AI or software project with PixelMind Developers. A structured, guided process to choose the right service, understand your options, and share your requirements with confidence.">
+<meta name="keywords" content="start AI project, project configurator, software project onboarding, AI automation agency, enterprise software inquiry">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#050505">
+<link rel="canonical" href="https://www.pixelminddeveloper.in/start-project.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Start Your Project | PixelMind Developers">
+<meta property="og:description" content="A structured, guided process to start your AI or software project with PixelMind Developers — choose your service, understand your options, and share your requirements with confidence.">
+<meta property="og:url" content="https://www.pixelminddeveloper.in/start-project.html">
+<meta property="og:site_name" content="PixelMind Developers">
+<meta property="og:image" content="https://www.pixelminddeveloper.in/og-cover.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Start Your Project | PixelMind Developers">
+<meta name="twitter:description" content="A structured, guided process to start your AI or software project with PixelMind Developers.">
+<meta name="twitter:image" content="https://www.pixelminddeveloper.in/og-cover.jpg">
+
+<!-- Structured Data: Breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pixelminddeveloper.in/" },
+    { "@type": "ListItem", "position": 2, "name": "Start Your Project", "item": "https://www.pixelminddeveloper.in/start-project.html" }
+  ]
+}
+</script>
+
+<!-- Structured Data: WebPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Start Your Project | PixelMind Developers",
+  "description": "A structured, guided process to start your AI or software project with PixelMind Developers.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "PixelMind Developers",
+    "url": "https://www.pixelminddeveloper.in/"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   TOKENS
+   (identical to index.html — single source of truth)
+========================================================= */
+:root{
+  --bg:#050505;
+  --surface:#0D0D0D;
+  --card:#131313;
+  --gold:#D4AF37;
+  --gold-2:#E7C86A;
+  --text:#F8F8F8;
+  --muted:#A8A8A8;
+  --border:rgba(212,175,55,.18);
+  --border-strong:rgba(212,175,55,.4);
+  --radius:14px;
+  --ease:cubic-bezier(.16,.8,.24,1);
+  --max:1240px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important;}
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+h1,h2,h3,h4{
+  font-family:'Sora',sans-serif;
+  margin:0;
+  font-weight:700;
+  letter-spacing:-0.01em;
+  color:var(--text);
+}
+
+p{margin:0;color:var(--muted);}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;}
+ul,ol{list-style:none;margin:0;padding:0;}
+
+.container{max-width:var(--max);margin:0 auto;padding:0 32px;}
+.eyebrow{
+  font-family:'Sora',sans-serif;
+  font-size:.72rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{
+  content:'';
+  width:18px;height:1px;
+  background:var(--gold);
+  display:inline-block;
+}
+
+.section{padding:120px 0;position:relative;}
+.section-head{max-width:640px;margin-bottom:64px;}
+.section-head h2{font-size:clamp(1.9rem,3.2vw,2.6rem);margin-top:16px;line-height:1.2;}
+.section-head p{margin-top:18px;font-size:1.02rem;color:var(--muted);font-weight:400;}
+
+/* skip link */
+.skip-link{
+  position:absolute;left:-999px;top:0;background:var(--gold);color:#050505;padding:10px 18px;z-index:999;font-weight:600;
+}
+.skip-link:focus{left:16px;top:16px;}
+
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:4px;}
+
+/* =========================================================
+   NAVIGATION (identical to index.html)
+========================================================= */
+.nav{
+  position:fixed;top:0;left:0;right:0;
+  z-index:100;
+  padding:22px 0;
+  transition:padding .35s var(--ease), background .35s var(--ease), border-color .35s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  padding:14px 0;
+  background:rgba(5,5,5,.78);
+  backdrop-filter:blur(16px) saturate(140%);
+  border-bottom:1px solid var(--border);
+}
+.nav .container{display:flex;align-items:center;justify-content:space-between;}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-0.01em;}
+.brand-mark{
+  width:auto;
+  height:60px;
+  object-fit:contain;
+  display:block;
+  flex-shrink:0;
+}
+.nav-links{display:flex;align-items:center;gap:36px;}
+.nav-links a{
+  font-size:.88rem;font-weight:500;color:var(--muted);
+  position:relative;padding:4px 0;transition:color .25s var(--ease);
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);
+  transition:width .3s var(--ease);
+}
+.nav-links a:hover, .nav-links a:focus-visible{color:var(--text);}
+.nav-links a:hover::after, .nav-links a:focus-visible::after{width:100%;}
+.nav-links a[aria-current="page"]{color:var(--text);}
+.nav-links a[aria-current="page"]::after{width:100%;}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 26px;border-radius:999px;
+  font-family:'Sora',sans-serif;font-size:.85rem;font-weight:600;
+  border:1px solid transparent;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease);
+  white-space:nowrap;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  color:#050505;
+}
+.btn-primary:hover, .btn-primary:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px -8px rgba(212,175,55,.55);
+}
+.btn-ghost{
+  border-color:var(--border-strong);
+  color:var(--text);
+  background:transparent;
+}
+.btn-ghost:hover, .btn-ghost:focus-visible{
+  background:rgba(212,175,55,.08);
+  border-color:var(--gold);
+}
+.btn-sm{padding:10px 20px;font-size:.78rem;}
+
+.nav-cta{display:flex;align-items:center;gap:16px;}
+.nav-toggle{
+  display:none;background:none;border:1px solid var(--border-strong);border-radius:8px;
+  width:42px;height:42px;align-items:center;justify-content:center;color:var(--text);
+}
+.nav-toggle svg{width:18px;height:18px;}
+
+.mobile-panel{
+  position:fixed;inset:0;background:rgba(5,5,5,.98);backdrop-filter:blur(10px);
+  z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+  transform:translateY(-100%);transition:transform .45s var(--ease);
+}
+.mobile-panel.open{transform:translateY(0);}
+.mobile-panel a{font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:600;}
+.mobile-close{position:absolute;top:26px;right:28px;background:none;border:none;color:var(--text);width:40px;height:40px;}
+
+@media (max-width:860px){
+  .nav-links{display:none;}
+  .nav-toggle{display:flex;}
+  .nav-cta .btn-primary{display:none;}
+}
+@media (max-width:520px){
+  .nav-cta{gap:10px;}
+}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+
+/* =========================================================
+   ENTERPRISE INFORMATION STRIP
+   New component — extends the design system, sits directly
+   under the fixed header. Same visual weight as the existing
+   .partners strip, repurposed to carry short trust indicators
+   instead of technology logos.
+========================================================= */
+.info-strip{
+  padding:148px 0 20px;
+  border-bottom:1px solid var(--border);
+  background:var(--surface);
+}
+.info-strip-list{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;row-gap:10px;
+}
+.info-strip-list li{
+  font-family:'Sora',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+}
+.info-strip-list li:not(:last-child)::after{
+  content:'';display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--gold);
+  margin:0 22px;vertical-align:middle;
+}
+@media (max-width:640px){
+  .info-strip{padding-top:132px;}
+  .info-strip-list li:not(:last-child)::after{margin:0 12px;}
+}
+
+/* =========================================================
+   HERO — reuses the existing .hero system.
+   .hero-configurator only adjusts height/spacing since this
+   page opens with the Information Strip, not directly under
+   the fixed nav.
+========================================================= */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:180px 0 120px;
+  overflow:hidden;
+}
+.hero.hero-configurator{
+  min-height:auto;
+  padding:72px 0 110px;
+}
+.hero-spotlight{
+  position:absolute;inset:0;
+  background:radial-gradient(600px circle at var(--mx,50%) var(--my,20%), rgba(212,175,55,.10), transparent 60%);
+  transition:background .1s linear;
+  pointer-events:none;
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(212,175,55,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,175,55,.05) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(650px circle at 50% 30%, black, transparent 75%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center;}
+.hero h1{
+  font-size:clamp(2.6rem,6vw,4.6rem);
+  line-height:1.06;
+  margin-top:26px;
+  letter-spacing:-0.02em;
+}
+.hero h1 .accent{
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p.lead{
+  max-width:600px;margin:26px auto 0;
+  font-size:1.15rem;color:var(--muted);
+}
+.hero-cta{display:flex;gap:16px;justify-content:center;margin-top:42px;flex-wrap:wrap;}
+
+/* =========================================================
+   HOW OUR PROCESS WORKS
+   Reuses the existing .workflow component (numbered nodes on
+   a connecting track) at 5 steps instead of 4.
+========================================================= */
+.workflow{position:relative;}
+.workflow-track{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;
+}
+.workflow-track::before{
+  content:'';position:absolute;top:23px;left:6%;right:6%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--border-strong) 10%, var(--border-strong) 90%, transparent);
+}
+.workflow-step{padding:0 20px;position:relative;}
+.wf-node{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--border-strong);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Sora',sans-serif;font-weight:700;color:var(--gold);
+  position:relative;z-index:1;margin-bottom:28px;
+}
+.wf-node.active{box-shadow:0 0 0 6px rgba(212,175,55,.08);}
+.workflow-step h3{font-size:1.05rem;}
+.workflow-step p{margin-top:10px;font-size:.9rem;}
+@media (max-width:900px){
+  .workflow-track{grid-template-columns:1fr;gap:44px;}
+  .workflow-track::before{display:none;}
+}
+
+/* =========================================================
+   WHY THIS PROCESS EXISTS
+   Reuses the existing .why-grid component (bordered cell grid)
+   at 6 items instead of 5.
+========================================================= */
+.why-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.why-item{padding:36px 24px;border-right:1px solid var(--border);text-align:center;}
+.why-item:last-child{border-right:none;}
+.why-item .num{font-family:'Sora',sans-serif;color:var(--gold);font-weight:800;font-size:1.4rem;}
+.why-item h3{font-size:.92rem;margin-top:14px;}
+.why-item p{font-size:.82rem;margin-top:8px;}
+@media (max-width:960px){.why-grid{grid-template-columns:repeat(2,1fr);}.why-item{border-right:none;border-bottom:1px solid var(--border);}}
+
+/* =========================================================
+   CHOOSE YOUR SOLUTION — Service Selection (Sprint 2)
+   Reuses the .solution-card hover philosophy (lift + border-
+   color + glow) from index.html, extended with a selectable
+   state driven by a native radio input for full keyboard and
+   screen-reader support.
+========================================================= */
+.category-badge{
+  display:inline-flex;align-items:center;
+  padding:5px 12px;border-radius:999px;
+  border:1px solid var(--border-strong);
+  background:rgba(212,175,55,.06);
+  font-family:'Sora',sans-serif;font-size:.66rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--gold);
+}
+
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+
+.service-radio{position:absolute;left:-9999px;}
+
+.service-card{
+  display:block;cursor:pointer;
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:34px;transition:transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease);
+  position:relative;overflow:hidden;
+}
+.service-card::before{
+  content:'';position:absolute;top:-40%;right:-40%;width:70%;height:70%;
+  background:radial-gradient(circle,rgba(212,175,55,.14),transparent 70%);
+  opacity:0;transition:opacity .4s var(--ease);
+}
+.service-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--border-strong);
+  box-shadow:0 24px 48px -24px rgba(0,0,0,.6);
+}
+.service-card:hover::before{opacity:1;}
+
+.service-card h3{font-size:1.1rem;position:relative;z-index:1;margin-top:18px;}
+.service-desc{margin-top:12px;font-size:.92rem;position:relative;z-index:1;}
+.service-suitable{margin-top:14px;font-size:.82rem;position:relative;z-index:1;padding-top:14px;border-top:1px solid var(--border);}
+.service-suitable strong{color:var(--text);font-weight:600;}
+
+/* Selected state */
+.service-radio:checked + .service-card{
+  border-color:var(--gold);
+  background:linear-gradient(180deg, rgba(212,175,55,.09), var(--card) 60%);
+  box-shadow:0 24px 48px -24px rgba(0,0,0,.6);
+}
+.service-radio:checked + .service-card::before{opacity:1;}
+.service-radio:checked + .service-card .service-check{
+  opacity:1;transform:scale(1);
+}
+.service-check{
+  position:absolute;top:26px;right:26px;z-index:1;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--gold);color:#050505;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:scale(.6);
+  transition:opacity .25s var(--ease), transform .25s var(--ease);
+}
+.service-check svg{width:13px;height:13px;}
+
+/* Visible focus state forwarded from the hidden native radio to the card */
+.service-radio:focus-visible + .service-card{
+  outline:2px solid var(--gold-2);outline-offset:3px;
+}
+
+@media (max-width:960px){.service-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:640px){.service-grid{grid-template-columns:1fr;}}
+
+.configurator-continue{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:56px;}
+.configurator-continue .btn[disabled]{
+  opacity:.4;cursor:not-allowed;
+  box-shadow:none;transform:none;
+}
+.configurator-continue .btn[disabled]:hover{transform:none;box-shadow:none;}
+.continue-status{font-size:.86rem;color:var(--muted);min-height:1.2em;}
+.continue-status strong{color:var(--gold-2);font-weight:600;}
+
+/* =========================================================
+   PACKAGE SELECTION (Sprint 3)
+   Package cards reuse .service-card / .service-radio /
+   .service-check / .service-suitable as-is (same border,
+   hover-lift, glow, checked-state and focus treatment as
+   Sprint 2) — only the feature-list and meta-row are new.
+========================================================= */
+.packages-empty{
+  border:1px dashed var(--border-strong);border-radius:var(--radius);
+  padding:44px;text-align:center;color:var(--muted);font-size:.94rem;
+}
+.package-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;}
+.package-grid .service-card{display:flex;flex-direction:column;}
+@media (max-width:960px){.package-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:640px){.package-grid{grid-template-columns:1fr;}}
+
+.package-meta{
+  display:flex;gap:26px;margin-top:16px;padding-top:16px;
+  border-top:1px solid var(--border);position:relative;z-index:1;
+}
+.package-meta div span{
+  display:block;font-family:'Sora',sans-serif;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:4px;
+}
+.package-meta div strong{font-size:.92rem;color:var(--text);font-weight:700;}
+
+.package-features{margin-top:20px;position:relative;z-index:1;flex:1;}
+.feature-category{margin-top:16px;}
+.feature-category:first-child{margin-top:0;}
+.feature-category h4{
+  font-family:'Sora',sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-weight:700;margin-bottom:8px;
+}
+.feature-list li{
+  display:flex;align-items:flex-start;gap:9px;font-size:.83rem;padding:4px 0;color:var(--text);line-height:1.45;
+}
+.feature-list li.is-muted{color:var(--muted);}
+.feature-list li .f-icon{flex-shrink:0;width:15px;height:15px;margin-top:2px;}
+.feature-list li.is-active .f-icon{color:var(--gold);}
+.feature-list li.is-muted .f-icon{color:var(--border-strong);}
+
+.package-cta-label{
+  display:block;text-align:center;margin-top:24px;position:relative;z-index:1;pointer-events:none;
+}
+
+.bespoke-card{max-width:720px;margin:0 auto;}
+.bespoke-includes{margin-top:20px;position:relative;z-index:1;}
+.bespoke-includes h4{
+  font-family:'Sora',sans-serif;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-weight:700;margin-bottom:10px;
+}
+.bespoke-card .btn{margin-top:28px;position:relative;z-index:1;}
+
+/* =========================================================
+   REQUIREMENTS COLLECTION (Sprint 4)
+   Form container reuses the same card tokens (border, radius,
+   padding scale) as .service-card without its interactive
+   hover/glow, since this card isn't a selectable option.
+========================================================= */
+.requirements-back-nav{display:flex;flex-wrap:wrap;gap:28px;margin-bottom:28px;}
+.back-link{
+  font-size:.86rem;font-weight:500;color:var(--muted);
+  display:inline-flex;align-items:center;gap:6px;
+  transition:color .25s var(--ease);
+}
+.back-link:hover, .back-link:focus-visible{color:var(--gold-2);}
+
+.requirements-context{font-size:.94rem;color:var(--gold-2);font-weight:500;margin-bottom:26px;}
+
+.requirements-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:48px;
+}
+.requirements-card fieldset{border:none;padding:0;margin:0 0 42px;}
+.requirements-card fieldset:last-of-type{margin-bottom:0;}
+.requirements-card legend{
+  display:block;font-family:'Sora',sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin-bottom:22px;padding:0;
+}
+.required{color:var(--gold);}
+.optional{color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0;font-size:.78rem;margin-left:4px;}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px;}
+.field{margin-bottom:0;}
+.field.full{grid-column:1/-1;}
+.field label{display:block;font-family:'Sora',sans-serif;font-size:.86rem;font-weight:600;color:var(--text);margin-bottom:8px;}
+.field .helper{font-size:.8rem;color:var(--muted);margin:-2px 0 8px;}
+.field input, .field select, .field textarea{
+  width:100%;background:var(--surface);border:1px solid var(--border-strong);border-radius:10px;
+  padding:13px 16px;color:var(--text);font-family:'Inter',sans-serif;font-size:.92rem;
+  transition:border-color .25s var(--ease), box-shadow .25s var(--ease);
+}
+.field input::placeholder, .field textarea::placeholder{color:rgba(168,168,168,.7);}
+.field input:focus, .field select:focus, .field textarea:focus{
+  outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.16);
+}
+.field textarea{resize:vertical;min-height:112px;line-height:1.55;}
+.field select{
+  appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:42px;
+  background-repeat:no-repeat;background-position:right 16px center;background-size:14px;
+  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23A8A8A8" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>');
+}
+.field .error-msg{display:none;font-size:.8rem;color:#F5A3A6;margin-top:7px;}
+.field.has-error input, .field.has-error select, .field.has-error textarea{border-color:#E5484D;}
+.field.has-error .error-msg{display:block;}
+@media (max-width:760px){.form-grid{grid-template-columns:1fr;}}
+@media (max-width:640px){.requirements-card{padding:32px 24px;}}
+
+/* =========================================================
+   REVIEW, SUBMISSION & SUCCESS (Sprint 5)
+   The review card and success card both reuse .requirements-card
+   for their container (border/radius/padding tokens). The Next
+   Steps list reuses .workflow-track / .workflow-step / .wf-node
+   verbatim from Sprint 1 — same 5-item layout, zero new CSS.
+========================================================= */
+.review-group{margin-bottom:36px;}
+.review-group:last-child{margin-bottom:0;}
+.review-group-head{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border);
+}
+.review-group-head h3{font-size:1rem;}
+.review-edit{
+  font-family:'Sora',sans-serif;font-size:.78rem;font-weight:600;color:var(--gold);
+  white-space:nowrap;transition:color .25s var(--ease);
+}
+.review-edit:hover, .review-edit:focus-visible{color:var(--gold-2);}
+.review-fields{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;margin:0;}
+.review-fields > div.full{grid-column:1/-1;}
+.review-fields dt{
+  font-family:'Sora',sans-serif;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:4px;
+}
+.review-fields dd{margin:0;font-size:.92rem;color:var(--text);line-height:1.5;}
+.review-text{font-size:.92rem;color:var(--text);line-height:1.65;margin:0;}
+@media (max-width:640px){.review-fields{grid-template-columns:1fr;}}
+
+.continue-status.is-error{color:#F5A3A6;}
+.continue-status.is-error strong{color:#F5A3A6;}
+
+.loading-indicator{display:inline-flex;align-items:center;gap:12px;}
+.loading-spinner{
+  width:17px;height:17px;border-radius:50%;flex-shrink:0;
+  border:2px solid var(--border-strong);border-top-color:var(--gold);
+  animation:pmSpin .8s linear infinite;
+}
+@keyframes pmSpin{to{transform:rotate(360deg);}}
+
+.success-card{max-width:760px;margin:0 auto;text-align:center;}
+.success-icon{
+  width:64px;height:64px;border-radius:50%;margin:0 auto 22px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  color:#050505;display:flex;align-items:center;justify-content:center;
+}
+.success-icon svg{width:28px;height:28px;}
+.success-card > .lead{max-width:520px;margin:16px auto 0;color:var(--muted);font-size:1rem;}
+.reference-id-box{
+  max-width:420px;margin:28px auto 0;background:var(--surface);
+  border:1px solid var(--border-strong);border-radius:var(--radius);padding:22px 28px;
+}
+.reference-id-label{
+  display:block;font-family:'Sora',sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin-bottom:8px;
+}
+.reference-id-value{display:block;font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:700;color:var(--text);letter-spacing:.02em;}
+.reference-id-note{margin-top:10px;font-size:.82rem;color:var(--muted);}
+.next-steps{margin-top:52px;text-align:left;}
+.next-steps > .eyebrow{display:block;text-align:center;margin-bottom:28px;}
+.success-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:48px;}
+
+/* =========================================================
+   FOOTER (identical to index.html)
+========================================================= */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:80px 0 30px;}
+.footer-top{display:grid;grid-template-columns:1.3fr .8fr .8fr .8fr .8fr .95fr;gap:32px;padding-bottom:60px;}
+.footer-brand p{margin-top:16px;font-size:.9rem;max-width:280px;}
+.footer-col h4{font-family:'Sora',sans-serif;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text);margin-bottom:20px;}
+.footer-col ul{display:flex;flex-direction:column;gap:12px;}
+.footer-col a{font-size:.88rem;color:var(--muted);transition:color .25s var(--ease);}
+.footer-col a:hover{color:var(--gold-2);}
+.contact-list li a{display:flex;align-items:center;gap:10px;}
+.contact-list .c-icon{
+  width:30px;height:30px;border-radius:8px;border:1px solid var(--border-strong);
+  display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0;
+  transition:border-color .25s var(--ease), color .25s var(--ease);
+}
+.contact-list .c-icon svg{width:14px;height:14px;}
+.contact-list li a:hover .c-icon{border-color:var(--gold);color:var(--gold-2);}
+.newsletter{display:flex;margin-top:18px;border:1px solid var(--border-strong);border-radius:999px;overflow:hidden;max-width:280px;}
+.newsletter input{
+  flex:1;background:none;border:none;padding:12px 16px;color:var(--text);font-size:.85rem;min-width:0;
+}
+.newsletter input:focus{outline:none;}
+.newsletter button{background:var(--gold);border:none;color:#050505;padding:0 18px;font-weight:700;font-size:.8rem;font-family:'Sora',sans-serif;}
+.social-row{display:flex;gap:12px;margin-top:20px;}
+.social-row a{
+  width:36px;height:36px;border:1px solid var(--border-strong);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;color:var(--muted);
+  transition:all .25s var(--ease);
+}
+.social-row a:hover{border-color:var(--gold);color:var(--gold);}
+.social-row svg{width:16px;height:16px;}
+.footer-bottom{
+  border-top:1px solid var(--border);padding-top:26px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  font-size:.8rem;color:var(--muted);
+}
+.footer-bottom a{margin-left:20px;}
+@media (max-width:1080px){.footer-top{grid-template-columns:1fr 1fr 1fr;}}
+@media (max-width:700px){.footer-top{grid-template-columns:1fr 1fr;}}
+@media (max-width:480px){.footer-top{grid-template-columns:1fr;}}
+
+.back-to-top{
+  position:fixed;bottom:98px;right:28px;width:46px;height:46px;border-radius:50%;
+  background:var(--card);border:1px solid var(--border-strong);color:var(--gold);
+  display:flex;align-items:center;justify-content:center;z-index:60;
+  opacity:0;transform:translateY(12px);transition:opacity .3s var(--ease), transform .3s var(--ease);
+}
+.back-to-top.show{opacity:1;transform:translateY(0);}
+
+/* =========================================================
+   WHATSAPP FLOATING BUTTON (identical to index.html)
+========================================================= */
+.whatsapp-float{
+  position:fixed;bottom:28px;right:28px;width:58px;height:58px;border-radius:50%;
+  background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 22px rgba(0,0,0,.35);
+  z-index:65;
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease);
+  animation:wa-pulse 2.6s infinite;
+}
+.whatsapp-float:hover, .whatsapp-float:focus-visible{
+  transform:scale(1.08);
+  box-shadow:0 8px 26px rgba(0,0,0,.4), 0 0 0 8px rgba(37,211,102,.12);
+}
+.whatsapp-float svg{width:30px;height:30px;display:block;}
+@keyframes wa-pulse{
+  0%{box-shadow:0 6px 22px rgba(0,0,0,.35), 0 0 0 0 rgba(37,211,102,.45);}
+  70%{box-shadow:0 6px 22px rgba(0,0,0,.35), 0 0 0 14px rgba(37,211,102,0);}
+  100%{box-shadow:0 6px 22px rgba(0,0,0,.35), 0 0 0 0 rgba(37,211,102,0);}
+}
+.whatsapp-tooltip{
+  position:absolute;right:70px;top:50%;transform:translateY(-50%);
+  background:var(--card);color:var(--text);border:1px solid var(--border-strong);
+  padding:8px 14px;border-radius:8px;font-size:.82rem;font-weight:500;
+  white-space:nowrap;opacity:0;pointer-events:none;
+  transition:opacity .25s var(--ease), transform .25s var(--ease);
+}
+.whatsapp-float:hover .whatsapp-tooltip, .whatsapp-float:focus-visible .whatsapp-tooltip{
+  opacity:1;transform:translateY(-50%) translateX(-4px);
+}
+@media (max-width:480px){
+  .whatsapp-float{width:52px;height:52px;bottom:20px;right:20px;}
+  .whatsapp-float svg{width:26px;height:26px;}
+  .back-to-top{bottom:86px;right:20px;}
+  .whatsapp-tooltip{display:none;}
+}
+
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="siteNav">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="PixelMind Developers home">
+      <img src="company-logo.png" alt="PixelMind Developers logo" class="brand-mark">
+      PixelMind Developers
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="start-project.html" class="btn btn-primary btn-sm" aria-current="page">Place Order</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="start-project.html" class="btn btn-primary" style="margin-top:12px;" aria-current="page">Start Your Project</a>
+</div>
+
+<main id="main">
+
+  <!-- ============================ ENTERPRISE INFORMATION STRIP ============================ -->
+  <section class="info-strip" aria-label="Company credentials">
+    <div class="container">
+      <ul class="info-strip-list">
+        <li>Enterprise AI Solutions</li>
+        <li>Software Engineering Excellence</li>
+        <li>Structured Project Onboarding</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero hero-configurator" id="hero">
+    <div class="hero-spotlight" id="spotlight"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="eyebrow reveal">Project Configurator</p>
+      <h1 class="reveal">A structured way to start your <span class="accent">next AI or software project</span>.</h1>
+      <p class="lead reveal">The Project Configurator replaces the guesswork of a contact form with a guided process — built to help you choose the right service, understand your options, and share your requirements with confidence.</p>
+      <div class="hero-cta reveal">
+        <a href="#solutions" class="btn btn-primary">Choose Your Solution</a>
+        <a href="contact.html" class="btn btn-ghost">Talk to Our Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ HOW OUR PROCESS WORKS ============================ -->
+  <section class="section workflow" id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">How it works</span>
+        <h2>A clear path from first message to project kickoff.</h2>
+        <p>Five straightforward steps. No guesswork and no back-and-forth — just a structured way to get your project started.</p>
+      </div>
+      <ol class="workflow-track">
+        <li class="workflow-step reveal">
+          <div class="wf-node active">01</div>
+          <h3>Choose Service</h3>
+          <p>Tell us whether you need an AI solution or software engineering. Not sure? We'll help you find the right fit.</p>
+        </li>
+        <li class="workflow-step reveal">
+          <div class="wf-node">02</div>
+          <h3>Select Package</h3>
+          <p>Compare engagement tiers side by side and choose the scope that matches where your business is today.</p>
+        </li>
+        <li class="workflow-step reveal">
+          <div class="wf-node">03</div>
+          <h3>Share Requirements</h3>
+          <p>Walk us through your goals, timeline, and project details in a guided, structured format.</p>
+        </li>
+        <li class="workflow-step reveal">
+          <div class="wf-node">04</div>
+          <h3>Review Details</h3>
+          <p>Check everything before it's sent. Nothing moves forward until you've confirmed it's accurate.</p>
+        </li>
+        <li class="workflow-step reveal">
+          <div class="wf-node">05</div>
+          <h3>Submit Inquiry</h3>
+          <p>Send your project inquiry to our team and receive a structured response within one business day.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================ WHY THIS PROCESS EXISTS ============================ -->
+  <section class="section" id="why-process" style="background:var(--surface);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Why this process exists</span>
+        <h2>Why we don't just use a contact form.</h2>
+        <p>A structured process exists because the outcome matters more than the paperwork. Here's what it gives you that a simple inquiry form can't.</p>
+      </div>
+      <ul class="why-grid">
+        <li class="why-item reveal"><div class="num">01</div><h3>Better Project Understanding</h3><p>We learn what your business actually needs, not just what fits in a form field.</p></li>
+        <li class="why-item reveal"><div class="num">02</div><h3>More Accurate Proposals</h3><p>Structured information means proposals reflect your real project, not assumptions.</p></li>
+        <li class="why-item reveal"><div class="num">03</div><h3>Faster Communication</h3><p>Clear, complete details upfront mean fewer rounds of back-and-forth before work begins.</p></li>
+        <li class="why-item reveal"><div class="num">04</div><h3>Reduced Misunderstandings</h3><p>Requirements are captured clearly from day one, so scope stays aligned throughout delivery.</p></li>
+        <li class="why-item reveal"><div class="num">05</div><h3>Higher Delivery Quality</h3><p>Projects that start with clarity are engineered with fewer revisions and stronger outcomes.</p></li>
+        <li class="why-item reveal"><div class="num">06</div><h3>Structured Onboarding</h3><p>Every project enters the same disciplined process, regardless of size or complexity.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ CHOOSE YOUR SOLUTION ============================ -->
+  <section class="section" id="solutions">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Choose your solution</span>
+        <h2>Every business needs a different starting point.</h2>
+        <p>Selecting the right service ensures a more accurate proposal and a smoother onboarding process. Take a moment to choose the option that best reflects what you're trying to achieve — you can always talk it through with our team if you're unsure.</p>
+      </div>
+
+      <form id="serviceForm" novalidate>
+        <fieldset style="border:none;padding:0;margin:0;">
+          <legend style="position:absolute;left:-9999px;">Choose your service</legend>
+
+          <div class="service-grid" id="serviceGrid">
+
+            <div class="reveal">
+              <input type="radio" class="service-radio" name="service" id="svc-ai-chatbots" value="AI Chatbots" data-category="AI Solution">
+              <label for="svc-ai-chatbots" class="service-card">
+                <span class="service-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+                <span class="category-badge">AI Solution</span>
+                <h3>AI Chatbots</h3>
+                <p class="service-desc">Conversational AI that handles customer questions, bookings, and support around the clock.</p>
+                <p class="service-suitable"><strong>Suitable for:</strong> Businesses with high support volume or repetitive customer inquiries.</p>
+              </label>
+            </div>
+
+            <div class="reveal">
+              <input type="radio" class="service-radio" name="service" id="svc-ai-automation" value="AI Automation" data-category="AI Solution">
+              <label for="svc-ai-automation" class="service-card">
+                <span class="service-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+                <span class="category-badge">AI Solution</span>
+                <h3>AI Automation</h3>
+                <p class="service-desc">Automated workflows that connect your tools and remove repetitive manual work.</p>
+                <p class="service-suitable"><strong>Suitable for:</strong> Teams spending hours on manual, rule-based tasks.</p>
+              </label>
+            </div>
+
+            <div class="reveal">
+              <input type="radio" class="service-radio" name="service" id="svc-ai-agents" value="AI Agents" data-category="AI Solution">
+              <label for="svc-ai-agents" class="service-card">
+                <span class="service-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+                <span class="category-badge">AI Solution</span>
+                <h3>AI Agents</h3>
+                <p class="service-desc">Autonomous AI systems that complete multi-step tasks and make decisions within defined limits.</p>
+                <p class="service-suitable"><strong>Suitable for:</strong> Businesses ready to delegate complex processes to AI.</p>
+              </label>
+            </div>
+
+            <div class="reveal">
+              <input type="radio" class="service-radio" name="service" id="svc-website-dev" value="Website Development" data-category="Software Engineering">
+              <label for="svc-website-dev" class="service-card">
+                <span class="service-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+                <span class="category-badge">Software Engineering</span>
+                <h3>Website Development</h3>
+                <p class="service-desc">Fast, well-structured websites built to represent your business and convert visitors.</p>
+                <p class="service-suitable"><strong>Suitable for:</strong> Businesses that need a professional online presence.</p>
+              </label>
+            </div>
+
+            <div class="reveal">
+              <input type="radio" class="service-radio" name="service" id="svc-webapp-dev" value="Web Application Development" data-category="Software Engineering">
+              <label for="svc-webapp-dev" class="service-card">
+                <span class="service-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+                <span class="category-badge">Software Engineering</span>
+                <h3>Web Application Development</h3>
+                <p class="service-desc">Custom web applications built around your specific business logic and users.</p>
+                <p class="service-suitable"><strong>Suitable for:</strong> Businesses that need more than a website can offer.</p>
+              </label>
+            </div>
+
+            <div class="reveal">
+              <input type="radio" class="service-radio" name="service" id="svc-mobileapp-dev" value="Mobile Application Development" data-category="Software Engineering">
+              <label for="svc-mobileapp-dev" class="service-card">
+                <span class="service-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+                <span class="category-badge">Software Engineering</span>
+                <h3>Mobile Application Development</h3>
+                <p class="service-desc">Native and cross-platform mobile apps built for performance and everyday use.</p>
+                <p class="service-suitable"><strong>Suitable for:</strong> Businesses that need to reach customers directly on mobile.</p>
+              </label>
+            </div>
+
+            <div class="reveal">
+              <input type="radio" class="service-radio" name="service" id="svc-custom-software" value="Custom Software Development" data-category="Software Engineering">
+              <label for="svc-custom-software" class="service-card">
+                <span class="service-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+                <span class="category-badge">Software Engineering</span>
+                <h3>Custom Software Development</h3>
+                <p class="service-desc">Bespoke software engineered around a process no off-the-shelf tool can handle.</p>
+                <p class="service-suitable"><strong>Suitable for:</strong> Businesses with unique or complex operational requirements.</p>
+              </label>
+            </div>
+
+          </div>
+
+          <div class="configurator-continue reveal">
+            <button type="button" class="btn btn-primary" id="continueBtn" disabled aria-disabled="true">Proceed</button>
+            <p class="continue-status" id="continueStatus" role="status" aria-live="polite">Select a service above to continue.</p>
+          </div>
+
+        </fieldset>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================ PACKAGE SELECTION ============================ -->
+  <section class="section" id="packages" style="background:var(--surface);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Package Selection</span>
+        <h2 id="packagesHeading">Compare packages once you've chosen a service.</h2>
+        <p id="packagesIntro">Each package is designed for a different level of business complexity and project scope — there's no wrong choice, only the one that fits where your business is today.</p>
+      </div>
+      <div id="packagesContent">
+        <p class="packages-empty reveal">Select a service above and continue to see package options here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ REQUIREMENTS COLLECTION ============================ -->
+  <section class="section" id="requirements">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Requirements Collection</span>
+        <h2>Tell us about your project.</h2>
+        <p>The details you share here help us prepare an accurate proposal, reduce back-and-forth, and recommend the most suitable approach for your business.</p>
+      </div>
+
+      <div id="requirementsContent">
+        <p class="packages-empty reveal" id="requirementsEmpty">Select a service and package above, then continue to share your project details here.</p>
+
+        <div id="requirementsForm" hidden>
+          <div class="requirements-back-nav reveal">
+            <a href="#packages" class="back-link">&larr; Back to Package Selection</a>
+            <a href="#solutions" class="back-link">&larr; Back to Service Selection</a>
+          </div>
+
+          <p class="requirements-context" id="requirementsContext" role="status" aria-live="polite"></p>
+
+          <form novalidate id="requirementsFormEl" class="requirements-card reveal">
+
+            <fieldset>
+              <legend>Business Information</legend>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="rf-business">Company / Business Name <span class="required" aria-hidden="true">*</span></label>
+                  <input type="text" id="rf-business" name="businessName" placeholder="e.g. Acme Retail Co." autocomplete="organization" required aria-required="true" aria-describedby="rf-business-err">
+                  <p class="error-msg" id="rf-business-err" role="alert"></p>
+                </div>
+                <div class="field">
+                  <label for="rf-contact">Contact Person <span class="required" aria-hidden="true">*</span></label>
+                  <input type="text" id="rf-contact" name="contactPerson" placeholder="Your full name" autocomplete="name" required aria-required="true" aria-describedby="rf-contact-err">
+                  <p class="error-msg" id="rf-contact-err" role="alert"></p>
+                </div>
+                <div class="field">
+                  <label for="rf-email">Business Email <span class="required" aria-hidden="true">*</span></label>
+                  <input type="email" id="rf-email" name="email" placeholder="you@company.com" autocomplete="email" required aria-required="true" aria-describedby="rf-email-err">
+                  <p class="error-msg" id="rf-email-err" role="alert"></p>
+                </div>
+                <div class="field">
+                  <label for="rf-phone">Phone Number <span class="optional">(Optional)</span></label>
+                  <input type="tel" id="rf-phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel">
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Project Information</legend>
+              <div class="form-grid">
+                <div class="field full">
+                  <label for="rf-title">Project Title <span class="required" aria-hidden="true">*</span></label>
+                  <input type="text" id="rf-title" name="projectTitle" placeholder="e.g. Customer support chatbot for our online store" required aria-required="true" aria-describedby="rf-title-err">
+                  <p class="error-msg" id="rf-title-err" role="alert"></p>
+                </div>
+                <div class="field full">
+                  <label for="rf-description">Project Description <span class="required" aria-hidden="true">*</span></label>
+                  <p class="helper" id="rf-description-help">Explain what you need, who it's for, and any specifics you already know — the more detail, the better.</p>
+                  <textarea id="rf-description" name="projectDescription" rows="5" placeholder="Describe your project in as much detail as you can..." required aria-required="true" aria-describedby="rf-description-help rf-description-err"></textarea>
+                  <p class="error-msg" id="rf-description-err" role="alert"></p>
+                </div>
+                <div class="field full">
+                  <label for="rf-goals">Business Goals <span class="optional">(Optional)</span></label>
+                  <p class="helper" id="rf-goals-help">What do you want this project to achieve?</p>
+                  <textarea id="rf-goals" name="businessGoals" rows="4" placeholder="e.g. Reduce response times, increase qualified leads..." aria-describedby="rf-goals-help"></textarea>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Timeline &amp; Budget</legend>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="rf-timeline">Timeline</label>
+                  <select id="rf-timeline" name="timeline">
+                    <option value="">Select a timeframe</option>
+                    <option value="As soon as possible">As soon as possible</option>
+                    <option value="Within 1 month">Within 1 month</option>
+                    <option value="1–3 months">1–3 months</option>
+                    <option value="3–6 months">3–6 months</option>
+                    <option value="Flexible">Flexible</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="rf-budget">Budget <span class="optional">(Optional)</span></label>
+                  <select id="rf-budget" name="budget">
+                    <option value="">Prefer not to say</option>
+                    <option value="Under $2,000">Under $2,000</option>
+                    <option value="$2,000–$5,000">$2,000–$5,000</option>
+                    <option value="$5,000–$10,000">$5,000–$10,000</option>
+                    <option value="$10,000+">$10,000+</option>
+                    <option value="Prefer to discuss">Prefer to discuss</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Additional Information <span class="optional">(Optional)</span></legend>
+              <div class="form-grid">
+                <div class="field full">
+                  <label for="rf-notes">Anything else that would help us understand your project?</label>
+                  <textarea id="rf-notes" name="additionalNotes" rows="4" placeholder="Share any other context, constraints, or references..."></textarea>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="configurator-continue reveal">
+              <button type="button" class="btn btn-primary" id="requirementsContinueBtn" disabled aria-disabled="true">Continue to Review</button>
+              <p class="continue-status" id="requirementsStatus" role="status" aria-live="polite">Fill in the required fields to continue.</p>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ REVIEW SUMMARY ============================ -->
+  <section class="section" id="review" style="background:var(--surface);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Review</span>
+        <h2>Review your project summary.</h2>
+        <p>Take a moment to confirm everything below is accurate before you submit — you can edit any section without losing your progress.</p>
+      </div>
+
+      <div id="reviewContent">
+        <p class="packages-empty reveal" id="reviewEmpty">Complete the requirements form above and continue to review your project summary here.</p>
+
+        <div id="reviewBody" hidden>
+          <div class="requirements-card reveal" id="reviewCard"></div>
+
+          <div class="configurator-continue reveal">
+            <button type="button" class="btn btn-primary" id="submitBtn">Submit Project Inquiry</button>
+            <p class="continue-status" id="submitStatus" role="status" aria-live="polite">Review your details above, then submit when you're ready.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SUCCESS ============================ -->
+  <section class="section" id="success" hidden>
+    <div class="container">
+      <div class="requirements-card success-card reveal" id="successCard" tabindex="-1">
+        <span class="success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+        </span>
+        <span class="eyebrow">Inquiry Received</span>
+        <h2>Thank you — your project inquiry is in good hands.</h2>
+        <p class="lead">Your inquiry has been successfully received. Our team will review your requirements and prepare a personalized response built around what you've shared.</p>
+
+        <div class="reference-id-box reveal" id="referenceIdBox" hidden>
+          <span class="reference-id-label">Reference ID</span>
+          <span class="reference-id-value" id="referenceIdValue"></span>
+          <p class="reference-id-note">Please save this Reference ID for future communication.</p>
+        </div>
+
+        <div class="next-steps">
+          <span class="eyebrow">What happens next</span>
+          <ol class="workflow-track">
+            <li class="workflow-step reveal">
+              <div class="wf-node active">01</div>
+              <h3>Review by PixelMind Developers</h3>
+              <p>Our team reads through everything you've shared about your business and project.</p>
+            </li>
+            <li class="workflow-step reveal">
+              <div class="wf-node">02</div>
+              <h3>Requirement Analysis</h3>
+              <p>We assess scope, complexity, and the right technical approach for your goals.</p>
+            </li>
+            <li class="workflow-step reveal">
+              <div class="wf-node">03</div>
+              <h3>Personalized Proposal</h3>
+              <p>You'll receive a proposal built around your specific requirements — not a generic quote.</p>
+            </li>
+            <li class="workflow-step reveal">
+              <div class="wf-node">04</div>
+              <h3>Project Discussion</h3>
+              <p>We walk through the proposal together and align on scope, timeline, and next steps.</p>
+            </li>
+            <li class="workflow-step reveal">
+              <div class="wf-node">05</div>
+              <h3>Development Begins</h3>
+              <p>Once confirmed, your dedicated team starts building.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="success-actions reveal">
+          <a href="index.html" class="btn btn-primary">Return to Homepage</a>
+          <a href="contact.html" class="btn btn-ghost">Contact Our Team</a>
+          <button type="button" class="btn btn-ghost" id="startAnotherBtn">Start Another Project</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" aria-label="PixelMind Developers home">
+          <img src="company-logo.png" alt="PixelMind Developers logo" class="brand-mark">
+          PixelMind Developers
+        </a>
+        <p>An AI automation and software development agency helping businesses replace manual work with intelligent systems.</p>
+        <form class="newsletter" onsubmit="return false;">
+          <label for="newsletterEmail" class="visually-hidden" style="position:absolute;left:-9999px;">Email address</label>
+          <input id="newsletterEmail" type="email" placeholder="Your email" required>
+          <button type="submit">Join</button>
+        </form>
+        <div class="social-row" aria-label="Social links">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5s1.98.9 1.98 2zM1 8.5h4V23H1V8.5zM8.5 8.5H12v2h.05c.5-.95 1.7-2 3.5-2 3.75 0 4.45 2.45 4.45 5.65V23h-4v-6.5c0-1.55-.03-3.5-2.15-3.5-2.15 0-2.5 1.68-2.5 3.4V23h-4V8.5z"/></svg></a>
+          <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3l7.5 9.5L3.4 21H6l5.8-6.7L16.5 21H21l-7.9-10L20.6 3H18l-5.3 6.2L8 3H3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="services.html">Process Automation</a></li>
+          <li><a href="services.html">AI Customer Engagement</a></li>
+          <li><a href="services.html">Custom AI Integrations</a></li>
+          <li><a href="services.html">Software Development</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="index.html#industries">E-commerce</a></li>
+          <li><a href="index.html#industries">Healthcare</a></li>
+          <li><a href="index.html#industries">Finance</a></li>
+          <li><a href="index.html#industries">Logistics</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="refund.html">Refund Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="contact-list">
+          <li>
+            <a href="tel:+917387235438">
+              <span class="c-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.79.6 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.17a2 2 0 0 1 2.11-.45c.86.28 1.75.48 2.65.6A2 2 0 0 1 22 16.92z"/></svg></span>
+              +91 7387235438
+            </a>
+          </li>
+          <li>
+            <a href="mailto:contact@pixelminddeveloper.in">
+              <span class="c-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></span>
+              contact@pixelminddeveloper.in
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PixelMind Developers. All rights reserved.</span>
+      <span>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<a
+  class="whatsapp-float"
+  id="whatsappFloat"
+  href="https://wa.me/917387235438"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat with PixelMind Developers on WhatsApp"
+>
+  <span class="whatsapp-tooltip" aria-hidden="true">Chat with us</span>
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.004 2.667c-7.364 0-13.333 5.968-13.333 13.333 0 2.353.615 4.646 1.782 6.667L2.667 29.333l6.83-1.79a13.27 13.27 0 0 0 6.507 1.657h.006c7.364 0 13.333-5.969 13.333-13.334 0-3.56-1.388-6.907-3.906-9.427a13.24 13.24 0 0 0-9.433-3.772zm0 24.4h-.005a11.05 11.05 0 0 1-5.63-1.54l-.404-.24-4.053 1.063 1.082-3.951-.264-.406a11.02 11.02 0 0 1-1.69-5.893c0-6.106 4.968-11.073 11.07-11.073 2.957 0 5.737 1.153 7.828 3.246a10.99 10.99 0 0 1 3.238 7.834c-.003 6.106-4.97 11.06-11.072 11.06zm6.07-8.287c-.332-.166-1.968-.971-2.273-1.082-.305-.111-.527-.166-.749.167-.222.332-.86 1.082-1.054 1.304-.194.222-.388.25-.72.083-.332-.167-1.402-.517-2.67-1.65-.987-.881-1.654-1.968-1.848-2.3-.194-.333-.021-.513.146-.679.15-.15.332-.389.499-.583.166-.194.221-.333.332-.555.111-.222.055-.417-.028-.583-.083-.167-.749-1.807-1.026-2.474-.27-.65-.545-.562-.749-.572l-.638-.011c-.222 0-.583.083-.888.417-.305.333-1.165 1.138-1.165 2.777s1.193 3.223 1.359 3.446c.166.222 2.348 3.585 5.687 5.028.795.343 1.415.548 1.898.702.797.253 1.523.217 2.097.132.64-.096 1.968-.805 2.246-1.583.277-.778.277-1.445.194-1.584-.083-.14-.305-.222-.638-.389z"/></svg>
+</a>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* WhatsApp floating button — pre-filled, editable message (identical to index.html) */
+  var waLink = document.getElementById('whatsappFloat');
+  if(waLink){
+    var waNumber = '917387235438'; // country code + number, no + or leading 0
+    var waMessage =
+      "Hi,\n" +
+      "I visited your website and I'm interested in learning more about your services.\n" +
+      "Here are my project details:\n" +
+      "• Business: \n" +
+      "• Requirement: \n" +
+      "• Timeline: \n" +
+      "• Budget (Optional): \n" +
+      "Looking forward to your response.";
+    waLink.href = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(waMessage);
+  }
+
+  /* Sticky nav */
+  var nav = document.getElementById('siteNav');
+  var backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    if(y > 40){ nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+    if(y > 600){ backToTop.classList.add('show'); } else { backToTop.classList.remove('show'); }
+  }, {passive:true});
+  backToTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* Mobile menu */
+  var toggle = document.getElementById('navToggle');
+  var panel = document.getElementById('mobilePanel');
+  var close = document.getElementById('mobileClose');
+  function openPanel(){
+    panel.classList.add('open');
+    toggle.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
+  }
+  function closePanel(){
+    panel.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  }
+  toggle.addEventListener('click', openPanel);
+  close.addEventListener('click', closePanel);
+  panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closePanel); });
+
+  /* Hero spotlight follows pointer */
+  var spotlight = document.getElementById('spotlight');
+  var hero = document.getElementById('hero');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(hero && !reduceMotion){
+    hero.addEventListener('mousemove', function(e){
+      var r = hero.getBoundingClientRect();
+      spotlight.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      spotlight.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  }
+
+  /* Scroll reveal — exposed as observeReveal() so content rendered
+     dynamically after load (Sprint 3 package cards) can reuse the
+     same observer instead of a second, duplicated implementation. */
+  var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.15}) : null;
+  function observeReveal(elements){
+    elements.forEach(function(el){
+      if(io){ io.observe(el); } else { el.classList.add('is-visible'); }
+    });
+  }
+  observeReveal(document.querySelectorAll('.reveal'));
+
+  /* ==========================================================
+     CHOOSE YOUR SOLUTION — service selection (Sprint 2)
+     Selection state is exposed on window.pixelmindConfigurator
+     so Sprint 3 (Package Selection) can read it as its data
+     source without any refactor of this sprint's code.
+  ========================================================== */
+  var serviceRadios = document.querySelectorAll('.service-radio');
+  var continueBtn = document.getElementById('continueBtn');
+  var continueStatus = document.getElementById('continueStatus');
+
+  window.pixelmindConfigurator = window.pixelmindConfigurator || {};
+
+  function setSelectedService(radio){
+    window.pixelmindConfigurator.selectedService = {
+      name: radio.value,
+      category: radio.getAttribute('data-category')
+    };
+    continueBtn.disabled = false;
+    continueBtn.removeAttribute('aria-disabled');
+    continueStatus.innerHTML = 'Selected: <strong>' + radio.value + '</strong>';
+  }
+
+  if(serviceRadios.length && continueBtn){
+    serviceRadios.forEach(function(radio){
+      radio.addEventListener('change', function(){
+        if(radio.checked){ setSelectedService(radio); }
+      });
+    });
+
+    continueBtn.addEventListener('click', function(){
+      if(continueBtn.disabled) return;
+      // Package Selection (Sprint 3) will hook in here.
+      document.dispatchEvent(new CustomEvent('pixelmindconfigurator:continue', {
+        detail: window.pixelmindConfigurator.selectedService
+      }));
+      continueStatus.innerHTML = 'Great — <strong>' + window.pixelmindConfigurator.selectedService.name + '</strong> selected. Scroll down to compare packages.';
+    });
+  }
+
+  /* ==========================================================
+     PACKAGE SELECTION (Sprint 3)
+     PIXELMIND_CATALOG is the single centralized source of truth
+     for every service's packages, pricing, timelines and feature
+     hierarchy. The DOM is never hand-authored per package — every
+     card below is rendered from this object. Swapping this object
+     for a fetched API response later requires no change to the
+     render functions.
+  ========================================================== */
+  var FEATURE_ICON_ACTIVE = '<svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>';
+  var FEATURE_ICON_MUTED  = '<svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"/></svg>';
+  var TIER_NAMES = ['Starter','Growth','Enterprise'];
+
+  function pkg(name, bestFor, description, price, timeline){
+    return {name:name, bestFor:bestFor, description:description, price:price, timeline:timeline, ctaLabel:'Choose Package'};
+  }
+
+  var PIXELMIND_CATALOG = {
+    "AI Chatbots": {
+      category:"AI Solution",
+      description:"Conversational AI that handles customer questions, bookings, and support around the clock.",
+      features:[
+        ["Design & User Experience","Branded chat widget matching your visual identity",1],
+        ["Design & User Experience","Custom conversation flows for multiple use cases",2],
+        ["Core Functionality","Natural language understanding for common queries",1],
+        ["Core Functionality","Multi-turn conversation memory within a session",1],
+        ["Integrations","Website live-chat integration",1],
+        ["Integrations","CRM and helpdesk integration",2],
+        ["Security & Performance","Encrypted conversation data",1],
+        ["Security & Performance","Rate limiting and abuse protection",2],
+        ["Support & Maintenance","Monthly performance reporting",2],
+        ["Support & Maintenance","Dedicated onboarding specialist",3],
+        ["Scalability","Multi-language conversation support",3],
+        ["Scalability","Custom escalation workflows to human agents",3]
+      ],
+      packages:[
+        pkg("Starter","Small businesses handling a steady volume of routine customer questions.","A focused chatbot that answers common questions and captures leads around the clock.","Starting at $1,200","2–3 weeks"),
+        pkg("Growth","Growing teams that need the chatbot connected to their everyday tools.","Everything in Starter, plus deeper integrations and reporting for teams that rely on the chatbot daily.","Starting at $2,800","3–5 weeks"),
+        pkg("Enterprise","Organizations running high-volume, multi-market customer support.","The full AI Chatbots capability set, built for scale across languages and support teams.","Starting at $5,500","5–8 weeks")
+      ]
+    },
+    "AI Automation": {
+      category:"AI Solution",
+      description:"Automated workflows that connect your tools and remove repetitive manual work.",
+      features:[
+        ["Design & User Experience","Visual map of your automated workflow",1],
+        ["Design & User Experience","Custom-branded notification templates",2],
+        ["Core Functionality","Trigger-based workflow automation",1],
+        ["Core Functionality","Conditional logic and branching rules",1],
+        ["Integrations","Connect up to 3 business tools",1],
+        ["Integrations","Connect unlimited business tools",2],
+        ["Security & Performance","Encrypted data handling between systems",1],
+        ["Security & Performance","Role-based access to automation controls",2],
+        ["Support & Maintenance","Monthly automation health check",2],
+        ["Support & Maintenance","Priority support response times",3],
+        ["Scalability","Multi-workflow orchestration",3],
+        ["Scalability","Custom error-handling and retry logic",3]
+      ],
+      packages:[
+        pkg("Starter","Teams automating one or two repetitive manual tasks.","A single, reliable automation that removes a specific manual bottleneck.","Starting at $1,500","2–4 weeks"),
+        pkg("Growth","Businesses ready to connect multiple tools into one workflow.","Everything in Starter, expanded to link your core business tools together.","Starting at $3,200","4–6 weeks"),
+        pkg("Enterprise","Operations running several interconnected, business-critical workflows.","The complete AI Automation capability set, built for complex, multi-step operations.","Starting at $6,500","6–10 weeks")
+      ]
+    },
+    "AI Agents": {
+      category:"AI Solution",
+      description:"Autonomous AI systems that complete multi-step tasks and make decisions within defined limits.",
+      features:[
+        ["Design & User Experience","Defined agent persona and behaviour guidelines",1],
+        ["Design & User Experience","Custom dashboard for monitoring agent activity",2],
+        ["Core Functionality","Multi-step task planning and execution",1],
+        ["Core Functionality","Decision-making within defined guardrails",1],
+        ["Integrations","Access to your internal tools and data sources",1],
+        ["Integrations","Integration with multiple business systems",2],
+        ["Security & Performance","Permission-scoped access controls",1],
+        ["Security & Performance","Full activity logging and audit trail",2],
+        ["Support & Maintenance","Monthly agent performance review",2],
+        ["Support & Maintenance","Dedicated agent reliability engineer",3],
+        ["Scalability","Multi-agent coordination for complex tasks",3],
+        ["Scalability","Custom escalation and human-in-the-loop controls",3]
+      ],
+      packages:[
+        pkg("Starter","Businesses automating one well-defined, multi-step task.","A single AI agent scoped to handle one clear business process end-to-end.","Starting at $2,500","3–5 weeks"),
+        pkg("Growth","Businesses giving an agent access to more systems and responsibility.","Everything in Starter, with broader system access and more autonomous decision-making.","Starting at $5,000","5–8 weeks"),
+        pkg("Enterprise","Organizations coordinating multiple agents across complex operations.","The complete AI Agents capability set, built for coordinated, business-critical autonomy.","Starting at $9,500","8–12 weeks")
+      ]
+    },
+    "Website Development": {
+      category:"Software Engineering",
+      description:"Custom-built websites engineered for performance, clarity, and conversion.",
+      features:[
+        ["Design & User Experience","Custom visual design aligned to your brand",1],
+        ["Design & User Experience","Motion and micro-interaction design",2],
+        ["Core Functionality","Up to 5 core pages",1],
+        ["Core Functionality","Content management system setup",1],
+        ["Integrations","Contact and lead-capture forms",1],
+        ["Integrations","Analytics and marketing tool integration",2],
+        ["Security & Performance","SSL and standard security hardening",1],
+        ["Security & Performance","Performance optimization for fast load times",2],
+        ["Support & Maintenance","30-day post-launch support",2],
+        ["Support & Maintenance","Ongoing maintenance plan",3],
+        ["Scalability","Multi-language site structure",3],
+        ["Scalability","Scalable architecture for future page growth",3]
+      ],
+      packages:[
+        pkg("Starter","Businesses that need a professional website live quickly.","A focused website that clearly represents your business and converts visitors.","Starting at $1,000","2–3 weeks"),
+        pkg("Growth","Businesses that rely on their website to generate and track leads.","Everything in Starter, with deeper content control and marketing integrations.","Starting at $2,400","3–5 weeks"),
+        pkg("Enterprise","Organizations with larger, multi-market web presences.","The full Website Development capability set, built to scale across regions and languages.","Starting at $4,800","5–8 weeks")
+      ]
+    },
+    "Web Application Development": {
+      category:"Software Engineering",
+      description:"Full-featured web applications built to support real business operations at scale.",
+      features:[
+        ["Design & User Experience","Custom UI/UX design for your application",1],
+        ["Design & User Experience","Interactive prototyping before development",2],
+        ["Core Functionality","User authentication and account management",1],
+        ["Core Functionality","Custom business logic and workflows",1],
+        ["Integrations","Integration with up to 3 external services",1],
+        ["Integrations","Integration with unlimited external services",2],
+        ["Security & Performance","Data encryption and secure architecture",1],
+        ["Security & Performance","Role-based permissions",2],
+        ["Support & Maintenance","30-day post-launch bug fixing",2],
+        ["Support & Maintenance","Ongoing maintenance and monitoring",3],
+        ["Scalability","Infrastructure built for growing user load",3],
+        ["Scalability","Modular architecture for future feature expansion",3]
+      ],
+      packages:[
+        pkg("Starter","Businesses validating a focused web application idea.","A functional web application covering your core use case.","Starting at $4,000","4–6 weeks"),
+        pkg("Growth","Businesses with active users who need more capability.","Everything in Starter, with deeper integrations and refined user permissions.","Starting at $8,500","6–10 weeks"),
+        pkg("Enterprise","Organizations running business-critical applications at scale.","The complete Web Application Development capability set, engineered for growth.","Starting at $16,000","10–16 weeks")
+      ]
+    },
+    "Mobile Application Development": {
+      category:"Software Engineering",
+      description:"Native and cross-platform mobile apps designed for a smooth, reliable user experience.",
+      features:[
+        ["Design & User Experience","Custom mobile UI/UX design",1],
+        ["Design & User Experience","Platform-specific design refinement (iOS & Android)",2],
+        ["Core Functionality","Core app functionality for iOS and Android",1],
+        ["Core Functionality","Push notifications",1],
+        ["Integrations","Integration with up to 3 external services",1],
+        ["Integrations","Integration with unlimited external services",2],
+        ["Security & Performance","Secure data storage and transmission",1],
+        ["Security & Performance","App store security compliance review",2],
+        ["Support & Maintenance","30-day post-launch bug fixing",2],
+        ["Support & Maintenance","Ongoing maintenance and updates",3],
+        ["Scalability","Backend infrastructure built for growing users",3],
+        ["Scalability","Modular architecture for future feature additions",3]
+      ],
+      packages:[
+        pkg("Starter","Businesses launching a focused mobile app experience.","A functional mobile app covering your core use case on iOS and Android.","Starting at $5,500","5–8 weeks"),
+        pkg("Growth","Businesses with active users who need more app capability.","Everything in Starter, with deeper integrations and refined platform polish.","Starting at $11,000","8–12 weeks"),
+        pkg("Enterprise","Organizations running business-critical mobile apps at scale.","The complete Mobile Application Development capability set, engineered for growth.","Starting at $20,000","12–18 weeks")
+      ]
+    },
+    "Custom Software Development": {
+      category:"Software Engineering",
+      description:"Bespoke software engineered around your exact business logic and workflows.",
+      bespoke:true,
+      engagement:{
+        name:"Bespoke Engagement",
+        bestFor:"Businesses with unique or complex operational requirements that don't fit a standard package.",
+        description:"Every custom software engagement starts with a structured requirements analysis. From there, we scope the architecture, timeline, and investment around exactly what your business needs — nothing templated, nothing forced into a predefined tier.",
+        includes:[
+          "Architecture and technical discovery",
+          "Dedicated engineering team",
+          "Transparent, milestone-based delivery",
+          "Post-launch support plan"
+        ],
+        ctaLabel:"Continue to Requirements"
+      }
+    }
+  };
+
+  window.pixelmindConfigurator.catalog = PIXELMIND_CATALOG;
+
+  var packagesContent  = document.getElementById('packagesContent');
+  var packagesHeading  = document.getElementById('packagesHeading');
+  var packagesIntro    = document.getElementById('packagesIntro');
+  var packagesRevealed = false;
+  window.pixelmindConfigurator.packageSelections = window.pixelmindConfigurator.packageSelections || {};
+
+  function groupFeaturesByCategory(features){
+    var order = [], byCat = {};
+    features.forEach(function(f){
+      var cat = f[0];
+      if(!byCat[cat]){ byCat[cat] = []; order.push(cat); }
+      byCat[cat].push(f);
+    });
+    return order.map(function(cat){ return {category:cat, items:byCat[cat]}; });
+  }
+
+  function featureListMarkup(features, tier){
+    return groupFeaturesByCategory(features).map(function(group){
+      var items = group.items.map(function(f){
+        var active = f[2] <= tier;
+        return '<li class="' + (active ? 'is-active' : 'is-muted') + '">' +
+                 (active ? FEATURE_ICON_ACTIVE : FEATURE_ICON_MUTED) +
+                 '<span>' + f[1] + '</span>' +
+               '</li>';
+      }).join('');
+      return '<div class="feature-category"><h4>' + group.category + '</h4><ul class="feature-list">' + items + '</ul></div>';
+    }).join('');
+  }
+
+  function packageCardMarkup(serviceName, data, index){
+    var p = data.packages[index];
+    var tier = index + 1;
+    var id = 'pkg-' + serviceName.toLowerCase().replace(/[^a-z0-9]+/g,'-') + '-' + tier;
+    return (
+      '<div class="service-card-wrap reveal">' +
+        '<input type="radio" class="service-radio package-radio" name="package" id="' + id + '" value="' + p.name + '" data-tier="' + tier + '">' +
+        '<label for="' + id + '" class="service-card">' +
+          '<span class="service-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>' +
+          '<h3>' + p.name + '</h3>' +
+          '<p class="service-suitable"><strong>Best for:</strong> ' + p.bestFor + '</p>' +
+          '<p class="service-desc">' + p.description + '</p>' +
+          '<div class="package-meta">' +
+            '<div><span>Starting at</span><strong>' + p.price + '</strong></div>' +
+            '<div><span>Timeline</span><strong>' + p.timeline + '</strong></div>' +
+          '</div>' +
+          '<div class="package-features">' + featureListMarkup(data.features, tier) + '</div>' +
+          '<span class="btn btn-ghost package-cta-label" aria-hidden="true">' + p.ctaLabel + '</span>' +
+        '</label>' +
+      '</div>'
+    );
+  }
+
+  function bespokeCardMarkup(data){
+    var e = data.engagement;
+    var includes = e.includes.map(function(item){
+      return '<li class="is-active">' + FEATURE_ICON_ACTIVE + '<span>' + item + '</span></li>';
+    }).join('');
+    return (
+      '<div class="service-card bespoke-card reveal">' +
+        '<h3>' + e.name + '</h3>' +
+        '<p class="service-suitable"><strong>Best for:</strong> ' + e.bestFor + '</p>' +
+        '<p class="service-desc">' + e.description + '</p>' +
+        '<div class="bespoke-includes"><h4>Included in every engagement</h4><ul class="feature-list">' + includes + '</ul></div>' +
+        '<button type="button" class="btn btn-primary" id="bespokeContinueBtn">' + e.ctaLabel + '</button>' +
+      '</div>'
+    );
+  }
+
+  function wirePackageSelection(serviceName, data){
+    var radios = packagesContent.querySelectorAll('.package-radio');
+    var continueBtn = document.getElementById('packageContinueBtn');
+    var status = document.getElementById('packageContinueStatus');
+    var remembered = window.pixelmindConfigurator.packageSelections[serviceName];
+
+    radios.forEach(function(radio){
+      if(remembered && radio.value === remembered){ radio.checked = true; }
+      radio.addEventListener('change', function(){
+        if(!radio.checked) return;
+        window.pixelmindConfigurator.packageSelections[serviceName] = radio.value;
+        window.pixelmindConfigurator.selectedPackage = {
+          service: serviceName,
+          name: radio.value,
+          tier: radio.getAttribute('data-tier')
+        };
+        continueBtn.disabled = false;
+        continueBtn.removeAttribute('aria-disabled');
+        status.innerHTML = 'Selected: <strong>' + radio.value + '</strong>';
+      });
+    });
+
+    if(remembered){
+      continueBtn.disabled = false;
+      continueBtn.removeAttribute('aria-disabled');
+      status.innerHTML = 'Selected: <strong>' + remembered + '</strong>';
+      window.pixelmindConfigurator.selectedPackage = {service:serviceName, name:remembered};
+    }
+
+    continueBtn.addEventListener('click', function(){
+      if(continueBtn.disabled) return;
+      // Requirements Collection (Sprint 4) will hook in here.
+      document.dispatchEvent(new CustomEvent('pixelmindconfigurator:packagecontinue', {
+        detail: window.pixelmindConfigurator.selectedPackage
+      }));
+      status.innerHTML = 'Great — <strong>' + window.pixelmindConfigurator.selectedPackage.name + '</strong> selected.';
+    });
+  }
+
+  function wireBespokeSelection(serviceName){
+    var btn = document.getElementById('bespokeContinueBtn');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      window.pixelmindConfigurator.selectedPackage = {service:serviceName, name:'Bespoke Engagement', tier:null};
+      document.dispatchEvent(new CustomEvent('pixelmindconfigurator:packagecontinue', {
+        detail: window.pixelmindConfigurator.selectedPackage
+      }));
+    });
+  }
+
+  function renderPackages(serviceName){
+    var data = PIXELMIND_CATALOG[serviceName];
+    if(!data){ return; }
+
+    if(data.bespoke){
+      packagesHeading.textContent = 'Custom Software Development is scoped individually.';
+      packagesIntro.textContent = 'Pricing and timeline depend entirely on your requirements, so there is no package comparison for this service — every engagement starts with a discovery conversation.';
+      packagesContent.innerHTML = bespokeCardMarkup(data);
+      wireBespokeSelection(serviceName);
+    } else {
+      packagesHeading.textContent = 'Compare packages for ' + serviceName + '.';
+      packagesIntro.textContent = 'Each package is designed for a different level of business complexity and project scope — there\'s no wrong choice, only the one that fits where your business is today.';
+      var cards = data.packages.map(function(p, i){ return packageCardMarkup(serviceName, data, i); }).join('');
+      packagesContent.innerHTML =
+        '<fieldset class="service-fieldset">' +
+          '<legend style="position:absolute;left:-9999px;">Choose your package for ' + serviceName + '</legend>' +
+          '<div class="package-grid">' + cards + '</div>' +
+          '<div class="configurator-continue reveal">' +
+            '<button type="button" class="btn btn-primary" id="packageContinueBtn" disabled aria-disabled="true">Continue to Requirements</button>' +
+            '<p class="continue-status" id="packageContinueStatus" role="status" aria-live="polite">Select a package above to continue.</p>' +
+          '</div>' +
+        '</fieldset>';
+      wirePackageSelection(serviceName, data);
+    }
+
+    observeReveal(packagesContent.querySelectorAll('.reveal'));
+  }
+
+  /* Package rendering reacts to the Sprint 2 "continue" event (initial
+     reveal + scroll) and, once revealed, to any later change of service
+     so the two steps never fall out of sync. Neither hook modifies
+     Sprint 2's own listeners — both are purely additive. */
+  document.addEventListener('pixelmindconfigurator:continue', function(e){
+    var serviceName = e.detail && e.detail.name;
+    if(!serviceName) return;
+    renderPackages(serviceName);
+    packagesRevealed = true;
+    document.getElementById('packages').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  serviceRadios.forEach(function(radio){
+    radio.addEventListener('change', function(){
+      if(radio.checked && packagesRevealed){ renderPackages(radio.value); }
+    });
+  });
+
+  /* ==========================================================
+     REQUIREMENTS COLLECTION (Sprint 4)
+     Every field reads from / writes to the same centralized
+     window.pixelmindConfigurator state established in Sprint 3,
+     keyed generically by each field's `name` attribute — so a
+     future field only needs a matching `name`, no extra wiring.
+     The form itself is static markup (not JS-rendered), so
+     scrolling back to Sprint 2/3 to change a selection can never
+     wipe anything the user has already typed here.
+  ========================================================== */
+  window.pixelmindConfigurator.formData = window.pixelmindConfigurator.formData || {
+    businessName:'', contactPerson:'', email:'', phone:'',
+    projectTitle:'', projectDescription:'', businessGoals:'',
+    timeline:'', budget:'', additionalNotes:''
+  };
+
+  var requirementsEmpty       = document.getElementById('requirementsEmpty');
+  var requirementsFormWrap    = document.getElementById('requirementsForm');
+  var requirementsContext     = document.getElementById('requirementsContext');
+  var requirementsFormEl      = document.getElementById('requirementsFormEl');
+  var requirementsContinueBtn = document.getElementById('requirementsContinueBtn');
+  var requirementsStatus      = document.getElementById('requirementsStatus');
+  var requirementsRevealed    = false;
+
+  /* Modular, reusable validators — kept out of HTML attributes so
+     messages stay constructive and consistent, and so Sprint 5's
+     Review screen can reuse the exact same functions. */
+  var REQUIRED_VALIDATORS = {
+    businessName: function(v){ return v.trim() ? '' : 'Enter your company or business name.'; },
+    contactPerson: function(v){ return v.trim() ? '' : 'Let us know who we should be in touch with.'; },
+    email: function(v){
+      if(!v.trim()) return 'Enter a business email so we can reach you.';
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : 'Enter a valid email address, like name@company.com.';
+    },
+    projectTitle: function(v){ return v.trim() ? '' : 'Give your project a short title.'; },
+    projectDescription: function(v){
+      if(!v.trim()) return 'Add a description so we understand what you\'re building.';
+      return v.trim().length >= 20 ? '' : 'A little more detail will help — aim for at least a couple of sentences.';
+    }
+  };
+
+  function validateField(name, showError){
+    var validator = REQUIRED_VALIDATORS[name];
+    if(!validator || !requirementsFormEl) return true;
+    var el = requirementsFormEl.querySelector('[name="' + name + '"]');
+    if(!el) return true;
+    var wrap = el.closest('.field');
+    var message = validator(el.value);
+    if(showError && wrap){
+      wrap.classList.toggle('has-error', !!message);
+      var errorEl = wrap.querySelector('.error-msg');
+      if(errorEl){ errorEl.textContent = message; }
+    }
+    return !message;
+  }
+
+  function validateAllRequired(showErrors){
+    var valid = true;
+    Object.keys(REQUIRED_VALIDATORS).forEach(function(name){
+      if(!validateField(name, showErrors)){ valid = false; }
+    });
+    return valid;
+  }
+
+  function updateContinueState(){
+    var ready = validateAllRequired(false);
+    requirementsContinueBtn.disabled = !ready;
+    if(ready){ requirementsContinueBtn.removeAttribute('aria-disabled'); }
+    else { requirementsContinueBtn.setAttribute('aria-disabled','true'); }
+  }
+
+  if(requirementsFormEl){
+    Array.prototype.forEach.call(requirementsFormEl.elements, function(el){
+      if(!el.name) return;
+
+      el.addEventListener('input', function(){
+        window.pixelmindConfigurator.formData[el.name] = el.value;
+        if(REQUIRED_VALIDATORS[el.name] && el.closest('.field').classList.contains('has-error')){
+          validateField(el.name, true);
+        }
+        updateContinueState();
+      });
+      el.addEventListener('change', function(){
+        window.pixelmindConfigurator.formData[el.name] = el.value;
+        updateContinueState();
+      });
+      if(REQUIRED_VALIDATORS[el.name]){
+        el.addEventListener('blur', function(){ validateField(el.name, true); });
+      }
+    });
+
+    requirementsContinueBtn.addEventListener('click', function(){
+      if(!validateAllRequired(true)){
+        var firstError = requirementsFormEl.querySelector('.field.has-error input, .field.has-error textarea');
+        if(firstError){ firstError.focus(); }
+        requirementsStatus.textContent = 'Please fix the highlighted fields before continuing.';
+        return;
+      }
+      // Review & Submission (Sprint 5) will hook in here.
+      document.dispatchEvent(new CustomEvent('pixelmindconfigurator:requirementscontinue', {
+        detail: window.pixelmindConfigurator
+      }));
+      requirementsStatus.textContent = 'Thanks — your project details are saved.';
+    });
+  }
+
+  function updateRequirementsContext(){
+    if(!requirementsContext) return;
+    var svc = window.pixelmindConfigurator.selectedService;
+    var pack = window.pixelmindConfigurator.selectedPackage;
+    if(svc && pack){
+      requirementsContext.innerHTML = 'You\'re requesting <strong>' + svc.name + ' — ' + pack.name + '</strong>. Not the right fit? Use the links above to change your selection.';
+    } else if(svc){
+      requirementsContext.innerHTML = 'You\'re requesting <strong>' + svc.name + '</strong>.';
+    }
+  }
+
+  function revealRequirements(){
+    requirementsRevealed = true;
+    requirementsEmpty.hidden = true;
+    requirementsFormWrap.hidden = false;
+    updateRequirementsContext();
+    observeReveal(requirementsFormWrap.querySelectorAll('.reveal'));
+    document.getElementById('requirements').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  /* Reveals on Sprint 3's existing "package continue" event — purely
+     additive, no changes to Sprint 3's own dispatch logic. */
+  document.addEventListener('pixelmindconfigurator:packagecontinue', function(){
+    revealRequirements();
+  });
+  document.addEventListener('pixelmindconfigurator:continue', function(){
+    if(requirementsRevealed){ updateRequirementsContext(); }
+  });
+
+  /* ==========================================================
+     REVIEW, SUBMISSION & SUCCESS (Sprint 5)
+     The review card is never hand-authored — it is rebuilt from
+     window.pixelmindConfigurator every time it's shown, so editing
+     any earlier section and returning always reflects the latest
+     state with no separate copy of the data to keep in sync.
+  ========================================================== */
+  function escapeHTML(str){
+    var div = document.createElement('div');
+    div.textContent = (str === undefined || str === null) ? '' : String(str);
+    return div.innerHTML;
+  }
+
+  function reviewRow(label, value, full){
+    var display = (value && String(value).trim()) ? escapeHTML(value) : '<span style="color:var(--muted);">Not provided</span>';
+    return '<div' + (full ? ' class="full"' : '') + '><dt>' + label + '</dt><dd>' + display + '</dd></div>';
+  }
+
+  function buildReviewHTML(){
+    var s = window.pixelmindConfigurator;
+    var svc = s.selectedService, pack = s.selectedPackage, f = s.formData || {};
+    var html = '';
+
+    html += '<div class="review-group reveal">' +
+      '<div class="review-group-head"><h3>Selected Solution</h3>' +
+        '<span><a href="#solutions" class="review-edit">Edit Service</a> &nbsp;&middot;&nbsp; <a href="#packages" class="review-edit">Edit Package</a></span>' +
+      '</div>' +
+      '<dl class="review-fields">' +
+        reviewRow('Service', svc ? svc.name : '') +
+        reviewRow('Package', pack ? pack.name : '') +
+      '</dl></div>';
+
+    html += '<div class="review-group reveal">' +
+      '<div class="review-group-head"><h3>Business Information</h3><a href="#requirements" class="review-edit">Edit</a></div>' +
+      '<dl class="review-fields">' +
+        reviewRow('Business Name', f.businessName) +
+        reviewRow('Contact Person', f.contactPerson) +
+        reviewRow('Email', f.email) +
+        reviewRow('Phone', f.phone) +
+      '</dl></div>';
+
+    html += '<div class="review-group reveal">' +
+      '<div class="review-group-head"><h3>Project Information</h3><a href="#requirements" class="review-edit">Edit</a></div>' +
+      '<dl class="review-fields">' +
+        reviewRow('Project Title', f.projectTitle, true) +
+        reviewRow('Project Description', f.projectDescription, true) +
+      '</dl></div>';
+
+    if(f.businessGoals && f.businessGoals.trim()){
+      html += '<div class="review-group reveal">' +
+        '<div class="review-group-head"><h3>Business Goals</h3><a href="#requirements" class="review-edit">Edit</a></div>' +
+        '<p class="review-text">' + escapeHTML(f.businessGoals) + '</p></div>';
+    }
+
+    html += '<div class="review-group reveal">' +
+      '<div class="review-group-head"><h3>Timeline &amp; Budget</h3><a href="#requirements" class="review-edit">Edit</a></div>' +
+      '<dl class="review-fields">' +
+        reviewRow('Timeline', f.timeline || 'Not specified') +
+        reviewRow('Budget', f.budget || 'Prefer to discuss') +
+      '</dl></div>';
+
+    if(f.additionalNotes && f.additionalNotes.trim()){
+      html += '<div class="review-group reveal">' +
+        '<div class="review-group-head"><h3>Additional Notes</h3><a href="#requirements" class="review-edit">Edit</a></div>' +
+        '<p class="review-text">' + escapeHTML(f.additionalNotes) + '</p></div>';
+    }
+
+    return html;
+  }
+
+  var reviewEmpty    = document.getElementById('reviewEmpty');
+  var reviewBodyWrap = document.getElementById('reviewBody');
+  var reviewCard     = document.getElementById('reviewCard');
+  var submitBtn      = document.getElementById('submitBtn');
+  var submitStatus   = document.getElementById('submitStatus');
+  var reviewRevealed = false;
+  var isSubmitting   = false;
+  var hasSubmitted   = false;
+
+  /* A short, fixed minimum-display duration for the loading state so
+     it's actually perceptible even on a very fast network response. */
+  var MIN_LOADING_MS = 900;
+
+  function renderReview(){
+    if(!reviewCard) return;
+    reviewCard.innerHTML = buildReviewHTML();
+    observeReveal(reviewCard.querySelectorAll('.reveal'));
+  }
+
+  function revealReview(){
+    reviewRevealed = true;
+    reviewEmpty.hidden = true;
+    reviewBodyWrap.hidden = false;
+    renderReview();
+    observeReveal(reviewBodyWrap.querySelectorAll('.reveal'));
+    document.getElementById('review').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  /* Reveals on Sprint 4's existing "requirements continue" event, and
+     stays live afterward by re-rendering whenever anything upstream
+     changes — purely additive listeners, no edits to Sprints 2–4. */
+  document.addEventListener('pixelmindconfigurator:requirementscontinue', function(){
+    revealReview();
+  });
+  document.addEventListener('pixelmindconfigurator:continue', function(){
+    if(reviewRevealed){ renderReview(); }
+  });
+  document.addEventListener('pixelmindconfigurator:packagecontinue', function(){
+    if(reviewRevealed){ renderReview(); }
+  });
+  if(requirementsFormEl){
+    requirementsFormEl.addEventListener('input', function(){
+      if(reviewRevealed){ renderReview(); }
+    });
+    requirementsFormEl.addEventListener('change', function(){
+      if(reviewRevealed){ renderReview(); }
+    });
+  }
+
+  /* Serializes the centralized state into one structured payload
+     representing the complete inquiry. This is the only object a
+     future backend integration needs — the shape is stable even
+     though no request is sent yet. */
+  function buildSubmissionPayload(){
+    var s = window.pixelmindConfigurator;
+    var f = s.formData || {};
+    return {
+      service: s.selectedService ? {name:s.selectedService.name, category:s.selectedService.category} : null,
+      package: s.selectedPackage ? {name:s.selectedPackage.name, tier:s.selectedPackage.tier || null} : null,
+      business: {
+        name: f.businessName || '', contactPerson: f.contactPerson || '',
+        email: f.email || '', phone: f.phone || ''
+      },
+      project: {
+        title: f.projectTitle || '', description: f.projectDescription || '', goals: f.businessGoals || ''
+      },
+      timeline: f.timeline || '',
+      budget: f.budget || '',
+      additionalNotes: f.additionalNotes || '',
+      submittedAt: new Date().toISOString()
+    };
+  }
+
+  /* Formspree integration (Sprint 6). The endpoint is submitted to via
+     fetch so the user never leaves the page and the existing success
+     screen keeps handling the confirmation state. */
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/mzdnpqav';
+  var PIPEDREAM_WEBHOOK = 'https://eorc5cfr0sej30j.m.pipedream.net';
+  var REFERENCE_ID_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // excludes look-alike chars (0/O, 1/I)
+
+  function generateReferenceId(){
+    var now = new Date();
+    var pad = function(n){ return String(n).length < 2 ? '0' + n : String(n); };
+    var datePart = String(now.getFullYear()).slice(-2) + pad(now.getMonth() + 1) + pad(now.getDate());
+
+    var suffix = '';
+    if(window.crypto && window.crypto.getRandomValues){
+      var randomValues = new Uint32Array(6);
+      window.crypto.getRandomValues(randomValues);
+      for(var i = 0; i < 6; i++){
+        suffix += REFERENCE_ID_CHARS[randomValues[i] % REFERENCE_ID_CHARS.length];
+      }
+    } else {
+      for(var j = 0; j < 6; j++){
+        suffix += REFERENCE_ID_CHARS[Math.floor(Math.random() * REFERENCE_ID_CHARS.length)];
+      }
+    }
+
+    return 'PMD-' + datePart + '-' + suffix;
+  }
+
+  /* Submits the inquiry to Formspree. Throws with a user-facing message
+     on failure so the click handler can surface an inline error. */
+  async function submitInquiry(payload){
+    var response = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if(!response.ok){
+      var message = 'We couldn\'t submit your inquiry. Please try again.';
+      try {
+        var errorData = await response.json();
+        if(errorData && Array.isArray(errorData.errors) && errorData.errors.length){
+          message = errorData.errors.map(function(e){ return e.message; }).join(' ');
+        }
+      } catch(parseErr){ /* fall back to the default message above */ }
+      throw new Error(message);
+    }
+
+    window.pixelmindConfigurator.lastSubmissionPayload = payload;
+    return response;
+  }
+
+  async function sendConfirmationRequest(payload){
+  try{
+    await fetch(PIPEDREAM_WEBHOOK, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+  } catch(err){
+    console.error('Pipedream Error:', err);
+  }
+}
+
+  function showLoadingState(){
+    submitBtn.disabled = true;
+    submitBtn.setAttribute('aria-disabled','true');
+    submitStatus.classList.remove('is-error');
+    submitStatus.innerHTML = '<span class="loading-indicator"><span class="loading-spinner" aria-hidden="true"></span>Preparing your project inquiry&hellip;</span>';
+  }
+
+  function showSuccessState(referenceId){
+    submitStatus.classList.remove('is-error');
+    submitStatus.textContent = 'Your project inquiry has been submitted.';
+    submitBtn.textContent = 'Submitted';
+    var successSection = document.getElementById('success');
+    var referenceIdBox = document.getElementById('referenceIdBox');
+    var referenceIdValue = document.getElementById('referenceIdValue');
+    if(referenceIdValue){ referenceIdValue.textContent = referenceId; }
+    if(referenceIdBox){ referenceIdBox.hidden = false; }
+    successSection.hidden = false;
+    observeReveal(successSection.querySelectorAll('.reveal'));
+    successSection.scrollIntoView({behavior:'smooth', block:'start'});
+    var card = document.getElementById('successCard');
+    if(card){ card.focus(); }
+  }
+
+  function showErrorState(message){
+    submitBtn.disabled = false;
+    submitBtn.removeAttribute('aria-disabled');
+    submitStatus.classList.add('is-error');
+    submitStatus.textContent = message || 'Something went wrong. Please try again.';
+  }
+
+  if(submitBtn){
+    submitBtn.addEventListener('click', async function(){
+      if(isSubmitting || hasSubmitted) return;
+
+      if(!validateAllRequired(true)){
+        document.getElementById('requirements').scrollIntoView({behavior:'smooth', block:'start'});
+        submitStatus.classList.remove('is-error');
+        submitStatus.textContent = 'Some required project details need attention before you can submit.';
+        return;
+      }
+
+      isSubmitting = true;
+      showLoadingState();
+
+      var referenceId = generateReferenceId();
+      window.pixelmindConfigurator.referenceId = referenceId;
+
+      var payload = buildSubmissionPayload();
+      payload.referenceId = referenceId;
+      payload.submissionSource = 'Project Configurator';
+      payload.websiteVersion = 'Frontend v1.0';
+
+      var startedAt = Date.now();
+
+      try {
+        await submitInquiry(payload);
+        sendConfirmationRequest(payload);
+        var wait = Math.max(0, MIN_LOADING_MS - (Date.now() - startedAt));
+        setTimeout(function(){
+          isSubmitting = false;
+          hasSubmitted = true;
+          showSuccessState(referenceId);
+        }, wait);
+      } catch(err){
+        var errWait = Math.max(0, MIN_LOADING_MS - (Date.now() - startedAt));
+        setTimeout(function(){
+          isSubmitting = false;
+          showErrorState(err && err.message);
+        }, errWait);
+      }
+    });
+  }
+
+  var startAnotherBtn = document.getElementById('startAnotherBtn');
+  if(startAnotherBtn){
+    startAnotherBtn.addEventListener('click', function(){
+      window.location.href = 'start-project.html';
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
