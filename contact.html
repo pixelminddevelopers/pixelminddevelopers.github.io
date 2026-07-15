@@ -139,7 +139,7 @@
 }
 
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
   *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important;}
@@ -170,6 +170,8 @@ button{font-family:inherit;cursor:pointer;}
 ul{list-style:none;margin:0;padding:0;}
 
 .container{max-width:var(--max);margin:0 auto;padding:0 32px;}
+@media (max-width:576px){.container{padding:0 20px;}}
+@media (max-width:360px){.container{padding:0 16px;}}
 .eyebrow{
   font-family:'Sora',sans-serif;
   font-size:.72rem;
@@ -192,6 +194,14 @@ ul{list-style:none;margin:0;padding:0;}
 .section-head{max-width:640px;margin-bottom:64px;}
 .section-head h2{font-size:clamp(1.9rem,3.2vw,2.6rem);margin-top:16px;line-height:1.2;}
 .section-head p{margin-top:18px;font-size:1.02rem;color:var(--muted);font-weight:400;}
+@media (max-width:768px){
+  .section{padding:80px 0;}
+  .section-head{margin-bottom:44px;}
+}
+@media (max-width:480px){
+  .section{padding:64px 0;}
+  .section-head{margin-bottom:36px;}
+}
 
 /* skip link */
 .skip-link{
@@ -267,6 +277,7 @@ ul{list-style:none;margin:0;padding:0;}
 }
 .btn-sm{padding:10px 20px;font-size:.78rem;}
 .btn:disabled{opacity:.6;cursor:not-allowed;transform:none !important;}
+@media (max-width:768px){.btn{min-height:44px;}}
 
 .nav-cta{display:flex;align-items:center;gap:16px;}
 .nav-toggle{
@@ -290,8 +301,19 @@ ul{list-style:none;margin:0;padding:0;}
   .nav-toggle{display:flex;}
   .nav-cta .btn-primary{display:none;}
 }
+@media (max-width:768px){
+  .nav-toggle{width:44px;height:44px;}
+  .mobile-close{width:44px;height:44px;display:flex;align-items:center;justify-content:center;}
+  .mobile-panel a{padding:10px 0;}
+}
 @media (max-width:520px){
   .nav-cta{gap:10px;}
+  .brand-mark{height:46px;}
+  .brand{font-size:.95rem;gap:8px;}
+}
+@media (max-width:360px){
+  .brand-mark{height:38px;}
+  .brand{font-size:.86rem;}
 }
 
 @keyframes revealUp{
@@ -342,6 +364,20 @@ ul{list-style:none;margin:0;padding:0;}
   font-size:1.12rem;color:var(--muted);
 }
 .hero-cta{display:flex;gap:16px;justify-content:center;margin-top:42px;flex-wrap:wrap;}
+@media (max-width:768px){
+  .hero{min-height:78dvh;padding:140px 0 64px;}
+  .hero h1{margin-top:18px;line-height:1.15;text-wrap:balance;}
+  .hero h1 .accent{white-space:nowrap;}
+  .hero p.lead{margin-top:18px;line-height:1.65;}
+  .hero-cta{margin-top:28px;}
+}
+@media (max-width:480px){
+  .hero{padding:124px 0 56px;}
+  .hero h1{font-size:clamp(1.95rem,8.6vw,2.4rem);}
+  .hero p.lead{font-size:1rem;}
+  .hero-cta{flex-direction:column;align-items:stretch;}
+  .hero-cta .btn{width:100%;}
+}
 
 /* =========================================================
    PROJECT INQUIRY FORM — premium card
@@ -377,9 +413,17 @@ ul{list-style:none;margin:0;padding:0;}
 .field.invalid .field-error{display:block;}
 .form-note{font-size:.8rem;color:var(--muted);margin-top:24px;line-height:1.6;}
 .form-submit-row{margin-top:12px;}
-@media (max-width:760px){
+@media (max-width:768px){
   .inquiry-card{padding:34px 22px;}
-  .form-grid{grid-template-columns:1fr;}
+  .form-grid{grid-template-columns:1fr;gap:20px;}
+  .field input, .field select, .field textarea{font-size:16px;min-height:48px;}
+  .field textarea{min-height:130px;}
+  .field-error{margin-top:2px;}
+}
+@media (max-width:480px){
+  .inquiry-card{padding:26px 18px;}
+  .form-grid{gap:18px;}
+  .form-submit-row .btn{width:100%;}
 }
 
 .form-success{display:none;text-align:center;padding:50px 10px;}
@@ -410,6 +454,10 @@ ul{list-style:none;margin:0;padding:0;}
 .next-step-content{padding-top:8px;}
 .next-step h3{font-size:1.05rem;margin-bottom:8px;}
 .next-step p{font-size:.9rem;line-height:1.6;}
+@media (max-width:480px){
+  .next-step{gap:18px;padding-bottom:34px;}
+  .next-step-content{padding-top:4px;}
+}
 
 /* =========================================================
    PREFERRED CONTACT METHODS
@@ -432,7 +480,12 @@ ul{list-style:none;margin:0;padding:0;}
 }
 .contact-method-card a:hover .cm-detail{border-color:var(--gold-2);}
 .contact-method-card p{font-size:.9rem;line-height:1.6;}
-@media (max-width:760px){.contact-methods-grid{grid-template-columns:1fr;}}
+@media (max-width:768px){
+  .contact-methods-grid{grid-template-columns:1fr;}
+}
+@media (max-width:480px){
+  .contact-method-card{padding:28px 24px;}
+}
 
 /* =========================================================
    FAQ
@@ -461,6 +514,8 @@ ul{list-style:none;margin:0;padding:0;}
   border:1px solid var(--border-strong);
   padding:90px 40px;text-align:center;
 }
+@media (max-width:768px){.final-cta{padding:64px 28px;}}
+@media (max-width:480px){.final-cta{padding:48px 20px;border-radius:18px;}}
 .final-cta::before{
   content:'';position:absolute;top:-30%;left:50%;width:80%;height:70%;
   background:radial-gradient(circle,rgba(212,175,55,.14),transparent 70%);
