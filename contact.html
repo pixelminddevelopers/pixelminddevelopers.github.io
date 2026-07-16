@@ -413,6 +413,21 @@ ul{list-style:none;margin:0;padding:0;}
 .field.invalid .field-error{display:block;}
 .form-note{font-size:.8rem;color:var(--muted);margin-top:24px;line-height:1.6;}
 .form-submit-row{margin-top:12px;}
+.form-alert{
+  display:none;align-items:flex-start;gap:10px;
+  background:rgba(229,72,77,.08);border:1px solid rgba(229,72,77,.35);border-radius:10px;
+  padding:14px 16px;color:var(--error);font-size:.86rem;line-height:1.55;margin-bottom:20px;
+}
+.form-alert.show{display:flex;}
+.form-alert svg{width:18px;height:18px;flex-shrink:0;margin-top:1px;}
+.btn .btn-spinner{
+  display:none;width:16px;height:16px;border-radius:50%;flex-shrink:0;
+  border:2px solid rgba(5,5,5,.3);border-top-color:#050505;
+  animation:btnSpin .7s linear infinite;
+}
+.btn-ghost .btn-spinner{border-color:rgba(248,248,248,.3);border-top-color:var(--text);}
+.btn.is-loading .btn-spinner{display:inline-block;}
+@keyframes btnSpin{to{transform:rotate(360deg);}}
 @media (max-width:768px){
   .inquiry-card{padding:34px 22px;}
   .form-grid{grid-template-columns:1fr;gap:20px;}
@@ -788,8 +803,13 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:80px
 
           <p class="form-note">By submitting this form, you agree to be contacted by PixelMind Developers regarding your project.</p>
 
+          <div class="form-alert" id="formAlert" role="alert" aria-live="assertive"></div>
+
           <div class="form-submit-row">
-            <button type="submit" class="btn btn-primary" id="submitBtn">Submit Project Inquiry</button>
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              <span class="btn-spinner" aria-hidden="true"></span>
+              <span id="submitBtnLabel">Submit Project Inquiry</span>
+            </button>
           </div>
 
         </form>
@@ -1133,11 +1153,18 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:80px
     });
   });
 
-  /* Project inquiry form — validation + simulated submit (no backend yet) */
+  /* Project inquiry form — validation + async submit to Formspree */
   var form = document.getElementById('inquiryForm');
   var successPanel = document.getElementById('formSuccess');
   var successHeading = document.getElementById('successHeading');
   var submitBtn = document.getElementById('submitBtn');
+  var submitBtnLabel = document.getElementById('submitBtnLabel');
+  var formAlert = document.getElementById('formAlert');
+
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzegdbz';
+  var PIPEDREAM_WEBHOOK_URL = 'https://eoy0d30o48f8p87.m.pipedream.net';
+  var SUBMIT_LABEL_DEFAULT = submitBtnLabel ? submitBtnLabel.textContent : 'Submit Project Inquiry';
+  var isSubmitting = false;
 
   var requiredFields = ['fullName','email','service','description'];
 
@@ -1162,8 +1189,59 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:80px
     input.addEventListener('blur', function(){ validateField(name); });
   });
 
-  form.addEventListener('submit', function(e){
+  function setLoading(loading){
+    isSubmitting = loading;
+    submitBtn.disabled = loading;
+    submitBtn.classList.toggle('is-loading', loading);
+    submitBtn.setAttribute('aria-busy', loading ? 'true' : 'false');
+    if(submitBtnLabel){ submitBtnLabel.textContent = loading ? 'Submitting…' : SUBMIT_LABEL_DEFAULT; }
+  }
+
+  function hideAlert(){
+    if(!formAlert) return;
+    formAlert.classList.remove('show');
+    formAlert.textContent = '';
+  }
+
+  function showAlert(message){
+    if(!formAlert) return;
+    formAlert.textContent = message;
+    formAlert.classList.add('show');
+  }
+
+  function clearValidationState(){
+    requiredFields.forEach(function(name){
+      var wrap = fieldWrap(name);
+      if(wrap){ wrap.classList.remove('invalid'); }
+    });
+  }
+
+  // Fire-and-forget copy of the submission to Pipedream. This never blocks or
+  // affects the Formspree success/error flow — any failure here is caught and
+  // logged quietly so it can never surface as an uncaught error or interrupt the user.
+  function sendToPipedream(formData){
+    if(!PIPEDREAM_WEBHOOK_URL || PIPEDREAM_WEBHOOK_URL === 'YOUR_PIPEDREAM_WEBHOOK_URL') return;
+
+    var payload = {};
+    formData.forEach(function(value, key){ payload[key] = value; });
+
+    fetch(PIPEDREAM_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(function(err){
+      console.warn('Pipedream webhook did not receive this submission:', err);
+    });
+  }
+
+  var GENERIC_ERROR_MESSAGE = "We couldn't send your message right now. Please try again in a few moments.";
+
+  form.addEventListener('submit', async function(e){
     e.preventDefault();
+    if(isSubmitting) return;
+
+    hideAlert();
+
     var allValid = true;
     var firstInvalid = null;
     requiredFields.forEach(function(name){
@@ -1181,13 +1259,44 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:80px
 
     var fullNameVal = document.getElementById('fullName').value.trim();
     var firstName = fullNameVal.split(' ')[0];
-    successHeading.textContent = 'Thank you, ' + firstName + ' — your inquiry has been received.';
 
-    submitBtn.disabled = true;
-    form.style.display = 'none';
-    successPanel.classList.add('show');
-    successPanel.setAttribute('tabindex','-1');
-    successPanel.focus();
+    setLoading(true);
+
+    var formData = new FormData(form);
+
+    // Send to Pipedream at the same time as Formspree — not awaited, so it can
+    // never delay, block, or break the primary Formspree submission below.
+    sendToPipedream(formData);
+
+    try {
+      var response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if(response.ok){
+        successHeading.textContent = 'Thank you, ' + firstName + ' — your inquiry has been received.';
+        form.reset();
+        clearValidationState();
+        setLoading(false);
+        form.style.display = 'none';
+        successPanel.classList.add('show');
+        successPanel.setAttribute('tabindex','-1');
+        successPanel.focus();
+      } else {
+        var data = null;
+        try { data = await response.json(); } catch(parseErr){ data = null; }
+        var message = (data && Array.isArray(data.errors) && data.errors.length)
+          ? data.errors.map(function(err){ return err.message; }).join(' ')
+          : GENERIC_ERROR_MESSAGE;
+        showAlert(message);
+        setLoading(false);
+      }
+    } catch(networkErr){
+      showAlert(GENERIC_ERROR_MESSAGE);
+      setLoading(false);
+    }
   });
 })();
 </script>
