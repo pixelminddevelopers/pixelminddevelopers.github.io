@@ -441,7 +441,57 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:80px
   flex:1;background:none;border:none;padding:12px 16px;color:var(--text);font-size:.85rem;min-width:0;
 }
 .newsletter input:focus{outline:none;}
-.newsletter button{background:var(--gold);border:none;color:#050505;padding:0 18px;font-weight:700;font-size:.8rem;font-family:'Sora',sans-serif;}
+.newsletter button{background:var(--gold);border:none;color:#050505;padding:0 18px;font-weight:700;font-size:.8rem;font-family:'Sora',sans-serif;transition:opacity .25s var(--ease);}
+.newsletter button[disabled]{opacity:.6;cursor:not-allowed;}
+.newsletter input:disabled{opacity:.6;}
+
+/* =========================================================
+   NEWSLETTER — inline feedback + toast
+   (additive states for the Formspree/Pipedream integration;
+   no existing rules above are altered)
+========================================================= */
+.newsletter-msg{
+  display:block;
+  margin-top:9px;
+  font-size:.76rem;
+  line-height:1.5;
+  max-width:280px;
+  min-height:0;
+}
+.newsletter-msg:empty{margin-top:0;}
+.newsletter-msg[data-state="error"]{color:#E2857B;}
+
+.newsletter-toast{
+  position:fixed;
+  left:24px;
+  bottom:28px;
+  z-index:80;
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  max-width:340px;
+  background:var(--card);
+  border:1px solid var(--border-strong);
+  border-radius:var(--radius);
+  padding:16px 18px;
+  box-shadow:0 18px 50px rgba(0,0,0,.45);
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .45s var(--ease), transform .45s var(--ease);
+  pointer-events:none;
+}
+.newsletter-toast.show{opacity:1;transform:translateY(0);}
+.newsletter-toast .nt-icon{
+  flex-shrink:0;width:22px;height:22px;margin-top:1px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:#050505;
+}
+.newsletter-toast .nt-icon svg{width:12px;height:12px;}
+.newsletter-toast[data-type="success"] .nt-icon{background:linear-gradient(135deg,var(--gold),var(--gold-2));}
+.newsletter-toast[data-type="error"] .nt-icon{background:#E2857B;}
+.newsletter-toast p{color:var(--text);font-size:.85rem;line-height:1.55;font-weight:400;}
+@media (max-width:520px){
+  .newsletter-toast{left:16px;right:16px;bottom:20px;max-width:none;}
+}
 .social-row{display:flex;gap:12px;margin-top:20px;}
 .social-row a{
   width:36px;height:36px;border:1px solid var(--border-strong);border-radius:8px;
@@ -770,11 +820,12 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:80px
           PixelMind Developers
         </a>
         <p>An AI automation and software development agency helping businesses replace manual work with intelligent systems.</p>
-        <form class="newsletter" onsubmit="return false;">
+        <form class="newsletter" id="newsletterForm" action="https://formspree.io/f/xnjederp" method="POST" novalidate>
           <label for="newsletterEmail" class="visually-hidden" style="position:absolute;left:-9999px;">Email address</label>
-          <input id="newsletterEmail" type="email" placeholder="Your email" required>
+          <input id="newsletterEmail" name="email" type="email" placeholder="Your email" required aria-describedby="newsletterMsg">
           <button type="submit">Join</button>
         </form>
+        <p id="newsletterMsg" class="newsletter-msg" aria-live="polite"></p>
         <div class="social-row" aria-label="Social links">
           <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5s1.98.9 1.98 2zM1 8.5h4V23H1V8.5zM8.5 8.5H12v2h.05c.5-.95 1.7-2 3.5-2 3.75 0 4.45 2.45 4.45 5.65V23h-4v-6.5c0-1.55-.03-3.5-2.15-3.5-2.15 0-2.5 1.68-2.5 3.4V23h-4V8.5z"/></svg></a>
           <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3l7.5 9.5L3.4 21H6l5.8-6.7L16.5 21H21l-7.9-10L20.6 3H18l-5.3 6.2L8 3H3z"/></svg></a>
@@ -843,6 +894,11 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:80px
     </div>
   </div>
 </footer>
+
+<div class="newsletter-toast" id="newsletterToast" role="status" aria-live="polite" aria-atomic="true" aria-hidden="true">
+  <span class="nt-icon" aria-hidden="true"></span>
+  <p></p>
+</div>
 
 <a
   class="whatsapp-float"
@@ -977,6 +1033,141 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:80px
     }, {rootMargin:'-120px 0px -65% 0px', threshold:0});
     sections.forEach(function(sec){ tocIo.observe(sec); });
   }
+})();
+</script>
+
+<script>
+/* =========================================================
+   NEWSLETTER SIGNUP — Formspree submission + Pipedream webhook
+   Self-contained; does not modify any code above.
+========================================================= */
+(function(){
+  "use strict";
+
+  var FORM_ENDPOINT = 'https://formspree.io/f/xnjederp';
+  var WEBHOOK_ENDPOINT = 'https://eos9yx3bdda4t8e.m.pipedream.net';
+
+  var form = document.getElementById('newsletterForm');
+  if(!form) return;
+
+  var input = document.getElementById('newsletterEmail');
+  var button = form.querySelector('button[type="submit"]');
+  var fieldMsg = document.getElementById('newsletterMsg');
+  var toast = document.getElementById('newsletterToast');
+  var toastIcon = toast ? toast.querySelector('.nt-icon') : null;
+  var toastText = toast ? toast.querySelector('p') : null;
+
+  var originalBtnLabel = button ? button.textContent : 'Join';
+  var isSubmitting = false;
+  var toastHideTimer = null;
+  var toastResetTimer = null;
+
+  var ICONS = {
+    success: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>',
+    error: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>'
+  };
+
+  function isValidEmail(value){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  function setFieldMessage(text, state){
+    if(!fieldMsg) return;
+    fieldMsg.textContent = text || '';
+    if(text){ fieldMsg.setAttribute('data-state', state); }
+    else { fieldMsg.removeAttribute('data-state'); }
+  }
+
+  function setLoading(loading){
+    isSubmitting = loading;
+    if(!button) return;
+    button.disabled = loading;
+    button.setAttribute('aria-busy', loading ? 'true' : 'false');
+    button.textContent = loading ? 'Joining…' : originalBtnLabel;
+    if(input) input.disabled = loading;
+  }
+
+  function showToast(text, type){
+    if(!toast) return;
+    if(toastHideTimer){ clearTimeout(toastHideTimer); toastHideTimer = null; }
+    if(toastResetTimer){ clearTimeout(toastResetTimer); toastResetTimer = null; }
+
+    if(toastText) toastText.textContent = text;
+    if(toastIcon) toastIcon.innerHTML = ICONS[type] || ICONS.success;
+    toast.setAttribute('data-type', type);
+    toast.removeAttribute('aria-hidden');
+
+    requestAnimationFrame(function(){
+      toast.classList.add('show');
+    });
+
+    toastHideTimer = setTimeout(function(){
+      toast.classList.remove('show');
+      toastResetTimer = setTimeout(function(){
+        toast.setAttribute('aria-hidden', 'true');
+      }, 500);
+    }, 3600);
+  }
+
+  function notifyWebhook(email){
+    try{
+      fetch(WEBHOOK_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          source: 'newsletter-footer',
+          page: window.location.href,
+          referrer: document.referrer || null,
+          timestamp: new Date().toISOString()
+        })
+      }).catch(function(err){
+        console.warn('Pipedream webhook notification failed:', err);
+      });
+    }catch(err){
+      console.warn('Pipedream webhook notification failed:', err);
+    }
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(isSubmitting) return;
+
+    var email = (input.value || '').trim();
+
+    if(!email){
+      setFieldMessage('Please enter your email address.', 'error');
+      input.focus();
+      return;
+    }
+    if(!isValidEmail(email)){
+      setFieldMessage('Please enter a valid email address.', 'error');
+      input.focus();
+      return;
+    }
+
+    setFieldMessage('', null);
+    setLoading(true);
+
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: email })
+    }).then(function(response){
+      if(!response.ok){ throw new Error('Formspree request failed with status ' + response.status); }
+      notifyWebhook(email);
+      input.value = '';
+      showToast('Welcome to the PixelMind Developers community. You will occasionally receive updates on our products, services, and company announcements.', 'success');
+    }).catch(function(err){
+      console.error('Newsletter signup error:', err);
+      showToast('We could not complete your subscription. Please try again shortly.', 'error');
+    }).finally(function(){
+      setLoading(false);
+    });
+  });
 })();
 </script>
 
