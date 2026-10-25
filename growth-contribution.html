@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="A founder-recorded contribution toward the continued growth of PixelMind Developers.">
+<title>Growth Contribution | PixelMind Developers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #050505;
+  --surface: #0d0d0d;
+  --card: #121212;
+  --gold: #d4af37;
+  --gold2: #e7c86a;
+  --text: #f8f8f8;
+  --muted: #a8a8a8;
+  --line: rgba(212,175,55,.2);
+  --line2: rgba(212,175,55,.4);
+  --max: 1120px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.65 Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+.wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+.topbar { height: 82px; border-bottom: 1px solid var(--line); display: flex; align-items: center; }
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  font: 700 1rem Sora, sans-serif; letter-spacing: -.02em;
+}
+.mark {
+  width: 34px; height: 34px; border: 1px solid var(--line2);
+  border-radius: 10px; display: grid; place-items: center;
+  color: var(--gold); font: 700 15px Sora, sans-serif;
+  background: linear-gradient(145deg, rgba(212,175,55,.12), transparent);
+}
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; }
+.back { color: var(--muted); font-size: .84rem; transition: color .2s; }
+.back:hover { color: var(--gold2); }
+main { position: relative; overflow: hidden; }
+.glow {
+  position: absolute; inset: 0 0 auto; height: 650px; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, rgba(212,175,55,.1), transparent 62%);
+}
+.grid {
+  position: absolute; inset: 0 0 auto; height: 680px; pointer-events: none; opacity: .42;
+  background-image:
+    linear-gradient(rgba(212,175,55,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,175,55,.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(#000, transparent);
+}
+.hero { position: relative; padding: 100px 0 82px; text-align: center; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px; color: var(--gold);
+  font: 600 .7rem Sora, sans-serif; letter-spacing: .2em; text-transform: uppercase;
+}
+.eyebrow:before { content: ""; width: 18px; height: 1px; background: var(--gold); }
+h1, h2 { font-family: Sora, sans-serif; margin: 0; letter-spacing: -.035em; }
+.hero h1 {
+  max-width: 850px; margin: 22px auto 18px;
+  font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1.08;
+}
+.accent {
+  background: linear-gradient(120deg, var(--gold), var(--gold2));
+  background-clip: text; -webkit-background-clip: text; color: transparent;
+}
+.intro { max-width: 590px; margin: auto; color: var(--muted); font-size: 1.05rem; }
+.record {
+  position: relative; width: min(790px, 100%); margin: 48px auto 0; text-align: left;
+  border: 1px solid var(--line2); border-radius: 20px;
+  background: linear-gradient(145deg, rgba(212,175,55,.055), transparent 38%), var(--surface);
+  box-shadow: 0 30px 100px rgba(0,0,0,.4), 0 0 70px rgba(212,175,55,.06);
+  overflow: hidden;
+}
+.record:before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold2), transparent);
+}
+.record-head {
+  padding: 27px 34px; border-bottom: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center; gap: 20px;
+}
+.record-label {
+  font: 600 .72rem Sora, sans-serif; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--muted);
+}
+.status {
+  display: inline-flex; align-items: center; gap: 9px;
+  border: 1px solid var(--line); border-radius: 99px; padding: 7px 12px;
+  color: var(--gold2); font-size: .72rem; font-weight: 600; letter-spacing: .03em;
+}
+.status i {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+  box-shadow: 0 0 12px var(--gold);
+}
+.record-body { padding: 38px 34px 34px; }
+.amount-label { color: var(--muted); font-size: .85rem; }
+.amount {
+  margin-top: 7px; font: 700 clamp(3rem, 8vw, 5.35rem)/1 Sora, sans-serif;
+  letter-spacing: -.06em;
+}
+.amount small {
+  font-size: .42em; vertical-align: top; position: relative; top: .34em;
+  color: var(--gold); letter-spacing: -.02em;
+}
+.amount-caption { color: var(--gold2); font-size: .86rem; margin-top: 13px; }
+.details {
+  margin: 34px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--line);
+}
+.detail { padding: 19px 0 4px; }
+.detail:nth-child(odd) { padding-right: 22px; }
+.detail:nth-child(even) { padding-left: 22px; border-left: 1px solid var(--line); }
+dt { font-size: .7rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; }
+.detail dd { margin: 7px 0 0; font-weight: 600; font-size: .94rem; }
+.record-foot {
+  border-top: 1px solid var(--line); padding: 18px 34px; display: flex; gap: 12px;
+  align-items: flex-start; color: var(--muted); font-size: .74rem;
+}
+.record-foot svg { flex: 0 0 16px; margin-top: 3px; color: var(--gold); }
+.meaning { padding: 0 0 96px; }
+.meaning-card {
+  width: min(790px, 100%); margin: auto; padding: 31px 34px;
+  border: 1px solid rgba(255,255,255,.08); border-radius: 16px;
+  background: var(--card); display: grid; grid-template-columns: 48px 1fr; gap: 20px;
+}
+.meaning-icon {
+  width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+  color: var(--gold); background: rgba(212,175,55,.09); border: 1px solid var(--line);
+}
+.meaning h2 { font-size: 1.08rem; letter-spacing: -.02em; }
+.meaning p { margin: 9px 0 0; color: var(--muted); font-size: .9rem; }
+.footer { border-top: 1px solid var(--line); padding: 24px 0; color: #777; font-size: .75rem; }
+.footer .wrap { display: flex; justify-content: space-between; gap: 18px; align-items: center; }
+.footer strong { color: #aaa; font-weight: 500; }
+
+@media (max-width: 600px) {
+  .wrap { width: min(var(--max), calc(100% - 36px)); }
+  .topbar { height: 70px; }
+  .brand { font-size: .88rem; }
+  .back { font-size: .75rem; }
+  .hero { padding: 76px 0 64px; }
+  .intro { font-size: .95rem; }
+  .record { margin-top: 36px; border-radius: 16px; }
+  .record-head { padding: 21px; }
+  .record-body { padding: 30px 21px 24px; }
+  .record-foot { padding: 16px 21px; }
+  .details { margin-top: 27px; }
+  .detail:nth-child(odd) { padding-right: 12px; }
+  .detail:nth-child(even) { padding-left: 12px; }
+  .detail dd { font-size: .85rem; }
+  .meaning { padding-bottom: 68px; }
+  .meaning-card { padding: 23px 21px; grid-template-columns: 40px 1fr; gap: 15px; }
+  .meaning-icon { width: 38px; height: 38px; }
+  .footer .wrap { align-items: flex-start; flex-direction: column; gap: 5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="https://www.pixelminddeveloper.in/" aria-label="PixelMind Developers home">
+      <span class="mark" aria-hidden="true">P</span><span>PixelMind Developers</span>
+    </a>
+    <a class="back" href="https://www.pixelminddeveloper.in/">← <span>Back to main website</span></a>
+  </div>
+</header>
+<main>
+  <div class="glow" aria-hidden="true"></div><div class="grid" aria-hidden="true"></div>
+  <section class="hero wrap" aria-labelledby="page-title">
+    <span class="eyebrow">Built for what comes next</span>
+    <h1 id="page-title">An investment in <span class="accent">what we’re building.</span></h1>
+    <p class="intro">A founder contribution toward the continued growth and performance of PixelMind Developers.</p>
+    <article class="record" aria-label="Founder contribution record">
+      <div class="record-head">
+        <span class="record-label">Growth contribution</span>
+        <span class="status"><i aria-hidden="true"></i> Internally recorded</span>
+      </div>
+      <div class="record-body">
+        <div class="amount-label">Contribution amount</div>
+        <div class="amount"><small>₹</small>5,000</div>
+        <div class="amount-caption">Allocated toward agency growth</div>
+        <dl class="details">
+          <div class="detail"><dt>Recorded on</dt><dd>23 October 2025</dd></div>
+          <div class="detail"><dt>Time</dt><dd>6:58 AM</dd></div>
+          <div class="detail"><dt>Purpose</dt><dd>Agency growth</dd></div>
+          <div class="detail"><dt>Recorded by</dt><dd>PixelMind Developers</dd></div>
+        </dl>
+      </div>
+      <div class="record-foot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/>
+        </svg>
+        <span>This page records an internal founder contribution. It is not a bank statement, payment confirmation, or third-party transaction receipt.</span>
+      </div>
+    </article>
+  </section>
+  <section class="meaning wrap" aria-label="Why this contribution matters">
+    <div class="meaning-card">
+      <div class="meaning-icon" aria-hidden="true">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M3 17l6-6 4 4 8-9"/><path d="M15 6h6v6"/>
+        </svg>
+      </div>
+      <div>
+        <h2>Backing the next stage of growth</h2>
+        <p>This contribution was made to support the agency’s growth and strengthen the work, systems, and performance behind PixelMind Developers.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <span>© 2025 <strong>PixelMind Developers</strong></span>
+    <span>Thoughtfully built for ambitious growth.</span>
+  </div>
+</footer>
+</body>
+</html>
